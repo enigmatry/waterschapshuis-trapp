@@ -1,0 +1,407 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/maps" mode="md"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="dark">Legenda</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-list-header>VANGMIDDEL - VANGEND/GEPLAATST</ion-list-header>
+    <ion-reorder-group id="reorder">
+      <ion-item>
+        <ion-icon class="legend-icon trap-schijnduiker" slot="start"></ion-icon>
+        <ion-label>
+          Schijnduiker
+        </ion-label>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon class="legend-icon trap-duikerafzetting" slot="start"></ion-icon>
+        <ion-label>
+          Duikerafzetting
+        </ion-label>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon class="legend-icon trap-slootafzetting" slot="start"></ion-icon>
+        <ion-label>
+          Slootafzetting
+        </ion-label>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon class="legend-icon trap-conibear" slot="start"></ion-icon>
+        <ion-label>
+          Conibear
+        </ion-label>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon class="legend-icon trap-grondklem" slot="start"></ion-icon>
+        <ion-label>
+          Grondklem
+        </ion-label>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon class="special-legend-icon trap-lokaasklem" slot="start"></ion-icon>
+        <ion-label>
+          Lokaasklem
+        </ion-label>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon class="legend-icon trap-postklem" slot="start"></ion-icon>
+        <ion-label>
+          Postklem
+        </ion-label>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon class="legend-icon trap-klemmenrek" slot="start"></ion-icon>
+        <ion-label>
+          Klemmenrek
+        </ion-label>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon class="special-legend-icon trap-lokaaskooi" slot="start"></ion-icon>
+        <ion-label>
+          Lokaaskooi
+        </ion-label>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon class="legend-icon trap-musk-living" slot="start"></ion-icon>
+        <ion-label>
+          Levend vangende kooi
+        </ion-label>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon class="special-legend-icon trap-beaver-living" slot="start"></ion-icon>
+        <ion-label>
+          Levend vangende kooi (Beverrat)
+        </ion-label>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+      
+      <ion-item>
+        <ion-icon class="legend-icon trap-musk-other" slot="start"></ion-icon>
+        <ion-label>
+          Geweer<br>
+          Slaan <br>
+          Dood aangetroffen
+        </ion-label>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon class="special-legend-icon trap-beaver-other" slot="start"></ion-icon>
+        <ion-label>
+          Geweer (Beverrat) <br>
+          Slaan en delven (Beverrat) <br>
+          Dood aangetroffen (Beverrat)
+        </ion-label>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon class="legend-icon notification" slot="start"></ion-icon>
+        <ion-label>
+          Actuele Meldingen
+        </ion-label>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon class="legend-icon notification-archived" slot="start"></ion-icon>
+        <ion-label>
+          Gearchiveerde Meldingen
+        </ion-label>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon class="legend-icon catch-circle-icon" slot="start"></ion-icon>
+        <ion-label>
+          Aantal vangsten
+        </ion-label>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+    </ion-reorder-group>
+  </ion-list>
+  <ion-list>
+    <ion-reorder-group>
+      <ion-list-header>VANGMIDDEL - VERWIJDERD</ion-list-header>
+      <ion-item>
+        <ion-icon class="legend-icon trap-schijnduiker removed" slot="start"></ion-icon>
+        <ion-label>
+          Schijnduiker
+        </ion-label>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon class="legend-icon trap-duikerafzetting removed" slot="start"></ion-icon>
+        <ion-label>
+          Duikerafzetting
+        </ion-label>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon class="legend-icon trap-slootafzetting removed" slot="start"></ion-icon>
+        <ion-label>
+          Slootafzetting
+        </ion-label>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon class="legend-icon trap-conibear removed" slot="start"></ion-icon>
+        <ion-label>
+          Conibear
+        </ion-label>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon class="legend-icon trap-grondklem removed" slot="start"></ion-icon>
+        <ion-label>
+          Grondklem
+        </ion-label>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon class="special-legend-icon trap-lokaasklem removed" slot="start"></ion-icon>
+        <ion-label>
+          Lokaasklem
+        </ion-label>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon class="legend-icon trap-postklem removed" slot="start"></ion-icon>
+        <ion-label>
+          Postklem
+        </ion-label>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon class="legend-icon trap-klemmenrek removed" slot="start"></ion-icon>
+        <ion-label>
+          Klemmenrek
+        </ion-label>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon class="special-legend-icon trap-lokaaskooi removed" slot="start"></ion-icon>
+        <ion-label>
+          Lokaaskooi
+        </ion-label>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon class="legend-icon trap-musk-living removed" slot="start"></ion-icon>
+        <ion-label>
+          Levend vangende kooi
+        </ion-label>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon class="special-legend-icon trap-beaver-living removed" slot="start"></ion-icon>
+        <ion-label>
+          Levend vangende kooi (Beverrat)
+        </ion-label>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+      
+      <ion-item>
+        <ion-icon class="legend-icon trap-musk-other removed" slot="start"></ion-icon>
+        <ion-label>
+          Geweer<br>
+          Slaan <br>
+          Dood aangetroffen
+        </ion-label>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+      <ion-item>
+        <ion-icon class="special-legend-icon trap-beaver-other removed" slot="start"></ion-icon>
+        <ion-label>
+          Geweer (Beverrat) <br>
+          Slaan en delven (Beverrat) <br>
+          Dood aangetroffen (Beverrat)
+        </ion-label>
+        <ion-reorder slot="end"></ion-reorder>
+      </ion-item>
+    </ion-reorder-group>
+  </ion-list>
+  <ion-list>
+    <ion-list-header>VANGMIDDEL - NIET VANGEND</ion-list-header>
+    <ion-item>
+      <ion-icon class="legend-icon trap-schijnduiker unplaced" slot="start"></ion-icon>
+      <ion-label>
+        Schijnduiker
+      </ion-label>
+      <ion-reorder slot="end"></ion-reorder>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon class="legend-icon trap-duikerafzetting unplaced" slot="start"></ion-icon>
+      <ion-label>
+        Duikerafzetting
+      </ion-label>
+      <ion-reorder slot="end"></ion-reorder>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon class="legend-icon trap-slootafzetting unplaced" slot="start"></ion-icon>
+      <ion-label>
+        Slootafzetting
+      </ion-label>
+      <ion-reorder slot="end"></ion-reorder>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon class="legend-icon trap-klemmenrek unplaced" slot="start"></ion-icon>
+      <ion-label>
+        Klemmenrek
+      </ion-label>
+      <ion-reorder slot="end"></ion-reorder>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon class="legend-icon trap-lokaaskooi unplaced" slot="start"></ion-icon>
+      <ion-label>
+        Lokaaskooi
+      </ion-label>
+      <ion-reorder slot="end"></ion-reorder>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-list-header>SPEUREN</ion-list-header>
+    <ion-item>
+      <ion-icon class="legend-icon trackingline-1-icon" slot="start"></ion-icon>
+      <ion-label>
+        Speurkaart (een dag geleden)
+      </ion-label>
+      <ion-reorder slot="end"></ion-reorder>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon class="legend-icon trackingline-2-icon" slot="start"></ion-icon>
+      <ion-label>
+        Speurkaart (minder dan een week geleden)
+      </ion-label>
+      <ion-reorder slot="end"></ion-reorder>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon class="legend-icon trackingline-3-icon" slot="start"></ion-icon>
+      <ion-label>
+        Speurkaart (minder dan drie weken geleden)
+      </ion-label>
+      <ion-reorder slot="end"></ion-reorder>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon class="legend-icon trackingline-4-icon" slot="start"></ion-icon>
+      <ion-label>
+        Speurkaart (minder dan een jaar geleden)
+      </ion-label>
+      <ion-reorder slot="end"></ion-reorder>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon class="legend-icon tracking-user-icon" slot="start"></ion-icon>
+      <ion-label>
+        Speurkaart persoonlijk
+      </ion-label>
+      <ion-reorder slot="end"></ion-reorder>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon class="legend-icon tracking-trappers-icon" slot="start"></ion-icon>
+      <ion-label>
+        Speurkaart aktueel
+      </ion-label>
+      <ion-reorder slot="end"></ion-reorder>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-list-header>GEBIEDEN</ion-list-header>
+    <ion-item>
+      <ion-icon class="legend-icon hoursquare-icon" slot="start"></ion-icon>
+      <ion-label>
+        Uurhokken
+      </ion-label>
+      <ion-reorder slot="end"></ion-reorder>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon class="legend-icon rayon-icon" slot="start"></ion-icon>
+      <ion-label>
+        Rayons
+      </ion-label>
+      <ion-reorder slot="end"></ion-reorder>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon class="legend-icon vanggebieden-icon" slot="start"></ion-icon>
+      <ion-label>
+        Vanggebieden
+      </ion-label>
+      <ion-reorder slot="end"></ion-reorder>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon class="legend-icon deelgebieden-icon" slot="start"></ion-icon>
+      <ion-label>
+        Deelgebieden
+      </ion-label>
+      <ion-reorder slot="end"></ion-reorder>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon class="legend-icon organisation-icon" slot="start"></ion-icon>
+      <ion-label>
+        Organisatie
+      </ion-label>
+      <ion-reorder slot="end"></ion-reorder>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon class="legend-icon waterschap-icon" slot="start"></ion-icon>
+      <ion-label>
+        Waterschap
+      </ion-label>
+      <ion-reorder slot="end"></ion-reorder>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon class="legend-icon provincie-icon" slot="start"></ion-icon>
+      <ion-label>
+        Provincie
+      </ion-label>
+      <ion-reorder slot="end"></ion-reorder>
+    </ion-item>
+  </ion-list>
+</ion-content>

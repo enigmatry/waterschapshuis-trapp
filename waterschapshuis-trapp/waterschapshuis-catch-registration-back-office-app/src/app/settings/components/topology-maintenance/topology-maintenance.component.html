@@ -1,0 +1,31 @@
+<p class="content-title">Beheer deelgebieden</p>
+
+<div *ngxPermissionsOnly="[ policyName.Management ]" class="mat-elevation-z8 grid">
+    <div *ngIf="topologyService.inProgress | async">
+        <mat-progress-bar mode="query"></mat-progress-bar>
+    </div>
+
+    <button
+        mat-raised-button color="primary" class="submit-settings"
+        [disabled]="topologyService.inProgress | async"
+        (click)="onClickExport()">
+        {{ 'Exporteer huidige indeling' | uppercase }}
+    </button>
+
+    <button
+        mat-raised-button color="primary" class="submit-settings"
+        [disabled]="topologyService.inProgress | async"
+        (click)="onClickImport()">
+        {{ 'Importeer nieuwe indeling' | uppercase }}
+    </button>
+
+    <button mat-raised-button color="primary" class="mat-text-uppercase"
+        [disabled]="topologyService.inProgress | async"
+        (click)="onClickCalculateKmWaterWays()">
+        {{ 'Bereken km-watergang' | uppercase }}
+    </button>
+    
+    <div *ngIf="topologyService.validationMessages | async">
+        <textarea rows="30" [disabled]="true">{{ topologyService.validationMessages | async }}</textarea>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<h3>Bijvangst</h3>
+
+<section>
+  <ion-button size="small" class="ion-text-uppercase" color="primary" fill="clear"
+    (click)="goToEdit(animalType.Mammal)">Zoogdieren</ion-button>
+  <ion-button size="small" class="ion-text-uppercase" color="primary" fill="clear" (click)="goToEdit(animalType.Bird)">
+    Vogels</ion-button>
+  <ion-button size="small" class="ion-text-uppercase" color="primary" fill="clear" (click)="goToEdit(animalType.Fish)">
+    Vissen</ion-button>
+  <ion-button size="small" class="ion-text-uppercase" color="primary" fill="clear" (click)="goToEdit(animalType.Other)">
+    Overige</ion-button>
+</section>
+
+<ion-item *ngFor="let byCatch of byCatches">
+  <ion-label>{{byCatch?.number}} x {{byCatch?.type}}</ion-label>
+  <ion-icon name="trash-outline" size="small" slot="end" (click)="removeByCatch(byCatch?.id)">
+  </ion-icon>
+</ion-item>
+
+<ion-item class="date-picker" lines="none">
+  <ion-label position="stacked">Bijvangstdatum</ion-label>
+  <ion-datetime displayFormat="DD-MM-YYYY" [max]="today" [min]="mondaySixWeeksAgo" cancel-text="Annuleer" done-text="Gedaan"
+    [(ngModel)]="byCatchDate">
+  </ion-datetime>
+  <ion-icon name="calendar-outline" slot="end" size="small"></ion-icon>
+</ion-item>

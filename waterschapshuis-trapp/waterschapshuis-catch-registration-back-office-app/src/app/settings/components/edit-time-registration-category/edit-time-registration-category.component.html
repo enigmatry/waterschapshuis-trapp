@@ -1,0 +1,21 @@
+<div class="edit-dialog">
+    <p class="content-title">Bewerk Categorie</p>
+    <form [formGroup]="form">
+        <div>
+            <mat-form-field>
+                <mat-label>Categorie</mat-label>
+                <input matInput formControlName="name">
+            </mat-form-field>
+        </div>       
+        <div>
+            <mat-radio-group color="primary" formControlName="active">
+                <mat-radio-button [value]=true>Actief</mat-radio-button>
+                <mat-radio-button [value]=false>Inactief</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div class="dialog-buttons">
+            <button class="dialog-button" mat-button color="primary" (click)="close()">ANNULEER</button>
+            <button class="dialog-button" mat-raised-button color="primary" (click)="saveAndClose()">BEWAAR</button>
+        </div>
+    </form>
+</div>

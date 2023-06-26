@@ -1,0 +1,50 @@
+ion-fab-button {
+  --background: #fff;
+  --background-activated: #fff;
+  --background-hover: #cecece;
+  --color: #000000;
+  --color-activated: #000000;
+}
+
+ion-fab-list {
+  background-color: white;
+  right: 0;
+  border-radius: 5px;
+}
+
+ion-fab-list ion-item {
+  width: 100%;
+}
+
+ion-fab-list ion-item:hover {
+  --background-hover: #fff;
+}
+
+ion-fab .fab-list-active .fab-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(100, 100, 100, 0.5);
+}
+
+ion-button {
+  --padding-start: 0px;
+  --padding-end: 0px;
+
+  margin: 0px;
+  width: 40px;
+}
+
+.tracking-on {
+  content: url("src/assets/top-menu-icons/tracking-on.svg");
+}
+
+.tracking-off {
+  content: url("src/assets/top-menu-icons/tracking-off.svg");
+}
+
+ion-title > span.red-title {
+  color: red;
+}

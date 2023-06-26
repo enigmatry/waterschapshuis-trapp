@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" mode="md"></ion-back-button>
+    </ion-buttons>
+    <ion-title><span [class]="(backgroundJobService.hasUnsyncedItems$ | async) ? 'red-title' : ''">Kaart </span>
+      <app-info-icon pageName="Kaart"></app-info-icon>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button slot="icon-only" (click)="mapComponent.locate()">
+        <ion-icon size="large" name="locate" [color]="mapComponent.locateEnabled ? 'danger' : 'dark'"></ion-icon>
+      </ion-button>
+      <ion-button slot="icon-only" routerLink="/maps/filter" routerDirection="root">
+        <ion-icon size="large" name="search" color="dark"></ion-icon>
+      </ion-button>
+      <ion-button slot="icon-only" [class]="(trackingService.trackingEnabled$ | async) ? 'tracking-on' : 'tracking-off'"
+        (click)="openTrappingPopup()">
+        <ion-icon size="large" name="navigate" color="dark"></ion-icon>
+      </ion-button>
+      <ion-button slot="icon-only" (click)="showMenu('add')">
+        <ion-icon size="large" name="add" color="dark"></ion-icon>
+      </ion-button>
+      <ion-button slot="icon-only" (click)="showMenu('more')">
+        <ion-icon size="large" name="ellipsis-vertical" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<app-map #mapComponent mapId="wmtsMap"></app-map>

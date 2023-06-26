@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>bycatch-circle-number</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="8" cy="8" r="8"></circle>
+        <filter x="-25.0%" y="-12.5%" width="150.0%" height="150.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.25 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Mobile---Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Assets" transform="translate(-312.000000, -303.000000)">
+            <g id="bycatch-circle-number" transform="translate(314.000000, 303.000000)">
+                <g id="Oval">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#000000" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <path d="M11.1479492,5.22705078 C10.2491817,6.28337117 9.64225418,7.2358356 9.32714844,8.08447266 C9.0120427,8.93310971 8.78287832,9.96255905 8.63964844,11.1728516 L8.55908203,12 L7.25390625,12 L7.33447266,11.1728516 C7.47412179,9.99120503 7.75341587,8.91968254 8.17236328,7.95825195 C8.59131069,6.99682136 9.16243128,6.08643008 9.88574219,5.22705078 L5.74462891,5.22705078 L5.74462891,4.1796875 L11.1479492,4.1796875 L11.1479492,5.22705078 Z" id="7" fill="#FFFFFF" fill-rule="nonzero"></path>
+            </g>
+        </g>
+    </g>
+</svg>

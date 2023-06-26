@@ -1,0 +1,32 @@
+mat-sidenav {
+  width: 320px;
+  height: max-content;
+  background-color: #FAFAFA;
+}
+
+mat-sidenav-container {
+  height: 100%;
+}
+
+.mat-drawer:not(.mat-drawer-side) {
+  background: transparent;
+  display: table;
+}
+
+.rightSideBar {
+  width: 370px;
+  max-height: 100vh;
+  overflow: auto;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  .mat-drawer:not(.mat-drawer-side)  { display: block;  }
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .mat-drawer:not(.mat-drawer-side)  { display: table;  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .mat-drawer:not(.mat-drawer-side)  { display: table;  }
+}

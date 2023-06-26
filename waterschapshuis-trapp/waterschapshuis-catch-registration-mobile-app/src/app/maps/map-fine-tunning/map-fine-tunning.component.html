@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-item slot="start" lines="none">
+      <ion-back-button text="Annuleer" icon="close" defaultHref="/maps" mode="md" color="dark">
+      </ion-back-button>
+    </ion-item>
+    <ion-item lines="none" class="title-item">
+      <ion-title class="ion-text-center">{{title}}</ion-title>
+    </ion-item>
+    <ion-item slot="end" lines="none">
+      <ion-buttons>
+        <ion-button slot="icon-only" (click)="setLocation()">
+          <ion-label color="dark" class="ion-text-center">Plaats</ion-label>
+          <ion-icon size="large" name="checkmark" color="dark"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<app-map #mapComponent mapId="trapMap">
+  <div class="crosshair-center"></div>
+</app-map>

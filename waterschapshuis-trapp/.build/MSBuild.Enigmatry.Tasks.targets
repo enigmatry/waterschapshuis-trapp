@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+	<UsingTask
+	  TaskName="PreprocessParameters"
+	  TaskFactory="CodeTaskFactory"
+	  AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll" >
+		<ParameterGroup>
+			<ParametersFilePath ParameterType="System.String" Required="true" />
+			<ConfigurationFilePath ParameterType="System.String" Required="true" />
+		</ParameterGroup>
+		<Task>
+			<Reference Include="System" />
+			<Reference Include="System.Core" />
+			<Reference Include="System.Xml"/>
+			<Reference Include="System.Xml.Linq"/>
+			<Using Namespace="System"/>
+			<Using Namespace="System.Linq"/>
+			<Using Namespace="System.Xml"/>
+			<Using Namespace="System.Xml.Linq"/>
+			<Using Namespace="System.Xml.XPath"/>
+			<Using Namespace="System.Collections.Generic"/>
+			<Using Namespace="Microsoft.Build.Framework" />
+			<Using Namespace="Microsoft.Build.Utilities" />
+			<Code Type="Fragment" Language="cs">
+				<![CDATA[
+			XDocument document = XDocument.Load(ParametersFilePath);
+			// Do a query over parameters file which in this case has same schema as in Web Project
+			var data = from item in document.Descendants("parameter")
+					   select new
+					   {
+						   name = item.Attribute("name").Value,
+						   value = item.Attribute("defaultValue").Value,
+						   xPath = item.Element("parameterEntry").Attribute("match").Value
+					   };
+
+			// XPath on app.config file
+			XmlDocument configFile = new XmlDocument();
+			configFile.Load(ConfigurationFilePath);
+			XPathNavigator fileNavigator = configFile.CreateNavigator();
+			foreach (var elem in data)
+			{
+				if (!string.IsNullOrEmpty(elem.xPath))
+				{
+					XPathNavigator nodeNavigator = fileNavigator.SelectSingleNode(elem.xPath);
+					if (nodeNavigator == null)
+					{
+						var path = elem.xPath;
+						continue;
+					}
+					var value = elem.value;
+					if (value.StartsWith("$("))
+					{
+						value = Environment.GetEnvironmentVariable(value.Substring(2, value.Length - 3));
+					}
+					nodeNavigator.SetValue(value ?? String.Empty);
+				}
+			}
+			configFile.Save(ConfigurationFilePath);
+				]]>
+			</Code>
+		</Task>
+	</UsingTask>
+</Project>

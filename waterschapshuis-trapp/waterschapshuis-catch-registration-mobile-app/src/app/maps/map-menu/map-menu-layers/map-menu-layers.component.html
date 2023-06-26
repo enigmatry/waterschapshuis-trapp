@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/maps" mode="md"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="dark">Kies kaartlagen</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-list-header *ngIf="areaOverlayLayers.length">
+      {{areaOverlayLayers[0].categoryDisplayName}}
+    </ion-list-header>
+    <ion-item *ngFor="let layer of areaOverlayLayers">
+      <ion-toggle color="success" slot="start" [(ngModel)]="layer.selected" [checked]="layer.selected" (ionChange)="selectOverlayLayer()">
+      </ion-toggle>
+      <ion-label>{{ layer.displayName }}</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list hidden>
+    <ion-list-header>LOCATIES</ion-list-header>
+    <ion-item>
+      <ion-toggle color="success" slot="start"></ion-toggle>
+      <ion-label>Vangmiddelen</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-toggle color="success" slot="start"></ion-toggle>
+      <ion-label>Niet-vangende vangmiddelen</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-toggle color="success" slot="start"></ion-toggle>
+      <ion-label>Meldingen</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-toggle color="success" slot="start"></ion-toggle>
+      <ion-label>Speurkaart</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-list-header *ngIf="locationOverlayLayers.length">
+      {{locationOverlayLayers[0].categoryDisplayName}}
+    </ion-list-header>
+    <ion-item *ngFor="let layer of locationOverlayLayers">
+      <ion-toggle color="success" slot="start" [(ngModel)]="layer.selected" (ionChange)="selectOverlayLayer()">
+      </ion-toggle>
+      <ion-label>{{layer.displayName }}</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list hidden>
+    <ion-list-header>OBJECTEN</ion-list-header>
+    <ion-item>
+      <ion-toggle color="success" slot="start"></ion-toggle>
+      <ion-label>Waterwegen</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-toggle color="success" slot="start"></ion-toggle>
+      <ion-label>Kunstwerken</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-toggle color="success" slot="start"></ion-toggle>
+      <ion-label>Natuurgebieden</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-toggle color="success" slot="start"></ion-toggle>
+      <ion-label>Waterniveau</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-radio-group [(ngModel)]="mapStateService.currentlyActiveBackgroundLayer"> 
+    <ion-list-header>ACHTERGROND</ion-list-header>
+    <ion-item-group class="bg-layout">
+      <ion-item *ngFor="let layer of backgroundLayers">
+        <ion-radio color="success" slot="start" [value]="layer.key" (click)="selectLayer(layer)">
+        </ion-radio>
+        <ion-label>{{layer.text}}</ion-label>
+      </ion-item>
+  </ion-item-group>
+  </ion-radio-group>
+</ion-content>

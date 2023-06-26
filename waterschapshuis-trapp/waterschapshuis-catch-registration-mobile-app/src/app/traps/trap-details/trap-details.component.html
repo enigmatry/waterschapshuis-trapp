@@ -1,0 +1,159 @@
+<ion-grid *ngIf="trap">
+  <ion-row>
+    <ion-col sizeXs="8">
+      <h3 class="header-title">{{title}}</h3>
+    </ion-col>
+    <ion-col sizeXs="4">
+      <ion-button class="route-btn" fill="clear" (click)="navigateToSelectedTrap(trap)" *ngIf="showRouteButton">
+        <h3>Route</h3>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="grayed">
+    <ion-col sizeXs="6">
+      <p>Aantal en type</p>
+    </ion-col>
+    <ion-col sizeXs="6">
+      <p>Status</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="row-padding">
+    <ion-col sizeXs="6">
+      <p>{{trap.numberOfTraps}} x {{trap.type}}</p>
+    </ion-col>
+    <ion-col sizeXs="6">
+      <p>{{trap.statusTitle}}</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="grayed">
+    <ion-col sizeXs="6">
+      <p>Geplaatst door</p>
+    </ion-col>
+    <ion-col sizeXs="6">
+      <p>Plaatsingsdatum</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="row-padding">
+    <ion-col sizeXs="6">
+      <p>{{trap.createdBy}}</p>
+    </ion-col>
+    <ion-col sizeXs="6">
+      <p>{{trap.recordedOn | date:'dd-MM-yyyy HH:mm'}}</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="grayed">
+    <ion-col sizeXs="6">
+      <p>Laatste wijziging</p>
+    </ion-col>
+    <ion-col sizeXs="6">
+      <p>Wijzigingsdatum</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="row-padding">
+    <ion-col sizeXs="6">
+      <p>{{trap.updatedBy}}</p>
+    </ion-col>
+    <ion-col sizeXs="6">
+      <p>{{trap.updatedOn | date:'dd-MM-yyyy HH:mm'}}</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="grayed">
+    <ion-col sizeXs="12">
+      <p>Opmerkingen</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="row-padding">
+    <ion-col sizeXs="12">
+      <p>{{trap.remarks}}</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="grayed">
+    <ion-col sizeXs="12">
+      <p>{{trap.numberOfCatches}} Vangsten</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row *ngFor="let catch of catches()" class="row-padding">
+    <ion-col sizeXs="4">
+      <p>{{catch.number}} x {{catch.type}}</p>
+    </ion-col>
+    <ion-col sizeXs="4">
+      <p>{{catch.recordedOn | date:'dd-MM-yyyy HH:mm'}}</p>
+    </ion-col>
+    <ion-col sizeXs="2">
+      <ion-icon
+        *ngIf="canRemoveCatch(catch)"
+        (click)="catchMarkForRemoval(catch)"
+        name="trash-outline" size="small">
+      </ion-icon>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="grayed">
+    <ion-col sizeXs="12">
+      <p>{{trap.numberOfByCatches}} Bijvangsten</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row *ngFor="let byCatch of byCatches()" class="row-padding">
+    <ion-col sizeXs="4">
+      <p>{{byCatch.number}} x {{byCatch.type}}</p>
+    </ion-col>
+    <ion-col sizeXs="4">
+      <p>{{byCatch.recordedOn | date:'dd-MM-yyyy HH:mm'}}</p>
+    </ion-col>
+    <ion-col sizeXs="2">
+      <ion-icon
+        *ngIf="canRemoveCatch(byCatch)"
+        (click)="catchMarkForRemoval(byCatch)"
+        name="trash-outline" size="small">
+      </ion-icon>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="grayed">
+    <ion-col sizeXs="6" *ngIf="trap.rayon">
+      <p>Rayon</p>
+    </ion-col>
+    <ion-col sizeXs="6" *ngIf="trap.catchArea">
+      <p>Vanggebied</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="row-padding">
+    <ion-col sizeXs="6" *ngIf="trap.rayon">
+      <p>{{trap.rayon}}</p>
+    </ion-col>
+    <ion-col sizeXs="6" *ngIf="trap.catchArea">
+      <p>{{trap.catchArea}}</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="grayed">
+    <ion-col sizeXs="6">
+      <p>Coördinaat</p>
+    </ion-col>
+    <ion-col sizeXs="6" *ngIf="trap.subArea">
+      <p>Deelgebied</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="row-padding">
+    <ion-col sizeXs="6">
+      <p>{{trap.longitude.toFixed(2)}}, {{trap.latitude.toFixed(2)}}</p>
+    </ion-col>
+    <ion-col sizeXs="6" *ngIf="trap.subArea">
+      <p>{{trap.subArea}}</p>
+    </ion-col>
+  </ion-row>
+
+</ion-grid>

@@ -1,0 +1,64 @@
+<ion-grid>
+  <ion-row class="row-content">
+    <ion-col sizeXs="12">
+      <h3 class="item-title">{{ trap.type }}</h3>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="row-label">
+    <ion-col sizeXs="8">
+      <p>Aantal en status</p>
+    </ion-col>
+    <ion-col sizeXs="4">
+      <p>Vangsten</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="row-content">
+    <ion-col sizeXs="8">
+      <p>{{trap.numberOfTraps}}, {{trap.statusTitle}}</p>
+    </ion-col>
+    <ion-col sizeXs="4">
+      <p>{{trap.numberOfCatches}}</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="row-label">
+    <ion-col sizeXs="8">
+      <p>Geplaatst door</p>
+    </ion-col>
+    <ion-col sizeXs="4">
+      <p>Bijvangsten</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="row-content">
+    <ion-col sizeXs="8">
+      <p>{{ trap.createdBy }}</p>
+      <p>{{trap.recordedOn | date:'dd-MM-yyyy HH:mm'}}</p>
+    </ion-col>
+    <ion-col sizeXs="4">
+      <p>{{trap.numberOfByCatches}}</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="row-label">
+    <ion-col>
+      <p>Opmerkingen</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="row-content">
+    <ion-col>
+      <p>{{trap.remarks}}</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="row-content row-center">
+    <ion-col sizeXs="7">
+      <ion-button class="d-block ion-text-uppercase" color="primary" (click)="onSelect()">Bewerk</ion-button>
+    </ion-col>
+  </ion-row>
+
+</ion-grid>
+<div class="divider"></div>

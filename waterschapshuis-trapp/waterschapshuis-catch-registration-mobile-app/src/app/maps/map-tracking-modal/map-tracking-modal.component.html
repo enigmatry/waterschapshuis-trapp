@@ -1,0 +1,48 @@
+<ion-content>
+  <form [formGroup]="trackingForm">
+    <ion-item lines="none">
+      <h2>Wat wordt gespeurd</h2>
+      <app-info-icon slot="end" pageName="Tracking"></app-info-icon>
+    </ion-item>
+    <ion-radio-group (ionChange)="changeTrappingTypeForm()" formControlName="trappingType">
+      <ion-item lines="none" *ngFor='let trappingType of trappingTypes'>
+        <ion-label>{{trappingType.name}}</ion-label>
+        <ion-radio class="margin-right-5" slot="start" [value]="trappingType"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+    <ion-item lines="none">
+      <h2>Doel van tracking</h2>
+    </ion-item>
+    <ion-list>
+      <ion-item lines="none">
+        <ion-label>Tijdschrijven</ion-label>
+        <ion-checkbox color="primary" slot="start" formControlName="timewriting"
+          (ionChange)="changeTrackingPurposeForm()"></ion-checkbox>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Speurkaart</ion-label>
+        <ion-checkbox color="primary" slot="start" formControlName="trackingMap"
+          (ionChange)="changeTrackingPurposeForm()"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+    <ion-item lines="none">
+      <h2>Toestemming zichtbaarheid anderen</h2>
+    </ion-item>
+    <ion-radio-group formControlName="isTrackingPrivate"  >
+      <ion-item lines="none">
+        <ion-label>Ja</ion-label>
+        <ion-radio [disabled]="!isTrackingMap" class="margin-right-5" slot="start" [value]="!isTrackingPrivate"></ion-radio>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Nee</ion-label>
+        <ion-radio [disabled]="!isTrackingMap" class="margin-right-5" slot="start" [value]="isTrackingPrivate"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </form>
+</ion-content>
+<ion-footer>
+  <section class="ion-text-right ion-margin-end">
+    <ion-button class="primary" (click)="startBackgroundGeolocation($event)" [disabled]="!isFormValid">
+      Kies</ion-button>
+  </section>
+</ion-footer>

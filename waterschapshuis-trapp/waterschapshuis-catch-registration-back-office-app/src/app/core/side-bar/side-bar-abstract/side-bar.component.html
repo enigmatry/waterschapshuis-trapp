@@ -1,0 +1,23 @@
+<div class="side-bar">
+  <mat-toolbar *ngIf="headerVisible">
+    <ng-template [ngIf]="showBackButton">
+      <button mat-icon-button (click)="navigateToHome()">
+        <mat-icon>keyboard_backspace</mat-icon>
+      </button>
+    </ng-template>
+    <h1 class="mat-expansion-panel-header-title">{{title}} <mat-icon (click)="onInfoIconClick(title)" aria-hidden="false" class="info-icon">info</mat-icon></h1>
+    <ng-template [ngIf]="showExpansionButton">
+      <button mat-icon-button (click)="expandPanel(expanded)">
+        <mat-icon>
+          {{expanded  ? 'close' : 'keyboard_arrow_down'}}
+        </mat-icon>
+      </button>
+    </ng-template>
+  </mat-toolbar>
+  <mat-accordion>
+    <mat-expansion-panel expanded={{expanded}}>
+      <ng-template appSidebarHost>
+      </ng-template>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

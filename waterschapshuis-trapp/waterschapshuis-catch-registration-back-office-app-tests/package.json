@@ -1,0 +1,42 @@
+{
+  "name": "enigmatry-blueprint-app-tests",
+  "description": "blueprint e2e tests",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "rimraf screenshots/* && rimraf reports/*",
+    "test": "testcafe chrome --env=dev --user=user1@example.com --debug-on-fail",
+    "test:json": "npm test --reporter cucumber-json:reports/report.json --reporter-app-name='My App' --reporter-app-version='x.y.z'",
+    "test:live": "testcafe chrome tests/**/*.live.ts --live --env=devci --user=user1@example.com",
+    "test:teamcity": "testcafe tests/**/*.fixture.ts --env=devci --user=user1@example.com --reporter teamcity --quarantine-mode",
+    "tsc": "tsc",
+    "tsc:init": "tsc --init",
+    "tslint:init": "tslint --init",
+    "lint": "tslint --format stylish --config tslint.json -e **/*.d.ts **/*.ts",
+    "prebuild": "rimraf build",
+    "report": "ts-node report-generator.ts"
+  },
+  "dependencies": {
+    "@types/minimist": "1.2.0",
+    "@types/node": "12.6.8",
+    "chalk": "2.4.2",
+    "cross-env": "5.2.0",
+    "jsome": "2.5.0",
+    "minimist": "1.2.0",
+    "rimraf": "2.6.3",
+    "slash": "2.0.0",
+    "testcafe": "1.2.1",
+    "testcafe-browser-provider-browserstack": "^1.9.0",
+    "testcafe-reporter-cucumber-json": "1.2.0",
+    "testcafe-reporter-teamcity": "1.0.10",
+    "ts-node": "8.2.0",
+    "typescript": "3.5.1"
+  },
+  "devDependencies": {
+    "eslint": "5.16.0",
+    "multiple-cucumber-html-reporter": "1.11.8",
+    "prettier": "1.16.4",
+    "tslint": "5.17.0",
+    "tslint-config-prettier": "1.18.0",
+    "tslint-config-standard": "8.0.1"
+  }
+}

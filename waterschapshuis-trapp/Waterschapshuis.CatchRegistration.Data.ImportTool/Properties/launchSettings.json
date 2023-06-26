@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Waterschapshuis.CatchRegistration.Data.ImportTool": {
+      "commandName": "Project",
+      "commandLineArgs": " --import Traps:Fryslan",
+      "environmentVariables": {
+        "WCR_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

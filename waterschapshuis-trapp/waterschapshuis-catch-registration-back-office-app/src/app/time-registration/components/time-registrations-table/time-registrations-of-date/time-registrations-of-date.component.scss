@@ -1,0 +1,54 @@
+  .grid {
+    display: flex;
+    position: relative;
+    padding: 0.5rem;
+  }
+
+  button.action-column-button{
+    padding: 0 0px; 
+    min-width: 30px;
+  }
+
+  .date-field {
+    padding: 0px;
+  }
+
+  .mat-elevation-z8 {
+    padding: 0px;
+    box-shadow: none;
+  }
+
+  .mat-header-row {
+    display: none;
+  }
+
+  .mat-cell {
+    width: 135px;
+    padding-left: 15px;
+    border: none;
+  }
+
+  .mat-column-actionColumn {
+    display: inline-flex;
+    justify-content: flex-end;
+
+    button {
+      line-height: 57px;
+    }
+
+    mat-icon {
+      color: gray;
+    }
+ }
+
+ table {
+   background-color: transparent;
+ }
+ 
+ mat-form-field {
+  width: 135px;
+}
+
+mat-option {
+  padding-right: 0px;
+}

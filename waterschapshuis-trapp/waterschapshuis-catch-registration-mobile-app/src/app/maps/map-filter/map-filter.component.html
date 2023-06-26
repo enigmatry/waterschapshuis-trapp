@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/maps" mode="md"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="dark">Zoek op kaart</ion-title>
+  </ion-toolbar>
+  <ion-toolbar class="searchToolbar">
+    <ion-searchbar #search type="search" inputmode="search" placeholder="zoek op..." debounce="750"
+      (ionChange)="onInputValueChange($event)" (ionClear)="clearSearchedData()"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item button *ngFor="let item of this.searchedDataPreview" (click)="onPreviewItemClick(item)">
+      <ion-text color="dark">{{item.weergavenaam.split(', ')[0]}}</ion-text>
+      <ion-text>{{item.weergavenaam.split(', ')[1]}}</ion-text>
+    </ion-item>
+  </ion-list>
+
+  <ion-infinite-scroll threshold="100px" id="infinite-scroll" (ionInfinite)="loadPreviewDataOnScroll($event)">
+    <ion-infinite-scroll-content loading-spinner="bubbles" loading-text="Data laden...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

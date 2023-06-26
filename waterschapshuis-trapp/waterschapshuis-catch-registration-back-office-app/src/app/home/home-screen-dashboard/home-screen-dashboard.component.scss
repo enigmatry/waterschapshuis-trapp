@@ -1,0 +1,72 @@
+.dashboard-header {
+  width: 100%; 
+  padding-left: 100px;
+  h3 {
+    font-size: 22px;
+    color: #333333;
+    font-weight: 500;
+    display: inline;
+  }
+}
+
+.dashboard-container {
+  height: 100%;
+  width: 100%;
+  flex-flow: row wrap;
+  box-sizing: border-box;
+  display: flex;
+  place-content: center;
+  align-items: center;
+}
+mat-card.dashboard-card {
+  margin-top: 10px;
+  margin-left: 10px;
+  min-height: 40%;
+  flex-basis: calc(40% - 32px); 
+  flex-shrink: 1; 
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 599px) {
+  .dashboard-container {
+    flex-direction: row;
+    box-sizing: border-box;
+    display: flex;
+    place-content: stretch space-evenly;
+    align-items: stretch;
+    max-width: 100%;
+  }
+  mat-card.dashboard-card {
+    margin-top: 10px;
+    margin-left: 10px;
+    min-height: 20%;
+    flex: 1 1 100%; 
+    box-sizing: border-box; 
+    max-width: 100%;
+  }
+}
+
+mat-card-header{
+  font-size: 22px;
+  color: #333333;
+  font-weight: 500;
+  letter-spacing: 0;
+  padding-bottom: 15px;
+}
+
+mat-card-content {
+  border-bottom: 1px solid #ABABAB;
+  padding-bottom: 15px;
+  margin-left: 16px;
+  margin-top: 10px;
+
+  a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #000000;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0;
+  }
+}
+

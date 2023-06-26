@@ -1,0 +1,115 @@
+<featureType>
+  <id>FeatureTypeInfoImpl-4d255062:1738f11c0fd:-8000</id>
+  <name>SubAreaHourSquareCatches</name>
+  <nativeName>SubAreaHourSquareCatches</nativeName>
+  <namespace>
+    <id>NamespaceInfoImpl--4b297ecd:170b63989f0:-7fc9</id>
+  </namespace>
+  <title>SubAreaHourSquareCatches</title>
+  <abstract>Layer with per subarehoursquare: (by-)catches, (by-)catches per kilometer or catch hours per kilometer. The results can be restricted with parameters on year, period (Water authority time category) and measurement (muskrat or coypu).</abstract>
+  <keywords>
+    <string>features</string>
+    <string>SubAreaHourSquareCatches</string>
+  </keywords>
+  <nativeCRS class="projected">PROJCS[&quot;Amersfoort / RD New&quot;, 
+  GEOGCS[&quot;Amersfoort&quot;, 
+    DATUM[&quot;Amersfoort&quot;, 
+      SPHEROID[&quot;Bessel 1841&quot;, 6377397.155, 299.1528128, AUTHORITY[&quot;EPSG&quot;,&quot;7004&quot;]], 
+      TOWGS84[565.2369, 50.0087, 465.658, -0.40685733032239757, -0.3507326765425626, 1.8703473836067956, 4.0812], 
+      AUTHORITY[&quot;EPSG&quot;,&quot;6289&quot;]], 
+    PRIMEM[&quot;Greenwich&quot;, 0.0, AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]], 
+    UNIT[&quot;degree&quot;, 0.017453292519943295], 
+    AXIS[&quot;Geodetic longitude&quot;, EAST], 
+    AXIS[&quot;Geodetic latitude&quot;, NORTH], 
+    AUTHORITY[&quot;EPSG&quot;,&quot;4289&quot;]], 
+  PROJECTION[&quot;Oblique_Stereographic&quot;, AUTHORITY[&quot;EPSG&quot;,&quot;9809&quot;]], 
+  PARAMETER[&quot;central_meridian&quot;, 5.387638888888891], 
+  PARAMETER[&quot;latitude_of_origin&quot;, 52.15616055555556], 
+  PARAMETER[&quot;scale_factor&quot;, 0.9999079], 
+  PARAMETER[&quot;false_easting&quot;, 155000.0], 
+  PARAMETER[&quot;false_northing&quot;, 463000.0], 
+  UNIT[&quot;m&quot;, 1.0], 
+  AXIS[&quot;Easting&quot;, EAST], 
+  AXIS[&quot;Northing&quot;, NORTH], 
+  AUTHORITY[&quot;EPSG&quot;,&quot;28992&quot;]]</nativeCRS>
+  <srs>EPSG:28992</srs>
+  <nativeBoundingBox>
+    <minx>10425.0</minx>
+    <maxx>278026.0</maxx>
+    <miny>306846.0</miny>
+    <maxy>614393.0</maxy>
+    <crs class="projected">EPSG:28992</crs>
+  </nativeBoundingBox>
+  <latLonBoundingBox>
+    <minx>3.2096550555535535</minx>
+    <maxx>7.242343884015374</maxx>
+    <miny>50.7336051891925</miny>
+    <maxy>53.515745462359185</maxy>
+    <crs>EPSG:4326</crs>
+  </latLonBoundingBox>
+  <projectionPolicy>FORCE_DECLARED</projectionPolicy>
+  <enabled>true</enabled>
+  <metadata>
+    <entry key="JDBC_VIRTUAL_TABLE">
+      <virtualTable>
+        <name>SubAreaHourSquareCatches</name>
+        <sql>SELECT * FROM dbo.fn_MapCatchesReport_SubAreaHourSquare(%measurement%, &apos;%trappingType%&apos;, %yearFrom%, %periodFrom%, %yearTo%, %periodTo%, &apos;%versionRegionalLayout%&apos;)
+</sql>
+        <escapeSql>false</escapeSql>
+        <keyColumn>RegionId</keyColumn>
+        <geometry>
+          <name>Geometry</name>
+          <type>Geometry</type>
+          <srid>28992</srid>
+        </geometry>
+        <parameter>
+          <name>periodTo</name>
+          <defaultValue>0</defaultValue>
+          <regexpValidator>^[\w\d\s]+$</regexpValidator>
+        </parameter>
+        <parameter>
+          <name>yearFrom</name>
+          <defaultValue>0</defaultValue>
+          <regexpValidator>^[\w\d\s]+$</regexpValidator>
+        </parameter>
+        <parameter>
+          <name>periodFrom</name>
+          <defaultValue>0</defaultValue>
+          <regexpValidator>^[\w\d\s]+$</regexpValidator>
+        </parameter>
+        <parameter>
+          <name>versionRegionalLayout</name>
+          <defaultValue>8110E841-F71A-43E5-AB12-8F5EB85676F5</defaultValue>
+          <regexpValidator>[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$</regexpValidator>
+        </parameter>
+        <parameter>
+          <name>trappingType</name>
+          <defaultValue>0</defaultValue>
+          <regexpValidator>[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$</regexpValidator>
+        </parameter>
+        <parameter>
+          <name>measurement</name>
+          <defaultValue>0</defaultValue>
+          <regexpValidator>^[\w\d\s]+$</regexpValidator>
+        </parameter>
+        <parameter>
+          <name>yearTo</name>
+          <defaultValue>0</defaultValue>
+          <regexpValidator>^[\w\d\s]+$</regexpValidator>
+        </parameter>
+      </virtualTable>
+    </entry>
+    <entry key="cachingEnabled">false</entry>
+  </metadata>
+  <store class="dataStore">
+    <id>DataStoreInfoImpl--4b297ecd:170b63989f0:-7fc8</id>
+  </store>
+  <serviceConfiguration>false</serviceConfiguration>
+  <maxFeatures>0</maxFeatures>
+  <numDecimals>0</numDecimals>
+  <padWithZeros>false</padWithZeros>
+  <forcedDecimal>false</forcedDecimal>
+  <overridingServiceSRS>false</overridingServiceSRS>
+  <skipNumberMatched>false</skipNumberMatched>
+  <circularArcPresent>false</circularArcPresent>
+</featureType>

@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>{{data.title}}</h2>
+<mat-dialog-content class="mat-typography">
+  <h3 *ngIf="data.header">{{data.header}}</h3>
+  
+  <p *ngIf="data.message">{{data.message}}</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <div *ngFor="let action of data.actions">
+    <button mat-raised-button [color]="action.emptyFillButton ? '' : 'primary'" [mat-dialog-close]="action.action"
+      cdkFocusInitial>{{action.text}}</button>
+  </div>
+</mat-dialog-actions>

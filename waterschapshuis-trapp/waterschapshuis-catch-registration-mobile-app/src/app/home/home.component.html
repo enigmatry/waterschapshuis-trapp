@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="dark" class="ion-text-center">Hoofdmenu <app-info-icon pageName="Hoofdmenu"></app-info-icon>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item button (click)="goToMaps()">
+      <ion-icon name="map" size="large" class="kaart-icon" slot="start"></ion-icon>
+      <ion-list>
+        <h5>Kaart</h5>
+        <ion-label>Invoer locaties en vangsten</ion-label>
+      </ion-list>
+    </ion-item>
+
+    <ion-item button [routerLink]="['/time-registration']">
+      <ion-icon name="time" size="large" class="urenregistratie-icon" slot="start"></ion-icon>
+      <ion-list>
+        <h5>Urenregistratie</h5>
+        <ion-label>Invoer uren, tracking gaat uit</ion-label>
+      </ion-list>
+    </ion-item>
+
+    <app-offline-data></app-offline-data>
+
+    <ion-item button [routerLink]="['/user-summary']" *ngIf="isOnline">
+      <ion-icon name="calendar-outline" size="large" class="my-summary" slot="start"></ion-icon>
+      <ion-list>
+        <h5>Eigen overzicht</h5>
+        <ion-label>{{catchCount}} vangsten, {{trapCount}} vangmiddelen</ion-label>
+      </ion-list>
+    </ion-item>
+
+    <ion-item button (click)="logout()">
+      <ion-icon name="log-out" size="large" class="logout-icon" slot="start"></ion-icon>
+      <ion-list>
+        <h5>Uitloggen</h5>
+        <ion-label>{{currentUserName}}</ion-label>
+      </ion-list>
+    </ion-item>
+
+    <!-- Added for testing purpose, should be removed later below this line -->
+    <ion-item button [routerLink]="['/tracking']" hidden>
+      <ion-icon name="time" size="large" class="urenregistratie-icon" slot="start"></ion-icon>
+      <ion-list>
+        <h5>Tracking</h5>
+        <ion-label>Tracking test page</ion-label>
+      </ion-list>
+    </ion-item>
+
+    <ion-item button *ngIf=!isProduction>
+      <ion-toggle [checked]="simulateOffline" (ionChange)="simulateOfflineMode($event)"></ion-toggle>
+      <ion-list>
+        <h5>Simulate Offline</h5>
+      </ion-list>
+    </ion-item>
+
+    <ion-item button (click)="syncRecordedItems()" *ngIf=!isProduction>
+      <ion-icon name="cloud-upload-outline" size="large" class="dev-item" slot="start"></ion-icon>
+      <ion-list>
+        <h5>Synchroniseer</h5>
+        <ion-label>Gegevens met backoffice</ion-label>
+      </ion-list>
+    </ion-item>
+
+    <ion-item button (click)="prefetchAll()" *ngIf=!isProduction>
+      <ion-icon name="cloud-upload-outline" size="large" class="dev-item" slot="start"></ion-icon>
+      <ion-list>
+        <h5>Prefetch all</h5>
+      </ion-list>
+    </ion-item>
+
+    <ion-item button (click)="toggleTableList()" *ngIf=!isProduction>
+      <ion-icon name="list-outline" size="large" class="dev-item" slot="start"></ion-icon>
+      <ion-list>
+        <h5>SQL Lite table data to Console</h5>
+        <ion-label>Click to select SQL Lite table</ion-label>
+      </ion-list>
+    </ion-item>
+    <ion-item *ngIf="showSqlLiteTableList">
+      <ion-list>
+        <ion-item *ngFor='let table of tableList'>
+          <ion-icon name="menu-outline" size="small" class="dev-item" slot="start"></ion-icon>
+          <ion-label (click)="tableToConsole(table)">{{ table.name }}</ion-label>
+          <ion-label (click)="countToConsole(table)" position="fixed">Count</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-item>
+
+  </ion-list>
+</ion-content>
+
+<ion-progress-bar *ngIf="progressService.showDeterminateBar$ | async"
+  [value]="(progressService.progress$ | async).progressPercentage">
+</ion-progress-bar>
+<ion-progress-bar *ngIf="progressService.showIndeterminateBar$ | async" type="indeterminate"></ion-progress-bar>
+
+<ion-footer>
+  <span class="version">{{ version }}</span>
+</ion-footer>

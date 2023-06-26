@@ -1,0 +1,44 @@
+.week-navigation {
+    text-align: center;
+    margin: auto;
+    padding: 10px;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 26px;
+  }
+  
+.date-field {
+    min-width: 190px;
+    padding: 0px;
+}
+
+mat-grid-list {
+  width: 992px;
+  margin: auto;
+}
+
+.evenRow {
+  background-color: #FFFFFF;
+}
+
+.oddRow {
+  background-color: #F2F2F2;
+}
+
+.col-sm {
+  width: 50px;
+}
+
+.col-md {
+  width: 110px;
+}
+
+.col-lg {
+  width: 250px;
+}
+
+.grid-header {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D3D3D3;
+}

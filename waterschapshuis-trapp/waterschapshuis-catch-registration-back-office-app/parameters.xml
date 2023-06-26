@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<parameters>
+  <parameter name="IIS Web Application Name" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="__iisProviderPath__" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="__iisProviderPath__" />
+  </parameter>
+  <parameter name="API Uri" description="API Uri" defaultValue="">
+    <parameterEntry kind="TextFile" scope="main.*.js" match="__apiUrl__" />
+  </parameter>
+  <parameter name="AzureAd ClientId" description="AzureAd ClientId" defaultValue="">
+    <parameterEntry kind="TextFile" scope="main.*.js" match="__azureAdClientId__" />
+  </parameter>
+  <parameter name="AzureAd Api Scopes" description="AzureAd Api Scopes" defaultValue="">
+    <parameterEntry kind="TextFile" scope="main.*.js" match="__azureAdApiScopes__" />
+  </parameter>
+  <parameter name="ApplicationInsights InstrumentationKey" description="ApplicationInsights InstrumentationKey" defaultValue="">
+    <parameterEntry kind="TextFile" scope="main.*.js" match="__applicationInsightsInstrumentationKey__" />
+  </parameter>
+  <parameter name="App Version" description="App Version">
+    <parameterEntry kind="TextFile" scope="main.*.js" match="__appVersion__" />
+  </parameter>
+  <parameter name="AppSettings NumberOfHistoricalTrapLayers" description="AppSettings NumberOfHistoricalTrapLayers" defaultValue="">
+    <parameterEntry kind="TextFile" scope="main.*.js" match="__numberOfHistoricalTrapLayers__" />
+  </parameter>
+  <parameter name="Content Security Policy">
+    <parameterEntry kind="XmlFile" scope="\\web.config$" match="/configuration/location/system.webServer/httpProtocol/customHeaders/add[@name='Content-Security-Policy']/@value" />
+  </parameter>
+  <parameter name="User Idle Period" description="User Idle Period" defaultValue="">
+    <parameterEntry kind="TextFile" scope="main.*.js" match="__idleSecondsPeriod__" />
+  </parameter>
+</parameters>

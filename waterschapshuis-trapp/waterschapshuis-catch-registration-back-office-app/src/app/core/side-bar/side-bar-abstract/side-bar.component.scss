@@ -1,0 +1,23 @@
+.mat-expansion-panel-header-title{
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 26px;
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row{
+    padding: 0 0px;
+    height: 70px;
+}
+
+mat-toolbar{
+    background-color: #FAFAFA;
+}
+.side-bar {
+    background-color:#FAFAFA;
+}
+
+.info-icon {
+    cursor: pointer;
+    margin-left: 5px;
+}

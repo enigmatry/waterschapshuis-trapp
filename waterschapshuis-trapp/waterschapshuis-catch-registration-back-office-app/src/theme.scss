@@ -1,0 +1,35 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$wvr-mat-green: (
+  50: #3b9c14,
+  500: #2F7C10,
+  900: #235D0C,
+  A100: #1D4E0A,
+  contrast: (
+    50: $black-87-opacity,
+    500: white,
+    900: $white-87-opacity,
+    A100: $black-87-opacity
+  )
+);
+
+$wvr-mat-blue: (
+  50: #247aab,
+  500: #1c6188,
+  900: #154966,
+  A100: #123d55,
+  contrast: (
+    50: $black-87-opacity,
+    500: white,
+    900: $white-87-opacity,
+    A100: $black-87-opacity
+  )
+);
+
+$wvr-app-primary: mat-palette($wvr-mat-blue, 500, 900, A100);
+$wvr-app-accent: mat-palette($wvr-mat-green, 500, 900, A100);
+$wvr-app-warn: mat-palette($mat-deep-orange);
+
+$wvr-app-theme: mat-light-theme($wvr-app-primary, $wvr-app-accent, $wvr-app-warn);
+@include angular-material-theme($wvr-app-theme);

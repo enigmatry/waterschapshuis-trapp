@@ -1,0 +1,220 @@
+<mat-expansion-panel hideToggle expanded>
+
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            <button mat-icon-button (click)="navigateBack()">
+                <mat-icon>keyboard_backspace</mat-icon>
+                {{ trap?.type }}
+            </button>
+        </mat-panel-title>
+        <mat-icon (click)="toggleSideBar($event)">close</mat-icon>
+    </mat-expansion-panel-header>
+
+    <mat-expansion-panel class="inner-mat-expansion-panel" expanded>
+        <mat-expansion-panel-header class="section-header-title">
+            <mat-panel-title>
+                Vangmiddel
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-grid-list cols="3">
+            <form [formGroup]="form">
+                <mat-grid-tile class="right-menu-tile" colspan="3">
+                    <div>
+                        <h5>Vangmiddel</h5>
+                        <mat-form-field>
+                            <mat-select
+                                formControlName="trapTypeId">
+                                <mat-option *ngFor="let type of trapTypes" [value]="type?.id">
+                                    {{type.name | titlecase}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile class="right-menu-tile" colspan="2">
+                    <div>
+                        <h5>Aantal</h5>
+                        <div>{{trap?.numberOfTraps}}</div>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile class="right-menu-tile" colspan="1">
+                    <div>
+                        <h5>Status</h5>
+                        <mat-form-field>
+                            <mat-select formControlName="trapStatus">
+                                <mat-option *ngFor="let status of trapStatuses" [value]="status.id">
+                                    {{status.name | titlecase}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile class="right-menu-tile custom-height" colspan="3" rowspan="2">
+                    <div>
+                        <h5>Opmerkingen</h5>
+                        <input matInput formControlName="remarks">
+                    </div>
+                </mat-grid-tile>
+            </form>
+        </mat-grid-list>
+
+        <mat-divider></mat-divider>
+
+        <div class="right-menu-tile">
+            <button *ngxPermissionsOnly="policyName.MapContentWrite"
+                mat-raised-button color="primary" 
+                class="mat-text-uppercase" 
+                (click)="saveTrap()">
+                Bewaar</button>
+            <button mat-raised-button class="mat-text-uppercase" (click)="toggleSideBar($event)">Annuleer
+            </button>
+        </div>
+
+    </mat-expansion-panel>
+    <mat-expansion-panel class="inner-mat-expansion-panel" expanded>
+        <mat-expansion-panel-header class="section-header-title">
+            <mat-panel-title>
+                Vangsten
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div>
+            <div *ngIf="trap?.catchesOnly.length">
+                <div class="catch-date-data" *ngFor="let item of trap?.catchesOnly">
+                    <button mat-button class="catch" color="primary" (click)="editCatchesDialog(item)" disabled= {{!item.canBeEdited}}>
+                        {{ item.number }}x {{ item.type | titlecase }}
+                    </button>
+                    <span class="catch-date">{{item.recordedOn  | date: 'dd-MM-yyyy'}} </span>
+                    <button class="icon-btn"
+                        *ngIf="canRemoveCatch(item)"
+                        (click)="onClickRemoveCatch(item)"
+                        mat-icon-button color="primary">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <mat-divider *ngIf="trap?.byCatchesOnly.length"></mat-divider>
+            <div *ngIf="trap?.byCatchesOnly.length">
+                <div class="catch-date-data" *ngFor="let item of trap?.byCatchesOnly">
+                    <button mat-button class="catch" color="primary" (click)="editCatchesDialog(item)" disabled= {{!item.canBeEdited}}>
+                        {{ item.number }}x {{ item.type | titlecase }}
+                    </button>
+                    <span class="catch-date">{{item.recordedOn  | date: 'dd-MM-yyyy'}} </span>
+                    <button class="icon-btn"
+                        *ngIf="canRemoveCatch(item)"
+                        (click)="onClickRemoveCatch(item)"
+                        mat-icon-button color="primary">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </mat-expansion-panel>
+    <mat-expansion-panel class="inner-mat-expansion-panel" expanded>
+        <mat-expansion-panel-header class="section-header-title">
+            <mat-panel-title>
+                Details
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div class="margin-bottom-60">
+            <mat-grid-list cols="3" rowHeight="3:2">
+                <mat-grid-tile class="right-menu-tile">
+                    <div>
+                        <h5>Type</h5>
+                        <div>{{trap?.type}}</div>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile class="right-menu-tile">
+                </mat-grid-tile>
+                <mat-grid-tile class="right-menu-tile">
+                    <div>
+                        <h5>Aantal</h5>
+                        <div>{{trap?.numberOfTraps}}</div>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile class="right-menu-tile">
+                    <div>
+                        <h5>Status</h5>
+                        <div>{{trap?.statusTitle}}</div>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile class="right-menu-tile">
+                    <div>
+                        <h5>Geplaatst op</h5>
+                        <div>{{trap?.recordedOn | date: 'dd-MM-yyyy'}}</div>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile class="right-menu-tile">
+                    <div>
+                        <h5>Door</h5>
+                        <div>{{trap?.createdBy}}</div>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile class="right-menu-tile custom-height" colspan="3" rowspan="2">
+                    <div>
+                        <h5>Opmerkingen</h5>
+                        <div>{{trap?.remarks}}</div>
+                    </div>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </div>
+        <div>
+            <div *ngIf="trap?.catchesOnly.length">
+                <h5>Vangsten</h5>
+                <ul>
+                    <li *ngFor="let item of trap?.catchesOnly">{{ item.number }}x {{ item.type }}</li>
+                </ul>
+            </div>
+            <div *ngIf="trap?.byCatchesOnly.length">
+                <h5>Bijvangsten</h5>
+                <ul>
+                    <li *ngFor="let item of trap?.byCatchesOnly">{{ item.number }}x {{ item.type }}</li>
+                </ul>
+            </div>
+        </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel class="inner-mat-expansion-panel" *ngxPermissionsOnly="policyName.MapContentWrite">
+        <mat-expansion-panel-header class="section-header-title">
+            <mat-panel-title>
+                Verwijderen
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div class="margin-bottom-60">
+            <mat-grid-list cols="3" rowHeight="3:2">
+                <div class="right-menu-tile">
+                    <button mat-raised-button color="primary" class="mat-text-uppercase"
+                        [disabled]="hasCatches() || notCreatedToday()" (click)="showConfirmDialog()">Vangmiddel verwijderen
+                    </button>
+                </div>
+            </mat-grid-list>
+        </div>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel class="inner-mat-expansion-panel" *ngxPermissionsOnly="policyName.MapContentWrite">
+        <mat-expansion-panel-header class="section-header-title">
+            <mat-panel-title>
+                Verplaatsen
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="margin-bottom-60" *ngIf="(trapsService.movingTrapInProgress$ | async) === (false)">
+            <mat-grid-list cols="3" rowHeight="3:2">
+                <div class="right-menu-tile">
+                    <button mat-raised-button color="primary" class="mat-text-uppercase" 
+                    [disabled]="hasCatches() || notCreatedToday()" (click)="trapsService.setMovingTrapInProgress(true)">Verplaats
+                    </button>
+                </div>
+            </mat-grid-list>
+        </div>
+        <div class="margin-bottom-60" *ngIf="trapsService.movingTrapInProgress$ | async">
+            <mat-grid-list cols="3" rowHeight="3:2">
+                <div class="right-menu-tile">
+                    <button mat-raised-button color="primary" class="mat-text-uppercase" (click)="moveTrap()">Bewaar </button>
+                    <button mat-raised-button class="mat-text-uppercase" (click)="trapsService.setMovingTrapInProgress(false)" >Annuleer </button>
+                </div>
+            </mat-grid-list>
+        </div>
+    </mat-expansion-panel>
+
+</mat-expansion-panel>

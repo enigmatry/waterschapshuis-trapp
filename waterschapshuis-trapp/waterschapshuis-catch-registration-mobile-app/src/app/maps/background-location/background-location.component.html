@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" mode="md"></ion-back-button>
+    </ion-buttons>
+    <ion-title> Recorded location </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h2>Locations List</h2>
+  <ion-list>
+    <ion-item-sliding *ngFor="let location of locations; let i=index">
+      <ion-item nopadding>
+        <p>
+          Id: {{location.id}}<br />
+          Date and Time: {{ getDate(location.timestamp) | date: 'dd.MM.yyyy HH:mm:ss'}}<br />
+          Longitude: {{location.longitude}}<br />
+          Latitude: {{location.latitude}}<br />
+        </p>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="block" shape="round" fill="outline" (click)="getGeolocation()">Get recorded locations
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

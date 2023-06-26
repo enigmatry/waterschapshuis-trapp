@@ -1,0 +1,30 @@
+.mat-form-field{
+    width: 100%;
+}
+
+.filter-group {
+    margin-top: 10px;
+    display: flex;
+    width: inherit;
+
+    mat-form-field {
+        width: 22.5%;
+        margin: 0 auto;
+    }
+}
+
+.filter-buttons{
+    height: 40px;
+    .mat-raised-button{
+        margin-top: 10px;
+        float: right;
+    }
+}
+
+.viewport {
+    height: 200px;
+
+    .viewport-item {
+        height: 50px;
+    }
+}

@@ -1,0 +1,54 @@
+<div class="hour-panel">
+  <div class="hour-grid">
+    <mat-grid-list cols="1" rowHeight="60px" rowWidth="100%" gutterSize="10px">
+      <mat-grid-tile>
+        <table mat-table class="mat-elevation-z8" matSort>
+          <ng-container matColumnDef="catchArea">
+            <th mat-header-cell *matHeaderCellDef>Vanggebied </th>
+            <td mat-cell *matCellDef="let element"></td>
+          </ng-container>
+          <ng-container matColumnDef="subArea">
+            <th mat-header-cell *matHeaderCellDef>Deelgebied </th>
+            <td mat-cell *matCellDef="let element"></td>
+          </ng-container>
+          <ng-container matColumnDef="hourSquare">
+            <th mat-header-cell *matHeaderCellDef>Uurhok </th>
+            <td mat-cell *matCellDef="let element"></td>
+          </ng-container>
+          <ng-container matColumnDef="time">
+            <th mat-header-cell *matHeaderCellDef>Duur </th>
+            <td mat-cell *matCellDef="let element"></td>
+          </ng-container>
+          <ng-container matColumnDef="trappingType">
+            <th mat-header-cell *matHeaderCellDef>Bestrijding </th>
+            <td mat-cell *matCellDef="let element"></td>
+          </ng-container>
+          <ng-container matColumnDef="actionColumn">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element"></td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="columns; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: columns"></tr>
+        </table>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <div *ngFor='let formGroup of timeRegistrationData?.controls; let i=index'
+      [class]="i % 2 != 0 ? 'evenRow' : 'oddRow'">
+      <app-time-registrations-of-date [formGroup]="formGroup" [enabledStatus]="enabledStatus"
+        [disableAddingNewItems]="disableAddingNewItems" [catchAreas]="catchAreas" [trappingTypes]="trappingTypes">
+      </app-time-registrations-of-date>
+      <div *ngIf="rowContainsTime(formGroup.getRawValue().items)" class="grid">
+        <mat-grid-list cols="7" rowHeight="40px" rowWidth="100%" gutterSize="0">
+          <mat-grid-tile>
+            <div class="total-hours-label">Totaal uren:</div>
+          </mat-grid-tile>
+          <mat-grid-tile colspan="3"></mat-grid-tile>
+          <mat-grid-tile>
+            <div class="time-label">{{calculateTotalTimeForRow(formGroup.getRawValue().items)}}</div>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+    </div>
+  </div>
+</div>

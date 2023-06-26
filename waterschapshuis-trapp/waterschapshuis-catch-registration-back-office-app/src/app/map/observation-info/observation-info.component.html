@@ -1,0 +1,29 @@
+<div class="observation-content">
+  <div>
+    <h5>Type</h5>
+    <div>{{observation?.type === 1 ? 'Schade' : 'Overig'}}</div>
+  </div>
+  <div>
+    <h5>Foto</h5>
+    <img *ngIf="observation?.photoUrl" mat-card-image [src]="observation?.photoUrl" alt="Melding">
+    <div *ngIf="!observation?.photoUrl">Geen foto</div>
+  </div>
+  <div>
+    <h5>Door</h5>
+    <div>{{observation?.createdBy}}</div>
+  </div>
+  <div>
+    <h5>Datum</h5>
+    <div>{{ observation?.recordedOn | date:'dd-MM-yyyy HH:mm' }}</div>
+  </div>
+  <div>
+    <h5>Opmerkingen</h5>
+    <div>{{observation?.remarks}}</div>
+  </div>
+</div>
+
+<mat-divider></mat-divider>
+
+<div class="button-row">
+  <button mat-raised-button color="primary" class="mat-text-uppercase" (click)="details()">Bekijk</button>
+</div>

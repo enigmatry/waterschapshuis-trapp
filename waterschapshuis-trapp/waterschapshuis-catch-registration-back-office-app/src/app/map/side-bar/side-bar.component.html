@@ -1,0 +1,278 @@
+<mat-accordion>
+  <mat-expansion-panel id="layersPanel" class="sidebar-expansion-panel" expanded (click)="scrollToTop('legendPanel')">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Lagen
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div *ngFor="let category of overlayLayerCategories">
+     <div *ngIf="category.displayName!=defaultLayerCategory">
+      <div class="label-wrapper">
+        <mat-label>{{category.displayName}}</mat-label>
+      </div>
+      <div class="input-wrapper">
+        <mat-slide-toggle *ngFor="let layer of category.layers"
+          [checked]="layer.selected" 
+          [(ngModel)]="layer.selected"
+          (change)="selectOverlayLayers()">
+        {{layer.displayName}}
+      </mat-slide-toggle>
+      </div>
+      <hr>
+    </div>
+    </div>
+    <div class="label-wrapper">
+      <mat-label>ACHTERGROND</mat-label>
+    </div>
+    <mat-card class="menu-card">
+      <mat-radio-group aria-label="lagen">
+        <div *ngFor="let layer of backgroundLayers" class="input-wrapper">
+          <mat-radio-button [value]="layer.key" (change)="selectLayer(layer.key)" [checked]="layer.selected">
+            {{layer.text}}</mat-radio-button>
+        </div>
+      </mat-radio-group>
+    </mat-card>
+  </mat-expansion-panel>
+  <app-map-filter (click)="scrollToTop('layersPanel', 'legendPanel')"></app-map-filter>
+  <mat-expansion-panel id="legendPanel" class="sidebar-expansion-panel" (click)="scrollToTop('layersPanel')">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Legenda
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    
+    <div class="label-wrapper">
+      <mat-label>VANGMIDDEL - VANGEND/GEPLAATST</mat-label>
+    </div>
+    <mat-card class="menu-card">
+        <mat-icon class="legend-icon trap-schijnduiker"></mat-icon>
+        <mat-label>Schijnduiker</mat-label>
+    </mat-card>
+    <mat-card class="menu-card">
+      <mat-icon class="legend-icon trap-duikerafzetting"></mat-icon>
+      <mat-label>Duikerafzetting</mat-label>
+    </mat-card>
+    <mat-card class="menu-card">
+      <mat-icon class="legend-icon trap-slootafzetting"></mat-icon>
+      <mat-label>Slootafzetting</mat-label>
+    </mat-card>
+    <mat-card class="menu-card">
+      <mat-icon class="legend-icon trap-conibear"></mat-icon>
+      <mat-label>Conibear</mat-label>
+    </mat-card>
+    <mat-card class="menu-card">
+      <mat-icon class="legend-icon trap-grondklem"></mat-icon>
+      <mat-label>Grondklem</mat-label>
+    </mat-card>
+    <mat-card class="menu-card">
+      <mat-icon class="legend-icon trap-lokaasklem"></mat-icon>
+      <mat-label>Lokaasklem</mat-label>
+    </mat-card>
+    <mat-card class="menu-card">
+      <mat-icon class="legend-icon trap-postklem"></mat-icon>
+      <mat-label>Postklem</mat-label>
+    </mat-card>
+    <mat-card class="menu-card">
+      <mat-icon class="legend-icon trap-klemmenrek"></mat-icon>
+      <mat-label>Klemmenrek</mat-label>
+    </mat-card>
+    <mat-card class="menu-card">
+      <mat-icon class="legend-icon trap-lokaaskooi"></mat-icon>
+      <mat-label>Lokaaskooi</mat-label>
+    </mat-card>
+    <mat-card class="menu-card">
+      <mat-icon class="legend-icon trap-musk-living"></mat-icon>
+      <mat-label>Levend vangende kooi</mat-label>
+    </mat-card>
+    <mat-card class="menu-card menu-card-multiline">
+      <mat-icon class="legend-icon trap-beaver-living"></mat-icon>
+      <mat-card class="multiline-legend-title">
+        <mat-label>Levend vangende kooi</mat-label>
+        <mat-label>(Beverrat)</mat-label>
+      </mat-card>
+    </mat-card>
+    <mat-card class="menu-card menu-card-multiline">
+      <mat-icon class="star-legend-icon trap-musk-other"></mat-icon>
+      <mat-card class="multiline-legend-title">
+        <mat-label>Geweer</mat-label>
+        <mat-label>Slaan</mat-label>
+        <mat-label>Dood aangetroffen</mat-label>
+      </mat-card>
+    </mat-card>
+    <mat-card class="menu-card menu-card-multiline">
+      <mat-icon class="star-legend-icon trap-beaver-other"></mat-icon>
+      <mat-card class="multiline-legend-title">
+        <mat-label>Geweer (Beverrat)</mat-label>
+        <mat-label>Slaan en delven (Beverrat)</mat-label>
+        <mat-label>Dood aangetroffen (Beverrat)</mat-label>
+      </mat-card>
+    </mat-card>
+    <mat-card class="menu-card">
+      <mat-icon class="legend-icon notification"></mat-icon>
+      <mat-label>Actuele Meldingen</mat-label>
+    </mat-card>
+    <mat-card class="menu-card">
+      <mat-icon class="legend-icon notification-archived"></mat-icon>
+      <mat-label>Gearchiveerde Meldingen</mat-label>
+    </mat-card>
+    <mat-card class="menu-card">
+      <mat-icon class="legend-icon catch-circle-icon"></mat-icon>
+      <mat-label>Aantal vangsten</mat-label>
+    </mat-card>
+    <hr>
+    <div class="label-wrapper">
+      <mat-label>VANGMIDDEL - VERWIJDERD</mat-label>
+    </div>
+       <mat-card class="menu-card">
+        <mat-icon class="legend-icon trap-schijnduiker removed"></mat-icon>
+        <mat-label>Schijnduiker</mat-label>
+    </mat-card>
+    <mat-card class="menu-card">
+      <mat-icon class="legend-icon trap-duikerafzetting removed"></mat-icon>
+      <mat-label>Duikerafzetting</mat-label>
+    </mat-card>
+    <mat-card class="menu-card">
+      <mat-icon class="legend-icon trap-slootafzetting removed"></mat-icon>
+      <mat-label>Slootafzetting</mat-label>
+    </mat-card>
+    <mat-card class="menu-card">
+      <mat-icon class="legend-icon trap-conibear removed"></mat-icon>
+      <mat-label>Conibear</mat-label>
+    </mat-card>
+    <mat-card class="menu-card">
+      <mat-icon class="legend-icon trap-grondklem removed"></mat-icon>
+      <mat-label>Grondklem</mat-label>
+    </mat-card>
+    <mat-card class="menu-card">
+      <mat-icon class="legend-icon trap-lokaasklem removed"></mat-icon>
+      <mat-label>Lokaasklem</mat-label>
+    </mat-card>
+    <mat-card class="menu-card">
+      <mat-icon class="legend-icon trap-postklem removed"></mat-icon>
+      <mat-label>Postklem</mat-label>
+    </mat-card>
+    <mat-card class="menu-card">
+      <mat-icon class="legend-icon trap-klemmenrek removed"></mat-icon>
+      <mat-label>Klemmenrek</mat-label>
+    </mat-card>
+    <mat-card class="menu-card">
+      <mat-icon class="legend-icon trap-lokaaskooi removed"></mat-icon>
+      <mat-label>Lokaaskooi</mat-label>
+    </mat-card>
+    <mat-card class="menu-card">
+      <mat-icon class="legend-icon trap-musk-living removed"></mat-icon>
+      <mat-label>Levend vangende kooi</mat-label>
+    </mat-card>
+    <mat-card class="menu-card menu-card-multiline">
+      <mat-icon class="legend-icon trap-beaver-living removed"></mat-icon>
+      <mat-card class="multiline-legend-title">
+        <mat-label>Levend vangende kooi</mat-label>
+        <mat-label>(Beverrat)</mat-label>
+      </mat-card>
+    </mat-card>
+    <mat-card class="menu-card menu-card-multiline">
+      <mat-icon class="star-legend-icon trap-musk-other removed"></mat-icon>
+      <mat-card class="multiline-legend-title">
+        <mat-label>Geweer</mat-label>
+        <mat-label>Slaan</mat-label>
+        <mat-label>Dood aangetroffen</mat-label>
+      </mat-card>
+    </mat-card>
+    <mat-card class="menu-card menu-card-multiline">
+      <mat-icon class="star-legend-icon trap-beaver-other removed"></mat-icon>
+      <mat-card class="multiline-legend-title">
+        <mat-label>Geweer (Beverrat)</mat-label>
+        <mat-label>Slaan en delven (Beverrat)</mat-label>
+        <mat-label>Dood aangetroffen (Beverrat)</mat-label>
+      </mat-card>
+    </mat-card>
+    <hr>
+    <div class="label-wrapper">
+      <mat-label>VANGMIDDEL - NIET VANGEND</mat-label>
+    </div>
+    <mat-card class="menu-card">
+      <mat-icon class="legend-icon trap-schijnduiker unplaced"></mat-icon>
+      <mat-label>Schijnduiker</mat-label>
+    </mat-card>
+    <mat-card class="menu-card">
+      <mat-icon class="legend-icon trap-duikerafzetting unplaced"></mat-icon>
+      <mat-label>Duikerafzetting</mat-label>
+    </mat-card>
+    <mat-card class="menu-card">
+      <mat-icon class="legend-icon trap-slootafzetting unplaced"></mat-icon>
+      <mat-label>Slootafzetting</mat-label>
+    </mat-card>
+    <mat-card class="menu-card">
+      <mat-icon class="legend-icon trap-klemmenrek unplaced"></mat-icon>
+      <mat-label>Klemmenrek</mat-label>
+    </mat-card>
+    <mat-card class="menu-card">
+      <mat-icon class="legend-icon trap-lokaaskooi unplaced"></mat-icon>
+      <mat-label>Lokaaskooi</mat-label>
+    </mat-card>
+    <hr>
+    <div class="label-wrapper">
+      <mat-label>SPEUREN</mat-label>
+    </div>
+    <mat-card class="menu-card menu-card-multiline">
+      <mat-icon class="gebieden-legend-icon trackingline-1-icon"></mat-icon>
+      <mat-card class="multiline-legend-title">
+        <mat-label>Speurkaart</mat-label>
+        <mat-label>(een dag geleden)</mat-label>
+      </mat-card>
+    </mat-card>
+    <mat-card class="menu-card menu-card-multiline">
+      <mat-icon class="gebieden-legend-icon trackingline-2-icon"></mat-icon>
+      <mat-card class="multiline-legend-title">
+        <mat-label>Speurkaart</mat-label>
+        <mat-label>(minder dan een week geleden)</mat-label>
+      </mat-card>
+    </mat-card>
+    <mat-card class="menu-card menu-card-multiline">
+      <mat-icon class="gebieden-legend-icon trackingline-3-icon"></mat-icon>
+      <mat-card class="multiline-legend-title">
+        <mat-label>Speurkaart</mat-label>
+        <mat-label>(minder dan drie weken geleden)</mat-label>
+      </mat-card>
+    </mat-card>
+    <mat-card class="menu-card menu-card-multiline">
+      <mat-icon class="gebieden-legend-icon trackingline-4-icon"></mat-icon>
+      <mat-card class="multiline-legend-title">
+        <mat-label>Speurkaart</mat-label>
+        <mat-label>(minder dan een jaar geleden)</mat-label>
+      </mat-card>
+    </mat-card>
+    <hr>
+    <div class="label-wrapper">
+      <mat-label>GEBIEDEN</mat-label>
+    </div>
+    <mat-card class="menu-card">
+      <mat-icon class="gebieden-legend-icon hoursquare-icon"></mat-icon>
+      <mat-label>Uurhokken</mat-label>
+    </mat-card>
+    <mat-card class="menu-card">
+      <mat-icon class="gebieden-legend-icon rayon-icon"></mat-icon>
+      <mat-label>Rayons</mat-label>
+    </mat-card>
+    <mat-card class="menu-card">
+      <mat-icon class="gebieden-legend-icon vanggebieden-icon"></mat-icon>
+      <mat-label>Vanggebieden</mat-label>
+    </mat-card>
+    <mat-card class="menu-card">
+      <mat-icon class="gebieden-legend-icon deelgebieden-icon"></mat-icon>
+      <mat-label>Deelgebieden</mat-label>
+    </mat-card>
+    <mat-card class="menu-card">
+      <mat-icon class="gebieden-legend-icon organisation-icon"></mat-icon>
+      <mat-label>Organisatie</mat-label>
+    </mat-card>
+    <mat-card class="menu-card">
+      <mat-icon class="gebieden-legend-icon waterschap-icon"></mat-icon>
+      <mat-label>Waterschap</mat-label>
+    </mat-card>
+    <mat-card class="menu-card">
+      <mat-icon class="gebieden-legend-icon provincie-icon"></mat-icon>
+      <mat-label>Provincie</mat-label>
+    </mat-card>
+  </mat-expansion-panel>
+</mat-accordion>

@@ -1,0 +1,11 @@
+<p class="content-title">Rollen</p>
+<div *ngFor="let role of allRoles">
+  <mat-checkbox color="primary" id="{{ role.id}}"  [(ngModel)]="role.checked" [disabled]="role.disabled">
+    {{ role.name }}
+  </mat-checkbox>
+</div>
+<mat-divider></mat-divider>
+<button  class ="dialog-button" mat-button color="primary" (click)="close()">ANNULEER</button>
+<button *ngxPermissionsOnly="[ policyName.UserWrite ]" class ="dialog-button" mat-raised-button color="primary" (click)="saveAndClose()">
+  BEWAAR
+</button>

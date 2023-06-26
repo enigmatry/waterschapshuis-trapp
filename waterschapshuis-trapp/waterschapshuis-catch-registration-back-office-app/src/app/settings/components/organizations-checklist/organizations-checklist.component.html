@@ -1,0 +1,10 @@
+<p class="content-title">Kies een organisatie</p>
+<mat-radio-group *ngFor="let organization of allOrganizations" class="radio-group" color="primary"  [(ngModel)]="selectedOrganization">
+    <mat-radio-button value="{{ organization.id}}">
+        {{ organization.name }}
+    </mat-radio-button>
+</mat-radio-group>
+<mat-divider></mat-divider>
+
+<button class="dialog-button" mat-button color="primary" (click)="close()">ANNULEER</button>
+<button class="dialog-button" mat-raised-button color="primary" (click)="saveAndClose()">BEWAAR</button> 

@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/maps" mode="md"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Vangmiddel<app-info-icon pageName="Vangmiddel"></app-info-icon>
+    </ion-title>
+    <ion-button class="ion-text-uppercase mr-5" slot="end" (click)="saveTrap()"
+      [disabled]="!(isTrapDetailsFormValid$ | async)">
+      Bewaar
+    </ion-button>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  <app-trap-general-info #trapDetails [trap]="trapBaseDetails"></app-trap-general-info>
+
+  <div class="divider"></div>
+
+  <app-catch-details #catchDetails *ngIf="!isRemoved && !notCatching"></app-catch-details>
+
+  <div class="divider" *ngIf="!isRemoved && !notCatching"></div>
+
+  <app-by-catch-details #byCatchDetails *ngIf="!isRemoved && !notCatching" [trapId]="trap?.id"></app-by-catch-details>
+
+  <div class="divider" *ngIf="!isRemoved && !notCatching"></div>
+
+  <app-trap-details [trap]="trap" title="Details" [showRouteButton]="false"></app-trap-details>
+
+  <div class="divider" *ngIf="!networkService.isOffline() && trap"></div>
+
+  <app-trap-history *ngIf="!networkService.isOffline() && trap" [trapId]="trap.id"></app-trap-history>
+
+  <section class="ion-text-center">
+    <ion-button class="ion-text-uppercase" color="primary" fill="clear" (click)="navController.navigateRoot('/maps')">
+      Annuleer
+    </ion-button>
+    <ion-button class="ion-text-uppercase" (click)="saveTrap()" [disabled]="!(isTrapDetailsFormValid$ | async)">
+      Bewaar
+    </ion-button>
+  </section>
+
+  <ion-list class="footer">
+    <ion-item color="light" (click)="moveTrap()" [disabled]="isRemoved || !isDeleteAllowed">
+      Verplaats Vangmiddel
+    </ion-item>
+    <ion-item color="light" (click)="deleteTrap()" [disabled]="!isDeleteAllowed">
+      Verwijder Vangmiddel
+    </ion-item>
+  </ion-list>
+</ion-content>

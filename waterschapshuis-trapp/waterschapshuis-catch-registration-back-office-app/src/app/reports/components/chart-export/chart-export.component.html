@@ -1,0 +1,11 @@
+<button mat-raised-button color="primary" [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="print()">Afdrukken</button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item (click)="exportTo('png')">PNG bestand</button>
+    <button mat-menu-item (click)="exportTo('jpeg')">JPEG bestand</button>
+    <button mat-menu-item (click)="exportTo('pdf')">PDF bestand</button>
+    <button mat-menu-item (click)="exportTo('svg')">SVG bestand</button>
+</mat-menu>

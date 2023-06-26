@@ -1,0 +1,29 @@
+.sidebar-expansion-panel {
+    max-height: calc(100vh - 70px);
+    overflow-y: hidden;
+    margin-top: 10px;
+  }
+
+form {
+  div{
+      .mat-form-field{
+          width: 100%;
+      }
+  } 
+  .filter-range {
+      display: flex;
+      justify-content: space-between;
+  
+      mat-form-field {
+          width: 47.5%;
+      }
+  }   
+}
+
+.filter-buttons{
+  height: 40px;
+  .mat-raised-button{
+      margin-top: 10px;
+      float: right;
+  }
+}

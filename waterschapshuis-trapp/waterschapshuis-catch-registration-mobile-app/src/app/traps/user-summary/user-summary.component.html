@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" mode="md"></ion-back-button>
+    </ion-buttons>
+    <ion-title> Eigen overzicht <app-info-icon pageName="EigenOverzicht"></app-info-icon>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="summary">
+  <ion-item>
+    <ion-label>
+      <h2>Vangsten en vangmiddelen</h2>
+      <ul>
+        <li>{{ summary?.catchesThisWeek }} Vangsten</li>
+        <li>{{ summary?.outstandingTraps }} Uitstaande vangmiddelen</li>
+      </ul>
+    </ion-label>
+  </ion-item>
+  <ion-item *ngFor='let trapType of trapTypes' lines="none">
+    <ion-label>
+      <h2>{{ getTrapCountByType(trapType) + 'x ' + trapType}}</h2>
+      <ul>
+        <li *ngFor='let trap of getTrapsByType(trapType)'>
+          Geplaatst: {{ trap?.dateCreated | date:'dd-MM-yyyy' }},
+          {{ trap.daysSinceCatch >= 0 ? trap.daysSinceCatch + ' dagen geleden' : 'geen vangst' }}
+        </li>
+      </ul>
+    </ion-label>
+  </ion-item>
+</ion-content>

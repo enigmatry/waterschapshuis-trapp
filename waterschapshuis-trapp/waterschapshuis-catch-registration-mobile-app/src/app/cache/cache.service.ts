@@ -1,0 +1,558 @@
+// taken ionic-cache npm
+// tslint:disable: no-redundant-jsdoc no-inferrable-types variable-name
+
+import { HttpResponse } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { defer, from, Observable, Subject, throwError } from 'rxjs';
+import { catchError, share } from 'rxjs/operators';
+import { ConnectionStatus } from '../shared/offline/models/connection-status.enum';
+import { CacheStorageService, StorageCacheItem } from './cache.storage';
+import { NetworkService } from '../network/network.service';
+
+export interface CacheConfig {
+    keyPrefix?: string;
+}
+
+export const MESSAGES = {
+    0: 'Cache initialization error: ',
+    1: 'Cache is not enabled.',
+    2: 'Cache entry already expired: ',
+    3: 'No such key: ',
+    4: 'No entries were deleted, because browser is offline.',
+};
+
+export type CacheValueFactory<T> = () => Promise<T>;
+
+/**
+ * @description Check if it's an HttpResponse
+ * @param {any} data - Variable to test
+ * @return {boolean} - data from cache
+ */
+const isHttpResponse = (data: any): boolean => {
+    const orCondition =
+        data &&
+        typeof data === 'object' &&
+        data.hasOwnProperty('status') &&
+        data.hasOwnProperty('statusText') &&
+        data.hasOwnProperty('headers') &&
+        data.hasOwnProperty('url') &&
+        data.hasOwnProperty('body');
+
+    return data && (data instanceof HttpResponse || orCondition);
+};
+
+const isJsOrResponseType = (data: any): boolean => {
+    const jsType =
+        data.type === 'undefined' ||
+        data.type === 'object' ||
+        data.type === 'boolean' ||
+        data.type === 'number' ||
+        data.type === 'bigint' ||
+        data.type === 'string' ||
+        data.type === 'symbol' ||
+        data.type === 'function';
+
+    const responseType = data.type === 'response';
+
+    return responseType || jsType;
+};
+
+@Injectable({
+    providedIn: 'root'
+})
+export class CacheService {
+    private ttl: number = 60 * 60; // one hour
+    private cacheEnabled: boolean = true;
+    private invalidateOffline: boolean = false;
+    private networkStatus: boolean = true;
+
+    constructor(private _storage: CacheStorageService, private networkService: NetworkService) {
+        this.watchNetworkInit();
+        this.loadCache();
+    }
+
+    private async loadCache() {
+        try {
+            await this._storage.ready();
+            this.cacheEnabled = true;
+        } catch (e) {
+            this.cacheEnabled = false;
+            console.error(MESSAGES[0], e);
+        }
+    }
+
+    async ready(): Promise<any> {
+        await this._storage.ready();
+    }
+
+    /**
+     * @description Disable or enable cache
+     */
+    enableCache(enable: boolean = true) {
+        this.cacheEnabled = enable;
+    }
+
+    /**
+     * @description Delete DB table and create new one
+     * @return {Promise<any>}
+     */
+    private async resetDatabase(): Promise<any> {
+        await this.ready();
+
+        const items = await this._storage.all();
+        return Promise.all(items.map(item => this.removeItem(item.key)));
+    }
+
+    /**
+     * @description Set default TTL
+     * @param {number} ttl - TTL in seconds
+     */
+    setDefaultTTL(ttl: number): number {
+        return (this.ttl = ttl);
+    }
+
+    /**
+     * @description Set if expired cache should be invalidated if device is offline
+     * @param {boolean} offlineInvalidate
+     */
+    setOfflineInvalidate(offlineInvalidate: boolean) {
+        this.invalidateOffline = !offlineInvalidate;
+    }
+
+    /**
+     * @description Start watching if devices is online or offline
+     */
+    private watchNetworkInit() {
+        this.networkService.onNetworkChange().subscribe(result =>
+            this.networkStatus = result.status === ConnectionStatus.Online);
+    }
+
+    /**
+     * @description Check if devices is online
+     * @return network status
+     */
+    private isOnline() {
+        return this.networkStatus;
+    }
+
+    /**
+     * @description Save item to cache
+     * @param {string} key - Unique key
+     * @param {any} data - Data to store
+     * @param {string} [groupKey] - group key
+     * @param {number} [ttl] - TTL in seconds
+     * @return {Promise<any>} - saved data
+     */
+    saveItem<T>(
+        key: string,
+        data: T,
+        groupKey: string = 'none',
+        ttl: number = this.ttl
+    ): Promise<any> {
+        if (!this.cacheEnabled) {
+            throw new Error(MESSAGES[1]);
+        }
+
+        if (Blob.name === data.constructor.name) {
+            return this.saveBlobItem(key, data, groupKey, ttl);
+        }
+
+        const expires = new Date().getTime() + ttl * 1000,
+            type = isHttpResponse(data) ? 'response' : typeof data,
+            value = JSON.stringify(data);
+
+        return this._storage.set(key, {
+            value,
+            expires,
+            type,
+            groupKey,
+        });
+    }
+
+    /**
+     * @description Save all items to cache
+     * @param getKey
+     * @param items
+     * @param groupKey
+     * @param ttl
+     */
+    saveAllItems<T>(
+        getKey: (item: T) => string,
+        items: T[],
+        groupKey: string = 'none',
+        ttl: number = this.ttl
+    ): Promise<any> {
+        if (!this.cacheEnabled) {
+            throw new Error(MESSAGES[1]);
+        }
+
+        const getType = (item: T) => typeof item;
+        const expires = new Date().getTime() + ttl * 1000;
+
+        const getData = (item: T) => {
+            return {
+                value: JSON.stringify(item),
+                expires,
+                type: getType(item),
+                groupKey,
+            };
+        };
+
+        return this._storage.setAll(items, getKey, getData);
+    }
+
+    /**
+     * @description Save blob item to cache
+     * @param {string} key - Unique key
+     * @param {any} blob - Blob to store
+     * @param {string} [groupKey] - group key
+     * @param {number} [ttl] - TTL in seconds
+     * @return {Promise<any>} - saved data
+     */
+    private async saveBlobItem(
+        key: string,
+        blob: any,
+        groupKey: string = 'none',
+        ttl: number = this.ttl
+    ): Promise<any> {
+        if (!this.cacheEnabled) {
+            throw new Error(MESSAGES[1]);
+        }
+
+        const expires = new Date().getTime() + ttl * 1000,
+            type = blob.type;
+
+        try {
+            const base64data = await this.asBase64(blob);
+            const value = JSON.stringify(base64data);
+
+            return this._storage.set(key, {
+                value,
+                expires,
+                type,
+                groupKey,
+            });
+        } catch (error) {
+            throw new Error(error);
+        }
+    }
+
+    // Technique derived from: https://stackoverflow.com/a/18650249
+    private asBase64(blob): Promise<string> {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(blob);
+            reader.onloadend = () => {
+                const base64data = reader.result as string;
+                resolve(base64data);
+            };
+            reader.onerror = event => {
+                reject(event);
+                reader.abort();
+            };
+        });
+    }
+
+    /**
+     * @description Delete item from cache
+     * @param {string} key - Unique key
+     * @return {Promise<any>} - query execution promise
+     */
+    removeItem(key: string): Promise<any> {
+        if (!this.cacheEnabled) {
+            throw new Error(MESSAGES[1]);
+        }
+
+        return this._storage.remove(key);
+    }
+
+    /**
+     * @description Removes all items with a key that matches pattern
+     * @return {Promise<any>}
+     */
+    async removeItems(pattern: string): Promise<any> {
+        if (!this.cacheEnabled) {
+            throw new Error(MESSAGES[1]);
+        }
+
+        const regex = new RegExp(`^${pattern.split('*').join('.*')}$`);
+        const items = await this._storage.all();
+
+        return Promise.all(
+            items
+                .map(item => item.key)
+                .filter(key => key && regex.test(key))
+                .map(key => this.removeItem(key))
+        );
+    }
+
+    /**
+     * @description Get item from cache without expire check etc.
+     * @param {string} key - Unique key
+     * @return {Promise<any>} - data from cache
+     */
+    async getRawItem<T = any>(key: string): Promise<StorageCacheItem> {
+        if (!this.cacheEnabled) {
+            throw new Error(MESSAGES[1]);
+        }
+
+        try {
+            const data = await this._storage.get(key);
+            if (!!data) {
+                return data;
+            }
+
+            throw new Error('');
+        } catch (err) {
+            throw new Error(MESSAGES[3] + key);
+        }
+    }
+
+    async getRawItems() {
+        return this._storage.all();
+    }
+
+    /**
+     * @description Check if item exists in cache regardless if expired or not
+     * @param {string} key - Unique key
+     * @return {Promise<boolean | string>} - boolean - true if exists
+     */
+    async itemExists(key: string): Promise<boolean | string> {
+        if (!this.cacheEnabled) {
+            throw new Error(MESSAGES[1]);
+        }
+
+        return this._storage.exists(key);
+    }
+
+    /**
+     * @description Get item from cache with expire check and correct type assign
+     * @param {string} key - Unique key
+     * @return {Promise<any>} - data from cache
+     */
+    async getItem<T = any>(key: string): Promise<T> {
+        if (!this.cacheEnabled) {
+            throw new Error(MESSAGES[1]);
+        }
+
+        const data = await this.getRawItem(key);
+
+        if (
+            data.expires < new Date().getTime() &&
+            (this.invalidateOffline || this.isOnline())
+        ) {
+            throw new Error(MESSAGES[2] + key);
+        }
+
+        return CacheService.decodeRawData(data);
+    }
+
+    async getOrSetItem<T>(
+        key: string,
+        factory: CacheValueFactory<T>,
+        groupKey?: string,
+        ttl?: number
+    ): Promise<T> {
+        let val: T;
+
+        try {
+            val = await this.getItem<T>(key);
+        } catch (error) {
+            val = await factory();
+            await this.saveItem(key, val, groupKey, ttl);
+        }
+
+        return val;
+    }
+
+    /**
+     * @description Decode raw data from DB
+     * @param {any} data - Data
+     * @return {any} - decoded data
+     */
+    // tslint:disable-next-line: member-ordering
+    static async decodeRawData(data: StorageCacheItem): Promise<any> {
+        const dataJson = JSON.parse(data.value);
+        if (isJsOrResponseType(data)) {
+            if (isHttpResponse(dataJson)) {
+                const response: any = {
+                    body: dataJson._body || dataJson.body,
+                    status: dataJson.status,
+                    headers: dataJson.headers,
+                    statusText: dataJson.statusText,
+                    url: dataJson.url,
+                };
+
+                return new HttpResponse(response);
+            }
+
+            return dataJson;
+        } else {
+            // Technique derived from: https://stackoverflow.com/a/36183085
+            const response = await fetch(dataJson);
+
+            return response.blob();
+        }
+    }
+
+    /**
+     * @description Load item from cache if it's in cache or load from origin observable
+     * @param {string} key - Unique key
+     * @param {any} observable - Observable with data
+     * @param {string} [groupKey] - group key
+     * @param {number} [ttl] - TTL in seconds
+     * @return {Observable<any>} - data from cache or origin observable
+     */
+    loadFromObservable<T = any>(
+        key: string,
+        observable: any,
+        groupKey?: string,
+        ttl?: number
+    ): Observable<T> {
+        if (!this.cacheEnabled) { return observable; }
+
+        observable = observable.pipe(share());
+
+        return defer(() => {
+            return from(this.getItem(key)).pipe(
+                catchError(e => {
+                    observable.subscribe(
+                        res => {
+                            return this.saveItem(key, res, groupKey, ttl);
+                        },
+                        error => {
+                            return throwError(error);
+                        }
+                    );
+
+                    return observable;
+                })
+            );
+        });
+    }
+
+    /**
+     * @description Load item from cache if it's in cache or load from origin observable
+     * @param {string} key - Unique key
+     * @param {any} observable - Observable with data
+     * @param {string} [groupKey] - group key
+     * @param {number} [ttl] - TTL in seconds
+     * @param {string} [delayType='expired']
+     * @param {string} [metaKey] - property on T to which to assign meta data
+     * @return {Observable<any>} - data from cache or origin observable
+     */
+    loadFromDelayedObservable<T = any>(
+        key: string,
+        observable: Observable<T>,
+        groupKey?: string,
+        ttl: number = this.ttl,
+        delayType: string = 'expired',
+        metaKey?: string
+    ): Observable<T> {
+        if (!this.cacheEnabled) { return observable; }
+
+        const observableSubject = new Subject<T>();
+        observable = observable.pipe(share());
+
+        const subscribeOrigin = () => {
+            observable.subscribe(
+                res => {
+                    this.saveItem(key, res, groupKey, ttl);
+                    observableSubject.next(res);
+                    observableSubject.complete();
+                },
+                err => {
+                    observableSubject.error(err);
+                },
+                () => {
+                    observableSubject.complete();
+                }
+            );
+        };
+
+        this.getItem<T>(key)
+            .then(data => {
+                if (metaKey) {
+                    data[metaKey] = data[metaKey] || {};
+                    data[metaKey].fromCache = true;
+                }
+                observableSubject.next(data);
+
+                if (delayType === 'all') {
+                    subscribeOrigin();
+                } else {
+                    observableSubject.complete();
+                }
+            })
+            .catch(e => {
+                this.getRawItem<T>(key)
+                    .then(async res => {
+                        const result = await CacheService.decodeRawData(res);
+                        if (metaKey) {
+                            result[metaKey] = result[metaKey] || {};
+                            result[metaKey].fromCache = true;
+                        }
+                        observableSubject.next(result);
+                        subscribeOrigin();
+                    })
+                    .catch(() => subscribeOrigin());
+            });
+
+        return observableSubject.asObservable();
+    }
+
+    /**
+     * Perform complete cache clear
+     * @return {Promise<any>}
+     */
+    clearAll(): Promise<any> {
+        if (!this.cacheEnabled) {
+            throw new Error(MESSAGES[2]);
+        }
+
+        return this.resetDatabase();
+    }
+
+    /**
+     * @description Remove all expired items from cache
+     * @param {boolean} ignoreOnlineStatus -
+     * @return {Promise<any>} - query promise
+     */
+    async clearExpired(ignoreOnlineStatus = false): Promise<any> {
+        if (!this.cacheEnabled) {
+            throw new Error(MESSAGES[2]);
+        }
+
+        if (!this.isOnline() && !ignoreOnlineStatus) {
+            throw new Error(MESSAGES[4]);
+        }
+
+        const items = await this._storage.all();
+        const dateTime = new Date().getTime();
+
+        return Promise.all(
+            items
+                .filter(item => item.expires < dateTime)
+                .map(item => this.removeItem(item.key))
+        );
+    }
+
+    /**
+     * @description Remove all item with specified group
+     * @param {string} groupKey - group key
+     * @return {Promise<any>} - query promise
+     */
+    async clearGroup(groupKey: string): Promise<any> {
+        if (!this.cacheEnabled) {
+            throw new Error(MESSAGES[2]);
+        }
+
+        const items = await this._storage.all();
+
+        return Promise.all(
+            items
+                .filter(item => item.groupKey === groupKey)
+                .map(item => this.removeItem(item.key))
+        );
+    }
+}

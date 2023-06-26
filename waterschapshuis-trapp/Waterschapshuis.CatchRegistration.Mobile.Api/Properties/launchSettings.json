@@ -1,0 +1,33 @@
+﻿{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      // use ip instead of localhost - because of Android emulator, to be able to map 10.0.2.2 to 127.0.0.1
+      // this way we avoid CORS errors in the emulator
+      "applicationUrl": "http://127.0.0.1:5450/",
+      "sslPort": 0
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONENABLED": "true",
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONVAULT": "https://waterschapshuis-cr-dev.vault.azure.net"
+      }
+    },
+    "Waterschapshuis.CatchRegistration.Api": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONENABLED": "true",
+        "ASPNETCORE_ENVIRONMENT": "Test",
+        "ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONVAULT": "https://waterschapshuis-cr-dev.vault.azure.net"
+      },
+      "applicationUrl": "http://localhost:5441/"
+    }
+  }
+}

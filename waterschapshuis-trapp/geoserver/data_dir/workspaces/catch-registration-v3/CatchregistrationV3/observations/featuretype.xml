@@ -1,0 +1,42 @@
+<featureType>
+  <id>FeatureTypeInfoImpl--69fc64da:171641ac0df:13a8</id>
+  <name>Observations</name>
+  <nativeName>vw_Observations_Geo</nativeName>
+  <namespace>
+    <id>NamespaceInfoImpl--4b297ecd:170b63989f0:-7fc9</id>
+  </namespace>
+  <title>Observations</title>
+  <abstract>Layer for observations in the field which are recorded by trappers. Both active and archived</abstract>
+  <keywords>
+    <string>features</string>
+    <string>vw_Observations_Geo</string>
+  </keywords>
+  <srs>EPSG:28992</srs>
+  <nativeBoundingBox>
+    <minx>14080.72249404405</minx>
+    <maxx>203239.54375071108</maxx>
+    <miny>359054.2356848414</miny>
+    <maxy>485294.659705893</maxy>
+    <crs class="projected">EPSG:28992</crs>
+  </nativeBoundingBox>
+  <latLonBoundingBox>
+    <minx>3.3204152113476133</minx>
+    <maxx>6.096329722824303</maxx>
+    <miny>51.203567904397886</miny>
+    <maxy>52.355744300570606</maxy>
+    <crs>EPSG:4326</crs>
+  </latLonBoundingBox>
+  <projectionPolicy>FORCE_DECLARED</projectionPolicy>
+  <enabled>true</enabled>
+  <store class="dataStore">
+    <id>DataStoreInfoImpl--4b297ecd:170b63989f0:-7fc8</id>
+  </store>
+  <serviceConfiguration>false</serviceConfiguration>
+  <maxFeatures>0</maxFeatures>
+  <numDecimals>0</numDecimals>
+  <padWithZeros>false</padWithZeros>
+  <forcedDecimal>false</forcedDecimal>
+  <overridingServiceSRS>false</overridingServiceSRS>
+  <skipNumberMatched>false</skipNumberMatched>
+  <circularArcPresent>false</circularArcPresent>
+</featureType>

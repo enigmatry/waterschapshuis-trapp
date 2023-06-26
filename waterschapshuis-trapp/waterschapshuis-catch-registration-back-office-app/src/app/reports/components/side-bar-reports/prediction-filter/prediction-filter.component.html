@@ -1,0 +1,43 @@
+<mat-expansion-panel [expanded]="isExpanded()" [routerLink]="routerLink">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            Prognose
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-nav-list>
+        <mat-card>
+            <form [formGroup]="form">
+                <div>
+                    <ng-select ngSelectMat  formControlName="hourSquareId" placeholder="Uurhok"
+                        bindValue="id" bindLabel="name" [items]="hourSquares">
+                    </ng-select>
+                </div>
+
+                <!-- Expected Hours -->
+                <mat-label>Geplande uren</mat-label>
+                <div class="filter-group" >
+                    <mat-form-field *ngFor='let season of seasons'>
+                        <mat-label>{{season.seasonAbbreviation}}</mat-label>
+                        <input [formControlName]="season.expectedHoursFormControlName" matInput type="number" min="0">
+                    </mat-form-field>
+                </div>
+
+                <!-- Expected catches -->
+                <mat-label>Beoogde vangst</mat-label>
+                <div class="filter-group">
+                    <mat-form-field *ngFor='let season of seasons'>
+                        <mat-label>{{season.seasonAbbreviation}}</mat-label>
+                        <input [formControlName]="season.expectedCatchesFormControlName" matInput type="number" min="0">
+                    </mat-form-field>
+                </div>
+
+                <mat-divider></mat-divider>
+
+                <div class="filter-buttons">
+                    <button mat-raised-button color="primary" [disabled]="form.invalid"
+                        (click)="onCalculate()">BEREKENEN</button>
+                </div>
+            </form>
+        </mat-card>
+    </mat-nav-list>
+</mat-expansion-panel>

@@ -1,0 +1,294 @@
+ion-list-header {	
+    color: #7A7A7A;	
+}
+
+.legend-icon{
+    font-size: 24px;
+    margin-right: 20px;
+}
+
+.special-legend-icon {
+    font-size: 28px;
+    margin-right: 15px;
+}
+
+.notification {
+    content: url('src/assets/legend-icons/notification.svg');
+}
+
+.notification-archived {
+    content: url('src/assets/legend-icons/notification-archived.svg')
+}
+
+.trap-beaver-living {
+    content: url('src/assets/legend-icons/trap-beaver-living.svg');
+    &.removed {
+        content: url('src/assets/legend-icons/trap-removed-beaver-living.svg');
+    }
+}
+
+.trap-beaver-other {
+    content: url('src/assets/legend-icons/trap-beaver-other.svg');
+    &.removed {
+        content: url('src/assets/legend-icons/trap-removed-beaver-other.svg');
+    }
+}
+
+.trap-conibear {
+    content: url('src/assets/legend-icons/trap-conibear.svg');
+    &.removed {
+        content: url('src/assets/legend-icons/trap-removed-conibear.svg');
+    }
+}
+
+.trap-duikerafzetting {
+    content: url('src/assets/legend-icons/trap-duikerafzetting.svg');
+    &.removed {
+        content: url('src/assets/legend-icons/trap-removed-duikerafzetting.svg');
+    }
+    &.unplaced {
+        content: url('src/assets/legend-icons/trap-unplaced-duikerafzetting.svg');
+    }
+}
+
+.trap-grondklem {
+    content: url('src/assets/legend-icons/trap-grondklem.svg');
+    &.removed {
+        content: url('src/assets/legend-icons/trap-removed-grondklem.svg');
+    }
+}
+
+.trap-klemmenrek {
+    content: url('src/assets/legend-icons/trap-klemmenrek.svg');
+    &.removed {
+        content: url('src/assets/legend-icons/trap-removed-klemmenrek.svg');
+    }
+    &.unplaced {
+        content: url('src/assets/legend-icons/trap-unplaced-klemmenrek.svg');
+    }
+}
+
+.trap-lokaasklem {
+    content: url('src/assets/legend-icons/trap-lokaasklem.svg');
+    &.removed {
+        content: url('src/assets/legend-icons/trap-removed-lokaasklem.svg');
+    }
+}
+
+.trap-lokaaskooi {
+    content: url('src/assets/legend-icons/trap-lokaaskooi.svg');
+    &.removed {
+        content: url('src/assets/legend-icons/trap-removed-lokaaskooi.svg');
+    }
+    &.unplaced {
+        content: url('src/assets/legend-icons/trap-unplaced-lokaaskooi.svg');
+    }
+}
+
+.trap-multiple {
+    content: url('src/assets/legend-icons/trap-multiple.svg');
+}
+
+.trap-musk-living {
+    content: url('src/assets/legend-icons/trap-musk-living.svg');
+    &.removed {
+        content: url('src/assets/legend-icons/trap-removed-musk-living.svg');
+    }
+}
+
+.trap-musk-other {
+    content: url('src/assets/legend-icons/trap-musk-other.svg');
+    &.removed {
+        content: url('src/assets/legend-icons/trap-removed-musk-other.svg');
+    }
+}
+
+.trap-postklem {
+    content: url('src/assets/legend-icons/trap-postklem.svg');
+    &.removed {
+        content: url('src/assets/legend-icons/trap-removed-postklem.svg');
+    }
+}
+
+.trap-schijnduiker {
+    content: url('src/assets/legend-icons/trap-schijnduiker.svg');
+    &.removed {
+        content: url('src/assets/legend-icons/trap-removed-schijnduiker.svg');
+    }
+    &.unplaced {
+        content: url('src/assets/legend-icons/trap-unplaced-schijnduiker.svg');
+    }
+}
+
+.trap-slootafzetting {
+    content: url('src/assets/legend-icons/trap-slootafzetting.svg');
+    &.removed {
+        content: url('src/assets/legend-icons/trap-removed-slootafzetting.svg');
+    }
+    &.unplaced {
+        content: url('src/assets/legend-icons/trap-unplaced-slootafzetting.svg');
+    }
+}
+
+.trap-location-multi-traps{
+    content: url('src/assets/legend-icons/trap-location-multi-traps.svg');
+}
+
+.trap-location-no-traps{
+    content: url('src/assets/legend-icons/trap-location-no-traps.svg');
+}
+
+.trap-oval-icon-1{
+    content: url('src/assets/legend-icons/trap-oval-1.svg');
+}
+
+.trap-oval-icon-2{
+    content: url('src/assets/legend-icons/trap-oval-2.svg');
+}
+
+.trap-oval-icon-3{
+    content: url('src/assets/legend-icons/trap-oval-3.svg');
+}
+
+.trap-oval-icon-4{
+    content: url('src/assets/legend-icons/trap-oval-4.svg');
+}
+
+.trap-triangle-icon-1{
+    content: url('src/assets/legend-icons/trap-triangle-1.svg');
+}
+
+.trap-triangle-icon-2{
+    content: url('src/assets/legend-icons/trap-triangle-2.svg');
+}
+
+.trap-triangle-icon-3{
+    content: url('src/assets/legend-icons/trap-triangle-3.svg');
+}
+
+.trap-triangle-icon-4{
+    content: url('src/assets/legend-icons/trap-triangle-4.svg');
+}
+
+.trap-triangle-icon-5{
+    content: url('src/assets/legend-icons/trap-triangle-5.svg');
+}
+
+.trap-square-icon-1{
+    content: url('src/assets/legend-icons/trap-square-1.svg');
+}
+
+.trap-square-icon-2{
+    content: url('src/assets/legend-icons/trap-square-2.svg');
+}
+
+.trap-square-icon-3{
+    content: url('src/assets/legend-icons/trap-square-3.svg');
+}
+
+.trap-star-icon-1{
+    content: url('src/assets/legend-icons/trap-star-1.svg');
+}
+
+.trap-star-icon-2{
+    content: url('src/assets/legend-icons/trap-star-2.svg'); 
+}
+
+.trap-star-icon-3{
+    content: url('src/assets/legend-icons/trap-star-3.svg');
+}
+
+.trap-star-icon-4{
+    content: url('src/assets/legend-icons/trap-star-4.svg');
+}
+
+.trap-star-icon-5{
+    content: url('src/assets/legend-icons/trap-star-5.svg');
+}
+.melding-icon{
+    content: url('src/assets/legend-icons/active-meldingen.svg');
+}
+
+.report-icon{
+    content: url('src/assets/legend-icons/report.svg');
+}
+
+.catch-circle-icon{
+    content: url('src/assets/legend-icons/catch-circle.svg');
+}
+
+.bycatch-circle-icon{
+    content: url('src/assets/legend-icons/bycatch-circle.svg');
+}
+
+.hoursquare-icon{
+    content: url('src/assets/legend-icons/hoursquare.svg');
+}
+
+.rayon-icon{
+    content: url('src/assets/legend-icons/rayon.svg');
+}
+
+.vanggebieden-icon{
+    content: url('src/assets/legend-icons/vanggebieden.svg');
+}
+
+.deelgebieden-icon{
+    content: url('src/assets/legend-icons/deelgebieden.svg');
+}
+
+.organisation-icon{
+    content: url('src/assets/legend-icons/organisation.svg');
+}
+
+.waterschap-icon{
+    content: url('src/assets/legend-icons/waterschap.svg');
+}
+
+.waterwegen-icon{
+    content: url('src/assets/legend-icons/waterwegen.svg');
+}
+
+.kunstwerken-icon{
+    content: url('src/assets/legend-icons/kunstwerken.svg');
+}
+
+.natuurgebieden-icon{
+    content: url('src/assets/legend-icons/natuurgebieden.svg');
+}
+
+.waterniveau-icon{
+    content: url('src/assets/legend-icons/waterniveau.svg');
+}
+
+.gespeurd-icon{
+    content: url('src/assets/legend-icons/gespeurd.svg');
+}
+
+.provincie-icon{
+    content: url('src/assets/legend-icons/provincie.svg');
+}
+
+.trackingline-1-icon{
+    content: url('src/assets/legend-icons/tracking-line-1.svg');
+}
+
+.trackingline-2-icon{
+    content: url('src/assets/legend-icons/tracking-line-2.svg');
+}
+
+.trackingline-3-icon{
+    content: url('src/assets/legend-icons/tracking-line-3.svg');
+}
+
+.trackingline-4-icon{
+    content: url('src/assets/legend-icons/tracking-line-4.svg');
+}
+
+.tracking-user-icon{
+    content: url('src/assets/legend-icons/tracking-user.svg');
+}
+
+.tracking-trappers-icon{
+    content: url('src/assets/legend-icons/tracking-trappers.svg');
+}

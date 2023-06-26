@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/maps" mode="md"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Bijvangst
+    </ion-title>
+    <ion-button class="ion-text-uppercase mr-5" slot="end" (click)="saveByCatches()">
+      Voeg toe
+    </ion-button>
+  </ion-toolbar>
+
+</ion-header>
+<ion-content>
+  <form [formGroup]="form">
+
+    <ion-item-group *ngFor="let byCatchItem of byCatchItems?.controls" formArrayName="byCatches">
+      <ion-item [formGroup]="byCatchItem">
+        <ion-label>{{ byCatchItem?.value?.byCatchTypeName }}</ion-label>
+        <ion-select interface="popover" formControlName="noOfCatches">
+          <ion-select-option
+            *ngFor="let num of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]"
+            [value]="num">
+            {{ num }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-item-group>
+
+    <section class="ion-text-center">
+      <ion-button class="ion-text-uppercase" color="primary" fill="clear" (click)="navController.back()">Annuleer
+      </ion-button>
+      <ion-button class="ion-text-uppercase" (click)="saveByCatches()">Bewaar</ion-button>
+    </section>
+  </form>
+</ion-content>

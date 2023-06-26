@@ -1,0 +1,49 @@
+ion-title {
+  font-size: 22px;
+  font-weight: bold;
+  text-overflow: initial;
+  padding-right: 0px;
+  width: 100%;
+  margin-left: 15px;
+}
+
+ion-footer {
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #dedede;
+}
+
+::ng-deep {
+  p {
+    margin: 1px;
+  }
+
+  .item-title {
+    font-weight: bold;
+    margin-top: 12px;
+  }
+
+  .row-label {
+    color: #7a7a7a;
+  }
+
+  ion-col {
+    padding: 0 0 0 10px;
+  }
+
+  .row-content {
+    padding-bottom: 15px;
+  }
+
+  .row-center {
+    justify-content: center;
+  }
+
+  .d-block {
+    display: block;
+  }
+
+  .divider {
+    border-top: 1px solid gray;
+  }
+}

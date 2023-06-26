@@ -1,0 +1,31 @@
+.right-menu-tile > ::ng-deep .mat-figure {
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: fit-content;
+
+  h5 {
+    color: #7a7a7a;
+    font-weight: normal;
+    margin: 0;
+  }
+}
+
+.custom-height {
+  overflow: inherit;
+  ::ng-deep .mat-figure {
+    height: 50px;
+  }
+}
+
+.margin-bottom-60 {
+  margin-bottom: 60px;
+}
+
+.right-menu-tile {
+  display: block;
+  padding-top: 10px;
+  
+  button {
+    float: right;
+  }
+}

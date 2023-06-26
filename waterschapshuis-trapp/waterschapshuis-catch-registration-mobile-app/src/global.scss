@@ -1,0 +1,142 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+@import "../node_modules/ol/ol.css";
+
+.map-menu-modal-200 {
+  .modal-wrapper {
+    height: 200px;
+    bottom: 0px;
+    position: absolute;
+    display: block;
+  }
+}
+
+.map-menu-modal-250 {
+  .modal-wrapper {
+    height: 250px;
+    bottom: 0px;
+    position: absolute;
+    display: block;
+  }
+}
+
+.trap-modal {
+  .modal-wrapper {
+    width: 90%;
+    height: 75%;
+    border-radius: 3px;
+  }
+}
+
+.catch-details-modal {
+  .modal-wrapper {
+    height: 150px;
+    bottom: 0px;
+    position: absolute;
+    display: block;
+  }
+}
+
+.trap-selection-modal {
+  .modal-wrapper {
+    width: 90%;
+    height: 75%;
+    border-radius: 3px;
+  }
+}
+
+.map-tracking-modal {
+  .modal-wrapper {
+    width: 90%;
+    height: 575px;
+    border-radius: 3px;
+  }
+}
+
+ion-back-button {
+  --icon-font-size: 32px;
+}
+
+ion-title {
+  padding-left: 0px;
+}
+
+.location-modal {
+  .modal-wrapper {
+    width: 90%;
+    height: 37%;
+    border-radius: 3px;
+  }
+}
+
+.help-modal {
+  .modal-wrapper {
+    width: 90%;
+    height: 90%;
+    border-radius: 3px;
+  }
+}
+
+.offline-map-download-modal {
+  .modal-wrapper {
+    width: 90%;
+    height: 32%;
+    border-radius: 3px;
+  }
+}
+
+ion-toolbar {
+  ion-title,
+  ion-icon {
+    --color: black;
+  }
+
+  .sc-ion-buttons-md-s .button,
+  .sc-ion-buttons-md-s .button-clear,
+  .sc-ion-buttons-md-s .button-outline {
+    --color: black;
+  }
+
+  .mr-5 {
+    margin-right: 5px;
+  }
+}
+
+[popover].popover-viewport {
+  display: initial;
+  position: initial;
+  margin: initial;
+  border: initial;
+  background: initial;
+  padding: initial;
+  width: initial;
+  height: initial;
+  overflow: initial;
+  inset: initial;
+  color: initial;
+}

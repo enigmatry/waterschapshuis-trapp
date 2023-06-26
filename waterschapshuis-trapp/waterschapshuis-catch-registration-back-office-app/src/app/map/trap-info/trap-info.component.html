@@ -1,0 +1,53 @@
+<div class="margin-bottom-60">
+  <mat-grid-list cols="3" rowHeight="3:2">
+    <mat-grid-tile class="right-menu-tile">
+      <div>
+        <h5>Aantal</h5>
+        <div>{{trap?.numberOfTraps}}</div>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile class="right-menu-tile">
+      <div>
+        <h5>Vangsten</h5>
+        <div>{{trap?.numberOfCatches}}</div>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile class="right-menu-tile">
+      <div>
+        <h5>Bijvangsten</h5>
+        <div>{{trap?.numberOfByCatches}}</div>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile class="right-menu-tile">
+      <div>
+        <h5>Status</h5>
+        <div>{{trap?.statusTitle}}</div>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile class="right-menu-tile">
+      <div>
+        <h5>Geplaatst op</h5>
+        <div>{{trap?.recordedOn | date: 'dd-MM-yyyy'}}</div>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile class="right-menu-tile">
+      <div>
+        <h5>Door</h5>
+        <div>{{trap?.createdBy}}</div>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile class="right-menu-tile custom-height" colspan="3" rowspan="2">
+      <div>
+        <h5>Opmerkingen</h5>
+        <div>{{trap?.remarks}}</div>
+      </div>
+    </mat-grid-tile>    
+    
+  </mat-grid-list>
+</div>
+<mat-divider></mat-divider>
+
+<div class="right-menu-tile">
+  <button *ngIf="showRouteButton" mat-button color="primary" class="mat-text-uppercase">Route</button>
+  <button *ngxPermissionsOnly="policyName.MapContentRead" mat-raised-button color="primary" class="mat-text-uppercase" (click)="details()">Bekijk</button>
+</div>

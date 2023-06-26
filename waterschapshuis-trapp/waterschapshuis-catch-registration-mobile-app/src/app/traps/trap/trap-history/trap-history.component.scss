@@ -1,0 +1,22 @@
+ion-content {
+    height: 200px;
+    width: 100%;
+    ion-list {
+        width: 100%;
+        ion-grid {
+            width: 100%;
+            ion-row {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.header-title {
+    font-weight: bold;
+    margin-top: 12px;
+}
+
+.grayed {
+    color: #7a7a7a;
+}

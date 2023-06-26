@@ -1,0 +1,40 @@
+<div class="edit-dialog">
+    <p class="content-title">Bewerk Vangsttypes</p>
+    <form [formGroup]="form">
+        <div>
+            <mat-form-field>
+                <mat-label>Naam</mat-label>
+                <input matInput formControlName="name">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-radio-group color="primary" formControlName="isByCatch">
+                <mat-radio-button [value]=false>Vangst</mat-radio-button>
+                <mat-radio-button [value]=true>Bijvangst</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Diertype</mat-label>
+                <mat-select formControlName="animalType">
+                    <mat-option *ngFor="let animal of animals" [value]="animal.value">
+                        {{animal.title}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Volgorde</mat-label>
+                <input matInput formControlName="order">  
+            </mat-form-field>
+            <div *ngIf="f.order.errors && !f.order.errors.required" class="invalid-entry">Vul een waarde in tussen 0 en 255</div>
+        </div>
+
+        <mat-divider></mat-divider>
+        <div class="dialog-buttons">
+            <button class="dialog-button" mat-button color="primary" (click)="close()">ANNULEER</button>
+            <button class="dialog-button" mat-raised-button color="primary" (click)="saveAndClose()">BEWAAR</button>
+        </div>
+    </form>
+</div>

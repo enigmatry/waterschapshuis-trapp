@@ -1,0 +1,98 @@
+  .section-header-title {
+    padding-left: 15px;
+  }
+  
+  .inner-mat-expansion-panel {
+    border-radius: 0;
+    margin-bottom: 10px;
+  } 
+
+  .right-menu-tile {
+    display: block;
+    padding-top: 10px;
+    
+    div {
+      width: 100%;
+    }
+
+    button {
+      float: right;
+    }
+  }
+
+  .right-menu-tile > ::ng-deep .mat-figure {
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: fit-content;
+  
+    h5 {
+      color: #7a7a7a;
+      font-weight: normal;
+      margin: 0;
+    }
+  
+    ul {
+      margin-top: 5px;
+    }
+  }
+
+  h5 {
+    color: #7a7a7a;
+    font-weight: normal;
+    margin: 0;
+  }
+  
+  .right-menu-tile.button > ::ng-deep .mat-figure {
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+  
+  .custom-height {
+    overflow: inherit;
+    ::ng-deep .mat-figure {
+      height: 50px;
+    }
+  }
+
+  .margin-bottom-60 {
+    margin-bottom: 60px;
+  }
+
+  .mat-button {
+    display: block;
+    padding-left: 0px;
+  }
+
+  .mat-button.catch {
+    display: inline;
+    padding-left: 0px;
+    padding-right: 2px;
+  }
+
+.catch-date-data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  button,
+  span {
+    line-height: 20px;
+    overflow: hidden;
+    white-space: pre-wrap;
+    margin-bottom: 10px;
+  }
+
+  button {
+    width: 150px;
+
+    &.icon-btn {
+      width: 30px;
+    }
+  }
+
+  span {
+    text-align: center;
+    width: 50px;
+  }
+}
+  

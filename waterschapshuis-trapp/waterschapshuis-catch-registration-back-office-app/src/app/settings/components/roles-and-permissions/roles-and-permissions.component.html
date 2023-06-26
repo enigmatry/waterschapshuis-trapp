@@ -1,0 +1,24 @@
+<p class="content-title">Rechten toewijzing</p>
+<div class="mat-elevation-z8 checkbox-matrix-outer_container">
+    <div class="checkbox-matrix-container">
+        <table>
+            <tr>
+                <th></th>
+                <th *ngFor="let rh of rolesHeader">
+                    <span> {{rh}}</span>
+                </th>
+            </tr>
+            <tr *ngFor="let permission of permissionsHeader; let colIndex = index" class="checkbox-matrix-row">
+                <td class="title-cell">{{permission}}</td>
+                <td *ngFor="let role of allRoles" class="checkbox-cell">
+                    <mat-checkbox color="primary" id="{{ role.id}}{{permission}}"
+                        [(ngModel)]="role.permissions[colIndex].assignedToRole"
+                        [disabled]="!role.permissions[colIndex].canBeChanged">
+                    </mat-checkbox>
+                </td>
+            </tr>
+        </table>
+        <button mat-raised-button color="primary" *ngxPermissionsOnly="[ policyName.RoleWrite ]"
+            (click)="saveRolesAndPermissions()" class="submit-settings">BEWAAR</button>
+    </div>
+</div>

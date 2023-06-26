@@ -1,0 +1,28 @@
+<div class="time-registration">
+  <div class="header">
+    <div class="week-navigation">
+      <div class="button-wrapper">
+        <mat-label>Uren {{selectedYear}} week {{selectedWeekNumber}}</mat-label>
+        <button mat-icon-button (click)="navigateToPreviousWeek()">
+          <mat-icon>navigate_before</mat-icon>
+        </button>
+        <button mat-icon-button (click)="navigateToNextWeek()" [disabled]="navigateToNextDisabled">
+          <mat-icon>navigate_next</mat-icon>
+        </button>
+      </div>
+      <div>
+        <span class="user-name">{{selectedUserName}}</span>
+      </div>
+    </div>
+    <div class="action-buttons">
+      <button mat-raised-button color="primary" *ngIf="saveButtonVisibilityStatus" [disabled]="saveButtonDisabledStatus"
+        (click)="saveRegistrations()" class="submit-settings mat-text-uppercase">BEWAAR</button>
+      <button mat-raised-button color="primary" *ngIf="closeWeekButtonVisibilityStatus"
+        [disabled]="closeWeekButtonDisabledStatus" (click)="closeWeek()" class="submit-settings mat-text-uppercase">Sluit
+        deze week</button>
+      <button mat-raised-button color="primary" *ngIf="completeWeekButtonVisibilityStatus"
+        [disabled]="completeWeekButtonDisabledStatus" (click)="completeWeek()"
+        class="submit-settings mat-text-uppercase">Keur goed</button>
+    </div>
+  </div>
+</div>

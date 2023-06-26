@@ -1,0 +1,53 @@
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let rayonsWithUsers of usersWithRegisteredTimePerRayon">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{rayonsWithUsers.rayonName}}
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+            <mat-list-item *ngFor="let user of rayonsWithUsers.users">
+                <a mat-list-item (click)="refreshTimeRegistrationTable(user,rayonsWithUsers.rayonId)"
+                    [ngClass]="(user.id === selectedUser?.id)?'blue':(user.weekActive)?'grayed':'normal'">
+                    {{user.name}}
+                    <span *ngIf="user.weekCompleted" class="material-icons green-icon">done</span>
+                </a>
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-expansion-panel>
+    <div *ngIf="!!usersWithTimeRegistrationGeneralItems.length">
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Overig Urenregistratie
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+                <mat-list-item *ngFor="let user of usersWithTimeRegistrationGeneralItems">
+                    <a mat-list-item (click)="refreshTimeRegistrationTable(user)"
+                        [ngClass]="(user.id === selectedUser?.id)?'blue':(user.weekActive)?'grayed':'normal'">
+                        {{user.name}}
+                        <span *ngIf="user.weekCompleted" class="material-icons green-icon">done</span>
+                    </a>
+                </mat-list-item>
+            </mat-nav-list>
+        </mat-expansion-panel>
+    </div>
+    
+</mat-accordion>
+
+<mat-card class="margin-top-20">
+    <mat-card-header class="text-center">
+        <mat-card-title>Alle bestrijders</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-list>
+            <mat-list-item class="text-center" *ngFor="let user of usersInOrganization" >
+                <a class="pointer" [ngClass]="(user.id === selectedUser?.id)? 'blue':'normal'"
+                    (click)="refreshTimeRegistrationTable(user,null)">
+                    {{user.name}}
+                </a>
+            </mat-list-item>
+        </mat-list>
+    </mat-card-content>
+</mat-card>

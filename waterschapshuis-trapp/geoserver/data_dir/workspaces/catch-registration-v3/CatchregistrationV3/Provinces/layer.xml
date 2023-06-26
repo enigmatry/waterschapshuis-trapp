@@ -1,0 +1,20 @@
+<layer>
+  <name>Provinces</name>
+  <id>LayerInfoImpl-3a5c72e2:1713adf6419:202b</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-3a5c72e2:1713adf6419:6e63</id>
+  </defaultStyle>
+  <styles class="linked-hash-set">
+    <style>
+      <id>StyleInfoImpl-3a5c72e2:1713adf6419:6e63</id>
+    </style>
+  </styles>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-3a5c72e2:1713adf6419:202a</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

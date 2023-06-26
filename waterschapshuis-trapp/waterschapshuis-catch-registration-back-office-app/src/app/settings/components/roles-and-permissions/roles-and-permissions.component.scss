@@ -1,0 +1,32 @@
+div.checkbox-matrix-outer_container{
+
+    div.checkbox-matrix-container{
+        overflow:hidden;
+        margin:auto;
+        width: fit-content;
+    }
+}
+
+tr.checkbox-matrix-row{
+    height: 30px;
+    td.checkbox-cell{
+        min-width: 100px;
+        text-align: center;
+    }
+    td.title-cell{
+        font-size: 14px;
+    }
+}
+
+th{
+    padding-top: 30px;;
+    padding-bottom: 15px;
+    max-width: 100px;
+    font-size: 14px;
+}
+
+button.submit-settings {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    float: right;
+}

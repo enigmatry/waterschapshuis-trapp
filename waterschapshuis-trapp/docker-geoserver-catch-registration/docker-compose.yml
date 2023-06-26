@@ -1,0 +1,12 @@
+version: '3'
+
+services:  
+   geoserver:
+      image: catch-registration-geoserver
+      volumes:
+         - ${GEOSERVER_DATA_DIR}:/opt/geoserver/data_dir
+      ports:
+        - "1670:8080"
+        - "2222:2222"
+      env_file:
+        - .env

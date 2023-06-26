@@ -1,0 +1,38 @@
+<div class="edit-catch-dialog">
+    <form [formGroup]="form">
+        <p class="content-title">Wijzig vangst</p>
+        <div>
+            <mat-radio-group color="primary" (change)="onChangeIsByCatch()" formControlName="isByCatch">
+                <mat-radio-button [value]=false>Vangst</mat-radio-button>
+                <mat-radio-button [value]=true>Bijvangst</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Soort</mat-label>
+                <mat-select formControlName="catchTypeId">
+                    <mat-option *ngFor="let type of catchTypes" [value]="type?.id">
+                        {{type.name | titlecase}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Aantal</mat-label>
+                <mat-select formControlName="number">
+                    <mat-option *ngFor="let item of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" [value]="item">
+                        {{item}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="dialog-buttons">
+            <button class="dialog-button" mat-button color="primary" (click)="close()">ANNULEER</button>
+            <button *ngxPermissionsOnly="[ policyName.MapContentWrite ]" class="dialog-button" mat-raised-button
+                color="primary" (click)="saveAndClose()">BEWAAR</button>
+        </div>
+    </form>
+
+</div>

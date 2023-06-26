@@ -1,0 +1,13 @@
+<div *ngIf="isVisible()">
+    <mat-divider></mat-divider>
+    <mat-form-field>
+        <mat-label>Selecteer grafiektype</mat-label>
+        <mat-select (selectionChange)="onChartTypeChanged()" [(value)]="selectedChartType">
+            <mat-option *ngFor="let type of availableChartTypes" [value]="type">
+                {{type.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
+

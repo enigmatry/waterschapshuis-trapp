@@ -1,0 +1,40 @@
+<h2 mat-dialog-title>Importeer nieuwe deelgebied indeling</h2>
+<div *ngIf="form">
+    <mat-dialog-content class="mat-typography">
+        <form [formGroup]="form">
+            <div>
+                <mat-form-field>
+                    <mat-label>Naam van de nieuwe indeling</mat-label>
+                    <input formControlName="name" matInput placeholder="Naam van de nieuwe indeling">
+                    <mat-error *ngIf="nameControl.hasError('maxlength')">
+                        De maximale lengte van de naam is 30 karakters 
+                    </mat-error>
+                    <mat-error *ngIf="nameControl.hasError('required')">
+                        Naam van de nieuwe indeling is verplicht
+                    </mat-error>
+                    <mat-error *ngIf="nameControl.hasError('nameNotUnique')">
+                        Naam bestaat al in de database
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </form>
+        <button
+            mat-raised-button color="primary" class="submit-settings"
+            [disabled]="topologyService.inProgress | async"
+            (click)="onClickUpload()">
+            {{ 'Kies bestand' | uppercase }}
+        </button>
+        <input #fileInput type="file" hidden accept=".csv">
+        <mat-hint *ngIf="data?.file?.name">  {{data.file.name}}</mat-hint>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-raised-button color="primary"
+            [disabled]="!canImport()"
+            (click)="onClickImport()">
+            Importeer
+        </button>
+        <button mat-raised-button mat-dialog-close="true">
+            Annuleer
+        </button>
+    </mat-dialog-actions>
+</div>

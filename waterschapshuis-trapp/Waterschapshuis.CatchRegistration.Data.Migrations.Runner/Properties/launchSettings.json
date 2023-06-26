@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Waterschapshuis.CatchRegistration.Data.Migrations.Runner": {
+      "commandName": "Project",
+      "commandLineArgs": "Server=.;Database=waterschapshuis-catch-registration;Trusted_Connection=True;MultipleActiveResultSets=true"
+    }
+  }
+}

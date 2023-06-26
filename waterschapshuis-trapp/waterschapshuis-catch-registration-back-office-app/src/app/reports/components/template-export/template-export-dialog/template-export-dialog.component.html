@@ -1,0 +1,46 @@
+<mat-dialog-content>
+    <h1 mat-dialog-title fxLayoutAlign="center">Delen</h1>
+    <form [formGroup]="exportForm">
+        <div>
+            <mat-form-field>
+                <mat-label>Naam rapportage</mat-label>
+                <input matInput formControlName="templateName" placeholder="Report Name">
+                <mat-error *ngIf="templateNameControl.hasError('maxlength')">
+                    De naam van de rapportage mag maximaal 100 karakters lang zijn
+                </mat-error>
+                <mat-error *ngIf="templateNameControl.hasError('required')">
+                    Vul een naam voor de rapportage in
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div *ngIf="exportState === 1">
+            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </div>
+        <div *ngIf="exportState === 2">
+            <mat-form-field>
+                <mat-label>Link naar de rapportage</mat-label>
+                <input matInput formControlName="exportUri">
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close>SLUIT</button>
+    <button
+        *ngIf="exportState !== 2"
+        mat-button
+        (click)="exportReport()"
+        [disabled]="exportDisabled()"
+        color="primary">
+        DEEL
+    </button>
+    <button
+        *ngIf="exportState === 2"
+        mat-button
+        [cdkCopyToClipboard]="exportUriControl.value"
+        (click)="showToasterMessage()"
+        color="primary">
+        KOPIEER
+    </button>
+</mat-dialog-actions>

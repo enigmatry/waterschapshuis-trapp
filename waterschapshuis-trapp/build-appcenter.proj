@@ -1,0 +1,40 @@
+<Project DefaultTargets="Build" ToolsVersion="4.0" 
+  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ApiUrl Condition="'$(ApiUrl)' == ''">https://fake/api</ApiUrl>
+    <AppInsightsKey Condition="'$(AppInsightsKey)' == ''">DUMMY</AppInsightsKey>
+    <AzureAdClientId Condition="'$(AzureAdClientId)' == ''"></AzureAdClientId>
+    <AzureAdApiScopes Condition="'$(AzureAdApiScopes)' == ''"></AzureAdApiScopes>
+    <AzureStorageUrl Condition="'$(AzureStorageUrl)' == ''"></AzureStorageUrl>
+    <BaseObservationBlobContainer Condition="'$(BaseObservationBlobContainer)' == ''"></BaseObservationBlobContainer>
+    <NumberOfHistoricalTrapLayers Condition="'$(NumberOfHistoricalTrapLayers)' == ''"></NumberOfHistoricalTrapLayers>
+    <AppVersion Condition="'$(AppVersion)' == ''"></AppVersion>
+    <AppId Condition="'$(AppId)' == ''"></AppId>
+    <AppCenterAppSecret Condition="'$(AppCenterAppSecret)' == ''"></AppCenterAppSecret>
+    <AppName Condition="'$(AppName)' == ''"></AppName>
+  </PropertyGroup>
+
+  <Import Project=".build\MSBuild.Community.Tasks.targets" />
+
+  <Target Name="Build">
+    <ItemGroup>
+      <FilesToUpdate Include="**\src\environments\environment.prod.ts" />
+      <FilesToUpdate Include="**\capacitor.config.ts" />
+      <FilesToUpdate Include="**\capacitor.config.json" />
+      <FilesToUpdate Include="**\ionic.config.json" />
+      <FilesToUpdate Include="**\android\app\src\main\res\values\strings.xml" />
+    </ItemGroup>
+    <FileUpdate Files="@(FilesToUpdate)" Regex="__apiUrl__" ReplacementText="$(ApiUrl)" />
+    <FileUpdate Files="@(FilesToUpdate)" Regex="__appInsightsKey__" ReplacementText="$(AppInsightsKey)" />
+    <FileUpdate Files="@(FilesToUpdate)" Regex="__azureAdClientId__" ReplacementText="$(AzureAdClientId)" />
+    <FileUpdate Files="@(FilesToUpdate)" Regex="__azureAdApiScopes__" ReplacementText="$(AzureAdApiScopes)" />
+    <FileUpdate Files="@(FilesToUpdate)" Regex="__azureStorageUrl__" ReplacementText="$(AzureStorageUrl)" />
+    <FileUpdate Files="@(FilesToUpdate)" Regex="__baseObservationBlobContainer__" ReplacementText="$(BaseObservationBlobContainer)" />
+    <FileUpdate Files="@(FilesToUpdate)" Regex="__numberOfHistoricalTrapLayers__" ReplacementText="$(NumberOfHistoricalTrapLayers)" />
+    <FileUpdate Files="@(FilesToUpdate)" Regex="__appVersion__" ReplacementText="$(AppVersion)" />
+    <FileUpdate Files="@(FilesToUpdate)" Regex="__appId__" ReplacementText="$(AppId)" />
+    <FileUpdate Files="@(FilesToUpdate)" Regex="__AppCenterAppSecret__" ReplacementText="$(AppCenterAppSecret)" />
+	  <FileUpdate Files="@(FilesToUpdate)" Regex="__AppName__" ReplacementText="$(AppName)" />
+  </Target>
+
+</Project>

@@ -1,0 +1,42 @@
+<featureType>
+  <id>FeatureTypeInfoImpl--69fc64da:17173aca8a1:-7d2d</id>
+  <name>TrackingLines</name>
+  <nativeName>vw_TrackingLines_Geo</nativeName>
+  <namespace>
+    <id>NamespaceInfoImpl--4b297ecd:170b63989f0:-7fc9</id>
+  </namespace>
+  <title>TrackingLines</title>
+  <abstract>Layer with trapping lines. These lines are deducted from the path in the field a trapper traversed while trapping.</abstract>
+  <keywords>
+    <string>vw_TrackingLines_Geo</string>
+    <string>features</string>
+  </keywords>
+  <srs>EPSG:28992</srs>
+  <nativeBoundingBox>
+    <minx>634.5732789819012</minx>
+    <maxx>284300.0254094796</maxx>
+    <miny>306594.5543000576</miny>
+    <maxy>636981.7698870846</maxy>
+    <crs class="projected">EPSG:28992</crs>
+  </nativeBoundingBox>
+  <latLonBoundingBox>
+    <minx>3.0511703974633724</minx>
+    <maxx>7.346119662163627</maxx>
+    <miny>50.72880395487337</miny>
+    <maxy>53.71864904182287</maxy>
+    <crs>EPSG:4326</crs>
+  </latLonBoundingBox>
+  <projectionPolicy>FORCE_DECLARED</projectionPolicy>
+  <enabled>true</enabled>
+  <store class="dataStore">
+    <id>DataStoreInfoImpl--4b297ecd:170b63989f0:-7fc8</id>
+  </store>
+  <serviceConfiguration>false</serviceConfiguration>
+  <maxFeatures>0</maxFeatures>
+  <numDecimals>0</numDecimals>
+  <padWithZeros>false</padWithZeros>
+  <forcedDecimal>false</forcedDecimal>
+  <overridingServiceSRS>false</overridingServiceSRS>
+  <skipNumberMatched>false</skipNumberMatched>
+  <circularArcPresent>false</circularArcPresent>
+</featureType>

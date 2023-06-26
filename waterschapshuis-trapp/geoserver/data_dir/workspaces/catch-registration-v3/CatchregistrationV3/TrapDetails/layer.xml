@@ -1,0 +1,16 @@
+<layer>
+  <name>TrapDetails</name>
+  <id>LayerInfoImpl--218c7a01:1754ff0a720:-7fab</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-1ad2e6e8:17115e4704f:-8000</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--218c7a01:1754ff0a720:-7fac</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+  <dateModified>2020-12-29 14:43:43.612 UTC</dateModified>
+</layer>

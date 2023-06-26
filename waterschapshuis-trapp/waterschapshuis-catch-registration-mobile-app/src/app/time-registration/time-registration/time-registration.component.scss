@@ -1,0 +1,30 @@
+.date-picker {
+    display: inline-block;
+    --inner-padding-end: 0px;
+
+    ion-icon {
+        margin-top: 30px;
+        margin-left: 30px;
+    }
+
+    ion-datetime {
+        padding-bottom: 5px;
+    }
+
+    ion-label {
+        color: #7a7a7a;
+    }
+}
+
+.total-time {
+    float: right;
+    margin-top: 15px;
+}
+
+app-time-registration-item {
+    width: 100%;
+}
+
+.add-new-link {
+    margin-bottom: 150px;
+}

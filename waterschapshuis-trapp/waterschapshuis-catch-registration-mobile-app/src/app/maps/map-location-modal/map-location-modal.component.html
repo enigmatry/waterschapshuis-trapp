@@ -1,0 +1,35 @@
+<ion-content>
+    <ion-item lines="none">
+      <h1>Locatie</h1>
+      <ion-buttons slot="end">
+        <ion-button class="route-btn" fill="clear" color="primary" (click)="navigateToSelectedPlace()">
+          <h3>Route</h3>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>
+        <h3>Rayon</h3>
+        <p>{{ this.areaDetails?.rayon.name }}</p>
+      </ion-label>
+      <ion-label slot="end">
+        <h3>Vanggebied</h3>
+        <p>{{ this.areaDetails?.catchArea.name }}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>
+        <h3>Coördinaat</h3>
+        <p>{{ this.coords }}</p>
+      </ion-label>
+      <ion-label slot="end">
+        <h3>Deelgebied</h3>
+        <p>{{ this.areaDetails?.subArea.name }}</p>
+      </ion-label>
+    </ion-item>
+</ion-content>
+
+<ion-footer>
+  <ion-button class="bottom-btn" fill="clear" color="primary" (click)="openLocationData()">Vanggebied Data</ion-button>
+  <ion-button class="bottom-btn right" color="primary" (click)="openTimeRegistration()" [disabled]="!this.areaDetails">Schrijf Uren</ion-button>
+</ion-footer>

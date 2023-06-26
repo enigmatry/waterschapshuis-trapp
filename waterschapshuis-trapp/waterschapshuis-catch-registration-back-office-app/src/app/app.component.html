@@ -1,0 +1,14 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!-- For translations see: https://www.codeandweb.com/babeledit/tutorials/how-to-translate-your-angular7-app-with-ngx-translate-->
+<mat-sidenav-container [hasBackdrop]="false" autosize>
+  <mat-sidenav>
+    <app-sidebar></app-sidebar>
+  </mat-sidenav>
+  <mat-sidenav-content>
+      <router-outlet></router-outlet>
+  </mat-sidenav-content>
+  <mat-sidenav position="end" class="rightSideBar">
+    <app-sidebar></app-sidebar>
+  </mat-sidenav>
+</mat-sidenav-container>
+<app-spinner ></app-spinner>

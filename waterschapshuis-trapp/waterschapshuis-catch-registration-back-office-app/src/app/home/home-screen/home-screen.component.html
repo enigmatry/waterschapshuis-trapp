@@ -1,0 +1,12 @@
+<mat-sidenav-container class="home-screen-container">
+    <mat-sidenav class="home-screen-sidenav" mode="side" opened="true">
+        <div class="home-screen-sidenav-logo">
+            <img src="assets/img/v3-logo-white.svg">
+            <p>trAPP V3 <mat-icon (click)="onInfoIconClick('Startpagina')" aria-hidden="false" class="info-icon">info</mat-icon></p>
+            <span>{{version}}</span>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content class="home-screen-maincontent">
+        <app-home-screen-dashboard></app-home-screen-dashboard>
+    </mat-sidenav-content>
+</mat-sidenav-container>

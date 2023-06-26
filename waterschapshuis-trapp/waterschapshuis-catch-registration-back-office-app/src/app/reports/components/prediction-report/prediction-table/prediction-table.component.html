@@ -1,0 +1,36 @@
+<mat-table [dataSource]="cells">
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="winter">
+      <mat-header-cell *matHeaderCellDef> Winter </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.winter}} </mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="spring">
+      <mat-header-cell *matHeaderCellDef> Lente </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.spring}} </mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="summer">
+      <mat-header-cell *matHeaderCellDef> Zomer </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.summer}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="autumn">
+        <mat-header-cell *matHeaderCellDef> Herfst </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.autumn}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="accuracy">
+        <mat-footer-cell *matFooterCellDef>
+            Modelkwaliteit voor dit uurhok (0=slecht, 1=goed): {{ accuracy | number: '1.2-2' }}
+        </mat-footer-cell>
+      </ng-container>
+  
+    <mat-header-row *matHeaderRowDef="getDisplayedTableColumns()"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: getDisplayedTableColumns();"></mat-row>
+    <mat-footer-row *matFooterRowDef="['accuracy']"></mat-footer-row>
+  </mat-table>

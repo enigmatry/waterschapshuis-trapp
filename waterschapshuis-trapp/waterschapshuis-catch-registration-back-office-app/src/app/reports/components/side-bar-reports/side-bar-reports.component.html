@@ -1,0 +1,42 @@
+<div class="side-bar-max-height">
+    <mat-accordion>
+        <mat-expansion-panel            
+            [expanded]="isStandardReportAccordionExpanded()">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Standaardrapportages
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+                <mat-list-item *ngFor="let standardReportTemplate of standardReportTemplates">
+                    <a mat-list-item [routerLink]="standardReportTemplate.createRouterLink()" routerLinkActive="active-side-bar-item">
+                        {{standardReportTemplate.title}}
+                    </a>
+                </mat-list-item>
+            </mat-nav-list>
+            <app-dev-extreme-report-filter></app-dev-extreme-report-filter>
+        </mat-expansion-panel>
+        <mat-expansion-panel 
+            *ngIf="ownReportTemplate"
+            [expanded]="isAccordionExpanded(ownReportTemplate)">
+            <mat-expansion-panel-header [routerLink]="ownReportTemplate.createRouterLink()">
+                <mat-panel-title>
+                    {{ownReportTemplate.group}}
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+                <mat-list-item>
+                    <a mat-list-item [routerLink]="ownReportTemplate.createRouterLink()" routerLinkActive="active-side-bar-item">
+                        {{ownReportTemplate.title}}
+                    </a>
+                </mat-list-item>
+            </mat-nav-list>
+            <app-dev-extreme-report-filter></app-dev-extreme-report-filter>
+        </mat-expansion-panel>
+
+        <app-catches-report-filter></app-catches-report-filter>
+        <app-heat-map-report-filter></app-heat-map-report-filter> 
+        <app-tracking-lines-filter [trackingLinesTemplate]="trackingLinesTemplate"></app-tracking-lines-filter>
+        <app-prediction-filter></app-prediction-filter>
+    </mat-accordion>
+</div>

@@ -1,0 +1,9 @@
+<div class="ion-text-center">
+    <h3>{{progressEmitter.name}}</h3>
+    U wordt verzocht om te wachten tot de kaart volledig is gedownload. Zet de telefoon niet uit en schakel niet over naar een andere applicatie.
+</div>
+
+<ion-progress-bar *ngIf="progressEmitter.value !== progressEmitters.None" [value]="percentage"></ion-progress-bar>
+<ion-spinner *ngIf="progressEmitter.value === progressEmitters.None" class="center" color="primary"></ion-spinner>
+
+<ion-button class="ion-text-uppercase" fill="clear" (click)="modal.dismiss({cancelled :true})">Annuleer</ion-button>

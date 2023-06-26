@@ -1,0 +1,95 @@
+<div class="wrapper">
+    <div>
+        <mat-grid-list cols="4" rowHeight="60px" class="grid-header">
+            <mat-grid-tile>
+                <mat-label class="date-column">Datum </mat-label>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-label class="col-md">Categorie </mat-label>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-label class="col-md">Duur</mat-label>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-label class="col-lg"></mat-label>
+            </mat-grid-tile>
+        </mat-grid-list>
+
+        <mat-grid-list *ngFor='let dayOfWeek of daysOfWeek; let x=index' cols="4" rowHeight="60px"
+            [class]="x % 2 != 0 ? 'evenRow' : 'oddRow'">
+            <mat-grid-tile>
+                <mat-label class="mat-text-uppercase date-column">{{formatDate(dayOfWeek)}}</mat-label>
+            </mat-grid-tile>
+            <ng-container
+                *ngFor='let generalTimeRegistrationItemForm of getTimeRegistrationGeneralItemsForDate(dayOfWeek); let i=index'>
+                <div [formGroup]="generalTimeRegistrationItemForm">
+                    <mat-grid-tile *ngIf="i > 0">
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field class="col-md">
+                            <mat-select formControlName="categoryId"
+                                (selectionChange)="onChangeItem(generalTimeRegistrationItemForm)">
+                                <mat-option *ngFor="let category of categories" [value]="category.id">
+                                    {{ category.name }}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field floatLabel="never">
+                            <input class="align-center" formControlName="time" matInput [ngxTimepicker]="time" [format]="24" min="00:00"
+                                max="23:59">
+                            <ngx-material-timepicker (closed)="onChangeItem(generalTimeRegistrationItemForm)" #time
+                                timepickerClass="time-picker">
+                            </ngx-material-timepicker>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <button slot="start" mat-icon-button class="icon"
+                            (click)="deleteRow(generalTimeRegistrationItemForm)"
+                            *ngIf="isAllowedDeleteItem(generalTimeRegistrationItemForm)">
+                            <mat-icon class="icon">delete</mat-icon>
+                        </button>
+                        <button type="button" mat-button color="primary" (click)="addRow(generalTimeRegistrationItemForm)"
+                            *ngIf="getActionButtonVisibility(generalTimeRegistrationItemForm,dayOfWeek,i)">
+                            + VOEG TOE</button>
+                    </mat-grid-tile>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="rowContainsTime(dayOfWeek)" class="grid">
+                <mat-grid-tile>
+                    <div class="container">
+                        <section class="top" *ngIf="timeRegistrationHasRegisteredTime(dayOfWeek)">
+                            <div></div>
+                        </section>
+                        <section class="bottom total-hours-label date-column">
+                            <div >Totaal uren:</div>
+                        </section>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile colspan="1">
+                    <div class="container">
+                        <section class="top" *ngIf="timeRegistrationHasRegisteredTime(dayOfWeek)">
+                            <div>Vangsturen</div>
+                        </section>
+                        <section class="bottom">
+                            <div></div>
+                        </section>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <div class="container">
+                        <section class="top" *ngIf="timeRegistrationHasRegisteredTime(dayOfWeek)">
+                            <div>{{getTimeRegistrationTotalTime(dayOfWeek)}}</div>
+                        </section>
+                        <section class="bottom">
+                            <div class="bold">{{getTotalTime(dayOfWeek)}}</div>
+                        </section>
+                    </div>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                </mat-grid-tile>
+            </ng-container>
+        </mat-grid-list>
+    </div>
+</div>

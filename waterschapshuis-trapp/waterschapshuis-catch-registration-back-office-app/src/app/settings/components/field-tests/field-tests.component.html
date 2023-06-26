@@ -1,0 +1,37 @@
+<p class="content-title">Veldproef</p>
+<div class="mat-elevation-z8 grid">
+    <mat-form-field>
+      <input matInput placeholder="Zoeken..." #searchBox>
+    </mat-form-field>
+    <button mat-raised-button color="primary" *ngxPermissionsOnly="[ policyName.Management ]"
+    (click)="editFieldTestDialog(null)">
+              VOEG TOE
+            </button>
+    <table mat-table class="mat-elevation-z8" [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Naam</th>
+        <td mat-cell *matCellDef="let row"> {{row.name  | titlecase}} </td>
+      </ng-container>
+      <ng-container matColumnDef="startPeriod">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Startperiode</th>
+        <td mat-cell *matCellDef="let row"> {{row.startPeriod}} </td>
+      </ng-container>
+      <ng-container matColumnDef="endPeriod">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Eindperiode</th>
+        <td mat-cell *matCellDef="let row"> {{row.endPeriod}} </td>
+      </ng-container>
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef mat-header></th>
+        <td mat-cell  *matCellDef="let row">
+            <button class="action-column-button" mat-button color="primary" *ngxPermissionsOnly="[ policyName.Management ]"
+            (click)="editFieldTestDialog(row)">
+              BEWERK
+            </button>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="columns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: columns"></tr>
+    </table>
+    <mat-paginator [length]="itemsCount" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"></mat-paginator>
+  </div>
+  

@@ -1,0 +1,385 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Remove="Migrations\20201021080910_AddTimeRegistrationTypeTable.cs" />
+      <Compile Remove="Migrations\20201021080910_AddTimeRegistrationTypeTable.Designer.cs" />
+      <Compile Remove="Migrations\20201022065321_AddTimeRegistrationGeneralAndTimeRegistrationCategoryTables.cs" />
+      <Compile Remove="Migrations\20201022065321_AddTimeRegistrationGeneralAndTimeRegistrationCategoryTables.Designer.cs" />
+      <Compile Remove="Migrations\20201022070339_AddTimeRegistrationGeneralAndTimeRegistrationCategoryTables.cs" />
+      <Compile Remove="Migrations\20201022070339_AddTimeRegistrationGeneralAndTimeRegistrationCategoryTables.Designer.cs" />
+      <Compile Remove="Migrations\20201203144208_AddTimeRegistrationTypeToOwnReportDataAndUpdateTemplate.cs" />
+      <Compile Remove="Migrations\20201203144208_AddTimeRegistrationTypeToOwnReportDataAndUpdateTemplate.Designer.cs" />
+      <Compile Remove="Migrations\20201203150155_AddTimeRegistrationTypeToOwnReportDataAndUpdateTemplate.cs" />
+      <Compile Remove="Migrations\20201203150155_AddTimeRegistrationTypeToOwnReportDataAndUpdateTemplate.Designer.cs" />
+      <Compile Remove="Migrations\20201204103935_AddTimeRegistrationTypeToOwnReportDataAndUpdateTemplate.cs" />
+      <Compile Remove="Migrations\20201204103935_AddTimeRegistrationTypeToOwnReportDataAndUpdateTemplate.Designer.cs" />
+      <Compile Remove="Migrations\20201204110557_AddTimeRegistrationTypeToOwnReportDataAndUpdateTemplate.cs" />
+      <Compile Remove="Migrations\20201204110557_AddTimeRegistrationTypeToOwnReportDataAndUpdateTemplate.Designer.cs" />
+      <Compile Remove="Migrations\20201208142334_AddedNewMeasuresToReportTemplate.cs" />
+      <Compile Remove="Migrations\20201208142334_AddedNewMeasuresToReportTemplate.Designer.cs" />
+      <Compile Remove="Migrations\20201215134526_StandardReportTemplatesSeedingAdded.cs" />
+      <Compile Remove="Migrations\20201215134526_StandardReportTemplatesSeedingAdded.Designer.cs" />
+      <Compile Remove="Migrations\20201215134810_StandardReportTemplatesSeedingAdded.cs" />
+      <Compile Remove="Migrations\20201215134810_StandardReportTemplatesSeedingAdded.Designer.cs" />
+      <Compile Remove="Migrations\20201215143214_StandardReportTemplatesSeedingAdded.cs" />
+      <Compile Remove="Migrations\20201215143214_StandardReportTemplatesSeedingAdded.Designer.cs" />
+      <Compile Remove="Migrations\20201224135654_UpdatedHourSquareAndTrackerReportTemplateTypeRouteUri.cs" />
+      <Compile Remove="Migrations\20201224135654_UpdatedHourSquareAndTrackerReportTemplateTypeRouteUri.Designer.cs" />
+      <Compile Remove="Migrations\20201225121538_UpdatedHourSquareAndTrackerReportTemplateTypeRouteUri.cs" />
+      <Compile Remove="Migrations\20201225121538_UpdatedHourSquareAndTrackerReportTemplateTypeRouteUri.Designer.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Resources\20200924084318_UpdateReportStoreProcedure.Down.sql" />
+      <None Remove="Resources\20200924084318_UpdateReportStoreProcedure.Up.sql" />
+      <None Remove="Resources\20200925085653_UpdateReportRelatedEntities.Down.sql" />
+      <None Remove="Resources\20200925085653_UpdateReportRelatedEntities.Up.sql" />
+      <None Remove="Resources\20201017104812_AddSessionIdToTrackinLine.Down.sql" />
+      <None Remove="Resources\20201017104812_AddSessionIdToTrackinLine.Up.sql" />
+      <None Remove="Resources\20201021100330_UpdatePopulateOwnReportData.Down.sql" />
+      <None Remove="Resources\20201021100330_UpdatePopulateOwnReportData.Up.sql" />
+      <None Remove="Resources\20201023210049_AddHistoricalTraps_Geo_Function.Down.sql" />
+      <None Remove="Resources\20201023210049_AddHistoricalTraps_Geo_Function.Up.sql" />
+      <None Remove="Resources\20201026185207_UpdateHistroricalTraps_Geo_Function.Down.sql" />
+      <None Remove="Resources\20201026185207_UpdateHistroricalTraps_Geo_Function.Up.sql" />
+      <None Remove="Resources\20201028100935_AlterGetLocationAreaDataStoredProcedure.sql" />
+      <None Remove="Resources\20201118171346_UpdateTrapDetailsTVFunctions.Down.sql" />
+      <None Remove="Resources\20201118171346_UpdateTrapDetailsTVFunctions.Up.sql" />
+      <None Remove="Resources\20201125102402_AddReportTable_V1Data.Down.sql" />
+      <None Remove="Resources\20201125102402_AddReportTable_V1Data.Up.sql" />
+      <None Remove="Resources\20201127130240_AddVersionRegionalLayout.Down.sql" />
+      <None Remove="Resources\20201127130240_AddVersionRegionalLayout.Up.sql" />
+      <None Remove="Resources\20201127150034_AlterFunction_HistoricalTraps_Geo.Down.sql" />
+      <None Remove="Resources\20201127150034_AlterFunction_HistoricalTraps_Geo.Up.sql" />
+      <None Remove="Resources\20201130175256_AlterFunction_HistoricalTraps_GeoChangeDateFiltering.Down.sql" />
+      <None Remove="Resources\20201130175256_AlterFunction_HistoricalTraps_GeoChangeDateFiltering.Up.sql" />
+      <None Remove="Resources\20201204133423_AddTimeRegistrationTypeToOwnReportDataAndUpdateTemplate.Down.Sql" />
+      <None Remove="Resources\20201204133423_AddTimeRegistrationTypeToOwnReportDataAndUpdateTemplate.Up.Sql" />
+      <None Remove="Resources\20201210063046_UpdateDbFunctionsAndViewsWithVersionRegionalLayout.Down.Sql" />
+      <None Remove="Resources\20201210063046_UpdateDbFunctionsAndViewsWithVersionRegionalLayout.Up.Sql" />
+      <None Remove="Resources\20201217120054_AlterFunction_HistoricalTraps_GeoFixCatchFilter.Down.sql" />
+      <None Remove="Resources\20201217120054_AlterFunction_HistoricalTraps_GeoFixCatchFilter.Up.sql" />
+      <None Remove="Resources\20201223135800_RemoveSessionIdToTrackinLine.Down.sql" />
+      <None Remove="Resources\20201223135800_RemoveSessionIdToTrackinLine.Up.sql" />
+      <None Remove="Resources\20201229105259_AlterFunction_HistoricalTraps_FilterTrapsWithoutCatches.Down.Sql" />
+      <None Remove="Resources\20201229105259_AlterFunction_HistoricalTraps_FilterTrapsWithoutCatches.Up.Sql" />
+      <None Remove="Resources\20210115091625_AddVRL_ForPreviousYearDataToOwnReportData.Down.Sql" />
+      <None Remove="Resources\20210115091625_AddVRL_ForPreviousYearDataToOwnReportData.Up.Sql" />
+      <None Remove="Resources\20210222090118_AlterSP_PopulateOwnReportData.Down.sql" />
+      <None Remove="Resources\20210222090118_AlterSP_PopulateOwnReportData.Up.sql" />
+      <None Remove="Resources\20210312125944_AddHoursOtherToOwnReportDataAndUpdateTemplate.Down.sql" />
+      <None Remove="Resources\20210312125944_AddHoursOtherToOwnReportDataAndUpdateTemplate.Up.sql" />
+      <None Remove="Resources\20210402064119_NONL_Merge_SubAreas.sql" />
+      <None Remove="Resources\20210406144458_Alter_fn_HistoricalTraps_Geo_and_fn_HeatMapReport.Down.sql" />
+      <None Remove="Resources\20210406144458_Alter_fn_HistoricalTraps_Geo_and_fn_HeatMapReport.Up.sql" />
+      <None Remove="Resources\20210409135225_Alter_SP_PopulateOwnReportData.Down.sql" />
+      <None Remove="Resources\20210409135225_Alter_SP_PopulateOwnReportData.Up.sql" />
+      <None Remove="Resources\20210514141740_UpdateSPPopulateOwnReportData.Down.sql" />
+      <None Remove="Resources\20210514141740_UpdateSPPopulateOwnReportData.Up.sql" />
+      <None Remove="Resources\20210518161431_AddedMissingDataInSPPopulateOwnReportData.Down.sql" />
+      <None Remove="Resources\20210518161431_AddedMissingDataInSPPopulateOwnReportData.Up.sql" />
+      <None Remove="Resources\UpdateReportRelatedEntities.Down.sql" />
+      <None Remove="Resources\UpdateReportRelatedEntities.Up.sql" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <EmbeddedResource Include="Resources\20200911082912_DbObjectsCreate.sql">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20200911083527_Geoserver_Views_Pk_Config.sql">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20210115091625_AddVRL_ForPreviousYearDataToOwnReportData.Down.Sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20210115091625_AddVRL_ForPreviousYearDataToOwnReportData.Up.Sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20201223135800_RemoveSessionIdToTrackinLine.Down.sql">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20201223135800_RemoveSessionIdToTrackinLine.Up.sql">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20201130175256_AlterFunction_HistoricalTraps_GeoChangeDateFiltering.Down.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20201217120054_AlterFunction_HistoricalTraps_GeoFixCatchFilter.Up.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20201217120054_AlterFunction_HistoricalTraps_GeoFixCatchFilter.Down.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20201130175256_AlterFunction_HistoricalTraps_GeoChangeDateFiltering.Up.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20201127150034_AlterFunction_HistoricalTraps_Geo.Down.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20201127150034_AlterFunction_HistoricalTraps_Geo.Up.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20201118171346_UpdateTrapDetailsTVFunctions.Down.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20201118171346_UpdateTrapDetailsTVFunctions.Up.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20201028100935_AlterGetLocationAreaDataStoredProcedure.sql">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20200913150844_CreateGetLocationAreaDataStoredProcedure.sql">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20201026185207_UpdateHistroricalTraps_Geo_Function.Down.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20201026185207_UpdateHistroricalTraps_Geo_Function.Up.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20201023210049_AddHistoricalTraps_Geo_Function.Down.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20201023210049_AddHistoricalTraps_Geo_Function.Up.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20201021100330_UpdatePopulateOwnReportData.Down.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20201021100330_UpdatePopulateOwnReportData.Up.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20201017104812_AddSessionIdToTrackinLine.Down.sql">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20201017104812_AddSessionIdToTrackinLine.Up.sql">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20200925085653_UpdateReportRelatedEntities.Down.sql">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20200925085653_UpdateReportRelatedEntities.Up.sql">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20200924084318_UpdateReportStoreProcedure.Down.sql">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20200924084318_UpdateReportStoreProcedure.Up.sql">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20200923131040_UpdateOwnReportTemplateAndDataTable.Down.sql">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20200923131040_UpdateOwnReportTemplateAndDataTable.Up.sql">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20200922055739_RemoveOwnReportView.Down.sql">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20200922055739_RemoveOwnReportView.Up.sql">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20200920063300_AddOwnReportData.Down.sql">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20200920063300_AddOwnReportData.Up.sql">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20200915122311_AddOwnReportView.Down.sql">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20200915122311_AddOwnReportView.Up.sql">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20200922091422_YearPeriodCalculationChangeAndDataUpdate.Down.sql">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20200922091422_YearPeriodCalculationChangeAndDataUpdate.Up.sql">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20201127130240_AddVersionRegionalLayout.Down.sql">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20201127130240_AddVersionRegionalLayout.Up.sql">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20201125102402_AddReportTable_V1Data.Down.sql">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20201125102402_AddReportTable_V1Data.Up.sql">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20201210063046_UpdateDbFunctionsAndViewsWithVersionRegionalLayout.Down.Sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20201210063046_UpdateDbFunctionsAndViewsWithVersionRegionalLayout.Up.Sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20201204133423_AddTimeRegistrationTypeToOwnReportDataAndUpdateTemplate.Down.Sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20201204133423_AddTimeRegistrationTypeToOwnReportDataAndUpdateTemplate.Up.Sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20201229105259_AlterFunction_HistoricalTraps_FilterTrapsWithoutCatches.Down.Sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20201229105259_AlterFunction_HistoricalTraps_FilterTrapsWithoutCatches.Up.Sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20210222090118_AlterSP_PopulateOwnReportData.Down.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20210222090118_AlterSP_PopulateOwnReportData.Up.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20210312125944_AddHoursOtherToOwnReportDataAndUpdateTemplate.Down.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20210312125944_AddHoursOtherToOwnReportDataAndUpdateTemplate.Up.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20210402064119_NONL_Merge_SubAreas.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20210406144458_Alter_fn_HistoricalTraps_Geo_and_fn_HeatMapReport.Down.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20210406144458_Alter_fn_HistoricalTraps_Geo_and_fn_HeatMapReport.Up.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20210409135225_Alter_SP_PopulateOwnReportData.Down.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20210409135225_Alter_SP_PopulateOwnReportData.Up.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20210514141740_UpdateSPPopulateOwnReportData.Down.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20210514141740_UpdateSPPopulateOwnReportData.Up.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20210518161431_AddedMissingDataInSPPopulateOwnReportData.Down.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Resources\20210518161431_AddedMissingDataInSPPopulateOwnReportData.Up.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+    </ItemGroup>
+
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite" Version="3.1.4" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.4">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.4">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Waterschapshuis.CatchRegistration.Infrastructure\Waterschapshuis.CatchRegistration.Infrastructure.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="Resources\20200916064008_AlterTrackingsLayers_AddIsTrackingMap.Down.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\20200916064008_AlterTrackingsLayers_AddIsTrackingMap.Up.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\20201123111250_UpdatePopulateOwnReportSP_AddMissingTrapData.Down.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\20201123111250_UpdatePopulateOwnReportSP_AddMissingTrapData.Up.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\20201110144243_UpdatePopulateOwnReportSP.Down.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\20201110144243_UpdatePopulateOwnReportSP.Up.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\20201105160324_UpdateOwnReportReportAddFieldTests.Down.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\20201105160324_UpdateOwnReportReportAddFieldTests.Up.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\20201104202738_UpdatePopulateOwnReportReportSPAddKmWaterways.Down.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\20201104202738_UpdatePopulateOwnReportReportSPAddKmWaterways.Up.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\20201203162256_UpdatePopulateOwnReportSP_AddFieldsToTrapData.Down.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\20201203162256_UpdatePopulateOwnReportSP_AddFieldsToTrapData.Up.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\20201125070756_UpdatePopulateOwnReportSP_AddFieldsToTrapData.Down.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\20201125070756_UpdatePopulateOwnReportSP_AddFieldsToTrapData.Up.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\20201124134331_UpdatePopulateOwnReportSP_AddV1Data.Down.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\20201124134331_UpdatePopulateOwnReportSP_AddV1Data.Up.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\20201217140213_AddDummyWaterLineAndWaterPlaneTables.Down.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\20201217140213_AddDummyWaterLineAndWaterPlaneTables.Up.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\20201218162618_WaterLineWaterPlaneTablesChanges.Up.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\20201225155734_AddVersionalRegionalLayoutToReports.Down.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\20201225155734_AddVersionalRegionalLayoutToReports.Up.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\20210205091314_Alter_PopulateOwnReportData_SP.Down.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\20210205091314_Alter_PopulateOwnReportData_SP.Up.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\20210205091314_Add_GetWeekOfYearWithCustomRule_Fn.Down.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\20210205091314_Add_GetWeekOfYearWithCustomRule_Fn.Up.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\20210205123014_Remove_Iso86001DateScalarFunctions.Down.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\20210205123014_Remove_Iso86001DateScalarFunctions.Up.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\20210218081613_AlterFunction_GetWeekOfYearWithCustomRule.Up.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\20210218081613_AlterFunction_GetWeekOfYearWithCustomRule.Down.sql">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
+</Project>

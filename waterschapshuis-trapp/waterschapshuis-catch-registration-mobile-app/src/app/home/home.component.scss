@@ -1,0 +1,64 @@
+.kaart-icon {
+    background-color: #3B9C14;
+}
+
+.urenregistratie-icon {
+    background-color: #247AAB;
+}
+
+.download-kaarten-icon {
+    background-color: #E03D3A;
+}
+
+.logout-icon {
+    background-color: #ABABAB;
+}
+
+.my-summary {
+    background-color: #642bcb;
+}
+
+.dev-item {
+    background-color: #e27a1f;
+}
+
+.navigate-icon {
+    transform: rotate(45deg)
+}
+
+ion-item {
+    h5 {
+        margin: 0px;
+        color: #333333;
+    }
+
+    ion-label {
+        color: #7A7A7A;
+    }
+
+    ion-icon {
+        color: var(--ion-color-light-tint);
+        border-radius: 50%;
+        padding: 5px;
+        margin-right: 20px;
+    }
+
+    ion-list {
+        background-color: transparent;
+    }
+}
+
+ion-title {
+    padding-left: 20px;
+}
+
+ion-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px 20px;
+}
+
+.version {
+    font-size: small;
+    color: rgb(130, 130, 130);
+}

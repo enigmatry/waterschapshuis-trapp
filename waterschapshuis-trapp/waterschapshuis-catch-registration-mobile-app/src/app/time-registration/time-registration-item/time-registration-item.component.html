@@ -1,0 +1,93 @@
+<ion-item-group class="time-registration-item" [formGroup]="itemFormGroup">
+  <ion-item lines="none">
+    <ion-label class="ion-text-uppercase"> {{ title }} </ion-label>
+    <ion-icon name="trash-outline" size="small" slot="end" (click)="deleteTimeRegistration()"></ion-icon>
+  </ion-item>
+
+  <ion-radio-group [value]="state !== timeRegistrationFormState.Creation ? state : tabType" (ionChange)="typeChanged($event)">
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none">
+          <ion-label>Bestrijding</ion-label>
+          <ion-radio slot="start" color="success" [value]="timeRegistrationFormState.Bestrijding" [disabled]="state !== timeRegistrationFormState.Creation"></ion-radio>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item lines="none">
+          <ion-label>Overig</ion-label>
+          <ion-radio slot="start" color="tertiary" [value]="timeRegistrationFormState.Overig" [disabled]="state !== timeRegistrationFormState.Creation"></ion-radio>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-radio-group>
+
+  <div [ngSwitch]="tabType">
+    <ion-list *ngSwitchCase="timeRegistrationFormState.Overig">
+      <ion-item>
+        <ion-label>Categorie</ion-label>
+        <ion-select *ngIf="categories?.length" class="form-select ion-text-right" id="category" interface="popover"
+          formControlName="category" [compareWith]="compareWith">
+          <ion-select-option *ngFor="let cat of categories" [value]="cat">
+            {{ cat.name | titlecase }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Uren : Minuten</ion-label>
+        <ion-datetime class="ion-text-right" displayFormat="HH:mm" minuteValues="0,15,30,45"
+          (ionChange)="onChangeItem($event)" formControlName="generalTime" cancel-text="Annuleer" done-text="Gedaan">
+        </ion-datetime>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="timeRegistrationFormState.Bestrijding">
+      <ion-item>
+        <ion-label>Vanggebied</ion-label>
+        <ion-select *ngIf="catchAreas?.length" class="form-select ion-text-right" id="catch-area" interface="popover"
+          formControlName="catchArea" (ionChange)="onChangeCatchArea($event)" [compareWith]="compareWith">
+          <ion-select-option *ngFor="let ca of catchAreas" [value]="ca">
+            {{ ca.name | titlecase }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Deelgebied</ion-label>
+        <ion-select *ngIf="subAreas?.length" class="form-select ion-text-right" id="sub-area" interface="popover"
+          formControlName="subArea" (ionChange)="onChangeSubArea($event)" [compareWith]="compareWith">
+          <ion-select-option *ngFor="let sa of subAreas" [value]="sa">
+            {{ sa.name | titlecase }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Uurhok</ion-label>
+        <ion-select *ngIf="hourSquares?.length" class="form-select ion-text-right" id="hour-square" interface="popover"
+          formControlName="hourSquare" (ionChange)="onChangeItem($event)" [compareWith]="compareWith">
+          <ion-select-option *ngFor="let hs of hourSquares" [value]="hs">
+            {{ hs.name | titlecase }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Uren : Minuten</ion-label>
+        <ion-datetime class="ion-text-right" displayFormat="HH:mm" minuteValues="0,15,30,45" formControlName="time"
+          (ionChange)="onChangeItem($event)" cancel-text="Annuleer" done-text="Gedaan">
+        </ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Bestrijding</ion-label>
+        <ion-select *ngIf="trappingTypes?.length" class="form-select ion-text-right" id="trapping-type"
+          interface="popover" formControlName="trappingType" (ionChange)="onChangeItem($event)"
+          [compareWith]="compareWith">
+          <ion-select-option *ngFor="let tt of trappingTypes" [value]="tt">
+            {{ tt.name | titlecase }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-item-group>

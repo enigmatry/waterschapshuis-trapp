@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <app-trap-basic-details *ngFor="let trap of traps" (trapSelected)="showTrapDetailsPage($event)" [trap]="trap">
+  </app-trap-basic-details>
+
+  <app-observation-basic-details *ngFor="let observation of observations"
+    (observationSelected)="showObservationPage($event)" [observation]="observation">
+  </app-observation-basic-details>
+
+</ion-content>
+
+<ion-footer>
+  <ion-button color="primary" fill="clear" (click)="closeModal()">Annuleer</ion-button>
+</ion-footer>

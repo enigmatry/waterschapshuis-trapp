@@ -1,0 +1,33 @@
+ion-row {
+  padding-left: 15px;
+}
+
+p {
+  margin: 1px;
+}
+
+.header-title {
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+.route-btn {
+  float: right;
+  margin-top: 5px;
+
+  h3 {
+    font-size: 18px;
+  }
+}
+
+.grayed {
+  color: #7a7a7a;
+}
+
+.row-padding {
+  padding-bottom: 15px;
+
+  ion-col {
+    padding: 0 0 0 5px;
+  }
+}

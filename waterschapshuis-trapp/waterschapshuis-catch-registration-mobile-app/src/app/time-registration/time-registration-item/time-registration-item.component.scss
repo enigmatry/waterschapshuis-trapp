@@ -1,0 +1,24 @@
+.time-registration-item {
+    margin-top: 20px;
+
+    .ion-text-uppercase {
+        color: #7A7A7A;
+    }
+
+    ion-label {
+        width: 30%;
+        float: left;
+    }
+
+    ion-select {
+        width: 60%;
+        float: right;
+        padding-top: 11px;
+    }
+
+    ion-datetime {
+        width: 60%;
+        float: right;
+        padding-right: 21px;
+    }
+}

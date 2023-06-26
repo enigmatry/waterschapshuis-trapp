@@ -1,0 +1,22 @@
+<ion-grid>
+  <ion-row class="row-content">
+    <ion-col>
+      <h3 class="item-title">Melding</h3>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="row-content">
+    <ion-col>
+      <p>{{ observation?.recordedOn | date:'dd-MM-yyyy HH:mm' }}</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="row-content row-center">
+    <ion-col sizeXs="7">
+      <ion-button class="d-block ion-text-uppercase" color="primary" (click)="onSelect()">Bewerk</ion-button>
+    </ion-col>
+  </ion-row>
+
+</ion-grid>
+
+<div class="divider"></div>

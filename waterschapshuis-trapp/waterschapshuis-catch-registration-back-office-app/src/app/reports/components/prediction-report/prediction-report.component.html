@@ -1,0 +1,22 @@
+<p class="content-title">Prognose</p>
+
+<div class="mat-elevation-z8 grid">
+    <app-prediction-table [tableDataSource]="tableDataSource">
+    </app-prediction-table>
+
+    <app-prediction-chart
+      chartId="catch-prediction-chart"
+      chartTitle="Vangst"
+      chartExpectedTitle="Beoogde vangst"
+      chartPredictedTitle="Voorspelde vangst"
+      [chartDataSource]="catchesChartDataSource">
+    </app-prediction-chart>
+
+    <app-prediction-chart
+      chartId="hour-prediction-chart"
+      chartTitle="Uren"
+      chartExpectedTitle="Benodigde uren"
+      chartPredictedTitle="Geplande uren"
+      [chartDataSource]="hoursChartDataSource">
+    </app-prediction-chart>
+</div>

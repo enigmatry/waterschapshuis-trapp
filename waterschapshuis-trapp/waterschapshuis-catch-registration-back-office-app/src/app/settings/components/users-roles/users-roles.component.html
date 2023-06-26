@@ -1,0 +1,32 @@
+<p class="content-title">Rollen</p>
+<div class="mat-elevation-z8 grid">
+    <mat-form-field>
+      <input matInput placeholder="Zoeken..." #searchBox>
+    </mat-form-field>
+    <table mat-table class="mat-elevation-z8" [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Accountnaam</th>
+        <td mat-cell class="email-column" *matCellDef="let row" color="primary"> {{row.email}} </td>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Naam</th>
+        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+      </ng-container>
+      <ng-container matColumnDef="rolesDisplayText">
+        <th mat-header-cell *matHeaderCellDef mat-header>Rollen</th>
+        <td mat-cell *matCellDef="let row"> {{row.rolesDisplayText}} </td>
+      </ng-container>
+      <ng-container matColumnDef="wijzig">
+        <th mat-header-cell *matHeaderCellDef mat-header></th>
+        <td mat-cell *matCellDef="let row">
+            <span>
+              <button mat-button color="primary" (click)="editRolesDialog(row)">WIJZIG</button>
+            </span>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="columns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: columns"></tr>
+    </table>
+    <mat-paginator [length]="itemsCount" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"></mat-paginator>
+  </div>
+  

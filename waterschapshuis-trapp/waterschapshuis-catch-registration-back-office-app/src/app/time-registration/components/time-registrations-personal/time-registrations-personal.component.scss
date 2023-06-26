@@ -1,0 +1,107 @@
+mat-sidenav {
+    width: 320px;
+    background-color: #FAFAFA;
+  }
+  
+mat-sidenav-container {
+  height: 100%;
+}
+
+::ng-deep .mat-drawer-inner-container {
+  overflow-y:hidden !important;
+}
+
+::ng-deep .mat-grid-tile.justify-left .mat-figure {
+  justify-content: left !important;
+}
+
+.mat-elevation-z8 {
+    width: 100%;
+    padding: 0px 8px;
+    padding-left: 200px;
+    box-shadow: none;
+    border-bottom: 1px solid lightgray;
+}
+
+.mat-header-cell {
+    width: 17%;
+    border-width: 0px;
+}
+
+.mat-column-actionColumn {
+    width: 15%;
+}
+
+.evenRow {
+    background-color: #FFFFFF;
+ }
+ 
+.oddRow {
+background-color: #F2F2F2;
+}
+
+.hour-grid {
+    border-bottom: 1px solid  #D3D3D3;
+}
+
+.total-time-registration-hours {
+  margin-top: -30px;
+  margin-bottom: 20px;
+  width: 1084px;
+  margin: 0px auto;
+  margin-bottom: 50px;
+}
+
+.total-time-registration-items-hours {
+  width: 980px;
+  margin: 0px auto;
+}
+
+.total-time-catch-registration-hours {
+  width: 992px;
+  margin: 0px auto;
+}
+
+::ng-deep .total-hour-tile .mat-figure {
+  justify-content: flex-start !important;
+  padding-left: 10px !important;
+}
+
+
+weight-labels {
+  font-weight: bold;
+}
+
+.total-hours-label {
+  @extend weight-labels;
+}
+
+.time-label {
+  @extend weight-labels;
+}
+
+.total-vangsten-label {
+  @extend weight-labels;
+  margin-left:40px;
+}
+
+.vangsten-aantal-label {
+  @extend weight-labels;
+  margin-left:-70px;
+}
+
+.total-general-label {
+  @extend weight-labels;
+  margin-left:40px;
+}
+
+.general-time-label {
+  @extend weight-labels;
+  margin-left:102px;
+}
+
+.date-column {
+  width: 100%;
+  text-align: left;
+  padding-left: 5px;
+}

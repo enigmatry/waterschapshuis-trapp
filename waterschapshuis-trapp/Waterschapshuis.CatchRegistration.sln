@@ -1,0 +1,185 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Waterschapshuis.CatchRegistration.BackOffice.Api", "Waterschapshuis.CatchRegistration.BackOffice.Api\Waterschapshuis.CatchRegistration.BackOffice.Api.csproj", "{2212E56D-21AE-4B9A-8628-3B7D2D3C67FD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Waterschapshuis.CatchRegistration.Infrastructure", "Waterschapshuis.CatchRegistration.Infrastructure\Waterschapshuis.CatchRegistration.Infrastructure.csproj", "{D620781E-9E45-4BE7-95F3-A70C5EAB7AC0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Waterschapshuis.CatchRegistration.DomainModel", "Waterschapshuis.CatchRegistration.DomainModel\Waterschapshuis.CatchRegistration.DomainModel.csproj", "{D069B69F-E52B-4D72-B581-1FB96B312DEB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Waterschapshuis.CatchRegistration.Core", "Waterschapshuis.CatchRegistration.Core\Waterschapshuis.CatchRegistration.Core.csproj", "{DE6E16EE-4D99-43A1-ADC6-A226C95937F6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Waterschapshuis.CatchRegistration.Data.Migrations", "Waterschapshuis.CatchRegistration.Data.Migrations\Waterschapshuis.CatchRegistration.Data.Migrations.csproj", "{E02001E1-D55A-458D-A57A-79CCAE697936}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Waterschapshuis.CatchRegistration.BackOffice.Api.Tests", "Waterschapshuis.CatchRegistration.BackOffice.Api.Tests\Waterschapshuis.CatchRegistration.BackOffice.Api.Tests.csproj", "{3B1F23FD-0BCC-4B79-974D-77454D048E81}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Waterschapshuis.CatchRegistration.DomainModel.Tests", "Waterschapshuis.CatchRegistration.DomainModel.Tests\Waterschapshuis.CatchRegistration.DomainModel.Tests.csproj", "{C86A6899-EA1D-4F23-8888-AA4429F1F407}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Waterschapshuis.CatchRegistration.BackOffice.App", "waterschapshuis-catch-registration-back-office-app\Waterschapshuis.CatchRegistration.BackOffice.App.csproj", "{17D4E243-A0E4-47C6-B973-EB34F633FF68}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Waterschapshuis.CatchRegistration.ApplicationServices", "Waterschapshuis.CatchRegistration.ApplicationServices\Waterschapshuis.CatchRegistration.ApplicationServices.csproj", "{31DCD75F-4746-421D-BB72-078E7B0CC684}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C1018A9E-9611-4FFA-8D47-1C4E5601DB86}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		Waterschapshuis.CatchRegistration.sln.DotSettings = Waterschapshuis.CatchRegistration.sln.DotSettings
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Waterschapshuis.CatchRegistration.Infrastructure.Tests", "Waterschapshuis.CatchRegistration.Infrastructure.Tests\Waterschapshuis.CatchRegistration.Infrastructure.Tests.csproj", "{427859D6-D123-4086-A7C9-25F060E2F5B9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Waterschapshuis.CatchRegistration.Data.Migrations.Runner", "Waterschapshuis.CatchRegistration.Data.Migrations.Runner\Waterschapshuis.CatchRegistration.Data.Migrations.Runner.csproj", "{C98497F8-5755-4258-A3B3-F3C0B4756EDE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Waterschapshuis.CatchRegistration.Mobile.Api", "Waterschapshuis.CatchRegistration.Mobile.Api\Waterschapshuis.CatchRegistration.Mobile.Api.csproj", "{0194BD7A-58F6-4735-8298-40F29ECE8103}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Waterschapshuis.CatchRegistration.Mobile.Api.Tests", "Waterschapshuis.CatchRegistration.Mobile.Api.Tests\Waterschapshuis.CatchRegistration.Mobile.Api.Tests.csproj", "{E17F56F1-B8D5-4ABB-A552-DB2C56A2B9F3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Waterschapshuis.CatchRegistration.Data.ImportTool", "Waterschapshuis.CatchRegistration.Data.ImportTool\Waterschapshuis.CatchRegistration.Data.ImportTool.csproj", "{D948053D-4B75-4754-BABB-4EDEB3741D20}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Waterschapshuis.CatchRegistration.Common.Tests", "Waterschapshuis.CatchRegistration.Common.Tests\Waterschapshuis.CatchRegistration.Common.Tests.csproj", "{535047EB-2AC6-46F8-AFCA-CA5AC7B77AE7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Waterschapshuis.CatchRegistration.Data.AnonymiseDataTool", "Waterschapshuis.CatchRegistration.Data.AnonymiseDataTool\Waterschapshuis.CatchRegistration.Data.AnonymiseDataTool.csproj", "{E61F2EB0-3FF0-45DA-BE91-0A6EE96653CD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deployment", "Deployment", "{434EF871-40C8-407A-BF24-92333B93BEE3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Waterschapshuis.CatchRegistration.Scheduler", "Waterschapshuis.CatchRegistration.Scheduler\Waterschapshuis.CatchRegistration.Scheduler.csproj", "{C744A1E2-2642-46CD-B25D-851D48283E10}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Waterschapshuis.CatchRegistration.External.Api", "Waterschapshuis.CatchRegistration.External.Api\Waterschapshuis.CatchRegistration.External.Api.csproj", "{42551507-DD1C-4835-BD0B-F3D8F2EA7FDF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{A72F79A4-09F4-4DED-8AA2-22723225BB7A}"
+	ProjectSection(SolutionItems) = preProject
+		Deployment\publish-web-profile-test-back-office-api.proj = Deployment\publish-web-profile-test-back-office-api.proj
+		Deployment\publish-web-profile-test-back-office-app.proj = Deployment\publish-web-profile-test-back-office-app.proj
+		Deployment\publish-web-profile-test-back-office-scheduler.proj = Deployment\publish-web-profile-test-back-office-scheduler.proj
+		Deployment\publish-web-profile-test-external-api.proj = Deployment\publish-web-profile-test-external-api.proj
+		Deployment\publish-web-profile-test-mobile-api.proj = Deployment\publish-web-profile-test-mobile-api.proj
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Acceptance", "Acceptance", "{C8B247C9-F60E-46CD-8D17-B396A4641A93}"
+	ProjectSection(SolutionItems) = preProject
+		Deployment\publish-web-profile-acc-back-office-api.proj = Deployment\publish-web-profile-acc-back-office-api.proj
+		Deployment\publish-web-profile-acc-back-office-app.proj = Deployment\publish-web-profile-acc-back-office-app.proj
+		Deployment\publish-web-profile-acc-back-office-scheduler.proj = Deployment\publish-web-profile-acc-back-office-scheduler.proj
+		Deployment\publish-web-profile-acc-external-api.proj = Deployment\publish-web-profile-acc-external-api.proj
+		Deployment\publish-web-profile-acc-mobile-api.proj = Deployment\publish-web-profile-acc-mobile-api.proj
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Production", "Production", "{DFBC4E65-6C0A-4B40-BA9E-286095D2BDD6}"
+	ProjectSection(SolutionItems) = preProject
+		Deployment\publish-web-profile-prod-back-office-api.proj = Deployment\publish-web-profile-prod-back-office-api.proj
+		Deployment\publish-web-profile-prod-back-office-app.proj = Deployment\publish-web-profile-prod-back-office-app.proj
+		Deployment\publish-web-profile-prod-back-office-scheduler.proj = Deployment\publish-web-profile-prod-back-office-scheduler.proj
+		Deployment\publish-web-profile-prod-external-api.proj = Deployment\publish-web-profile-prod-external-api.proj
+		Deployment\publish-web-profile-prod-mobile-api.proj = Deployment\publish-web-profile-prod-mobile-api.proj
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Waterschapshuis.CatchRegistration.External.Api.Tests", "Waterschapshuis.CatchRegistration.External.Api.Tests\Waterschapshuis.CatchRegistration.External.Api.Tests.csproj", "{63638120-97AB-41E7-8494-6350DE97EA32}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Waterschapshuis.CatchRegistration.Scheduler.Tests", "Waterschapshuis.CatchRegistration.Scheduler.Tests\Waterschapshuis.CatchRegistration.Scheduler.Tests.csproj", "{BEC4895F-CB71-492A-80BD-A8016DC2E097}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Waterschapshuis.CatchRegistration.ApplicationServices.Tests", "Waterschapshuis.CatchRegistration.ApplicationServices.Tests\Waterschapshuis.CatchRegistration.ApplicationServices.Tests.csproj", "{188065AF-639A-40B2-968B-68420B57C072}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2212E56D-21AE-4B9A-8628-3B7D2D3C67FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2212E56D-21AE-4B9A-8628-3B7D2D3C67FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2212E56D-21AE-4B9A-8628-3B7D2D3C67FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2212E56D-21AE-4B9A-8628-3B7D2D3C67FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D620781E-9E45-4BE7-95F3-A70C5EAB7AC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D620781E-9E45-4BE7-95F3-A70C5EAB7AC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D620781E-9E45-4BE7-95F3-A70C5EAB7AC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D620781E-9E45-4BE7-95F3-A70C5EAB7AC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D069B69F-E52B-4D72-B581-1FB96B312DEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D069B69F-E52B-4D72-B581-1FB96B312DEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D069B69F-E52B-4D72-B581-1FB96B312DEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D069B69F-E52B-4D72-B581-1FB96B312DEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE6E16EE-4D99-43A1-ADC6-A226C95937F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE6E16EE-4D99-43A1-ADC6-A226C95937F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE6E16EE-4D99-43A1-ADC6-A226C95937F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE6E16EE-4D99-43A1-ADC6-A226C95937F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E02001E1-D55A-458D-A57A-79CCAE697936}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E02001E1-D55A-458D-A57A-79CCAE697936}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E02001E1-D55A-458D-A57A-79CCAE697936}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E02001E1-D55A-458D-A57A-79CCAE697936}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B1F23FD-0BCC-4B79-974D-77454D048E81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B1F23FD-0BCC-4B79-974D-77454D048E81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B1F23FD-0BCC-4B79-974D-77454D048E81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B1F23FD-0BCC-4B79-974D-77454D048E81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C86A6899-EA1D-4F23-8888-AA4429F1F407}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C86A6899-EA1D-4F23-8888-AA4429F1F407}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C86A6899-EA1D-4F23-8888-AA4429F1F407}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C86A6899-EA1D-4F23-8888-AA4429F1F407}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17D4E243-A0E4-47C6-B973-EB34F633FF68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17D4E243-A0E4-47C6-B973-EB34F633FF68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17D4E243-A0E4-47C6-B973-EB34F633FF68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17D4E243-A0E4-47C6-B973-EB34F633FF68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31DCD75F-4746-421D-BB72-078E7B0CC684}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31DCD75F-4746-421D-BB72-078E7B0CC684}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31DCD75F-4746-421D-BB72-078E7B0CC684}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31DCD75F-4746-421D-BB72-078E7B0CC684}.Release|Any CPU.Build.0 = Release|Any CPU
+		{427859D6-D123-4086-A7C9-25F060E2F5B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{427859D6-D123-4086-A7C9-25F060E2F5B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{427859D6-D123-4086-A7C9-25F060E2F5B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{427859D6-D123-4086-A7C9-25F060E2F5B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C98497F8-5755-4258-A3B3-F3C0B4756EDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C98497F8-5755-4258-A3B3-F3C0B4756EDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C98497F8-5755-4258-A3B3-F3C0B4756EDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C98497F8-5755-4258-A3B3-F3C0B4756EDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0194BD7A-58F6-4735-8298-40F29ECE8103}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0194BD7A-58F6-4735-8298-40F29ECE8103}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0194BD7A-58F6-4735-8298-40F29ECE8103}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0194BD7A-58F6-4735-8298-40F29ECE8103}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E17F56F1-B8D5-4ABB-A552-DB2C56A2B9F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E17F56F1-B8D5-4ABB-A552-DB2C56A2B9F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E17F56F1-B8D5-4ABB-A552-DB2C56A2B9F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E17F56F1-B8D5-4ABB-A552-DB2C56A2B9F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D948053D-4B75-4754-BABB-4EDEB3741D20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D948053D-4B75-4754-BABB-4EDEB3741D20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D948053D-4B75-4754-BABB-4EDEB3741D20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D948053D-4B75-4754-BABB-4EDEB3741D20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{535047EB-2AC6-46F8-AFCA-CA5AC7B77AE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{535047EB-2AC6-46F8-AFCA-CA5AC7B77AE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{535047EB-2AC6-46F8-AFCA-CA5AC7B77AE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{535047EB-2AC6-46F8-AFCA-CA5AC7B77AE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E61F2EB0-3FF0-45DA-BE91-0A6EE96653CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E61F2EB0-3FF0-45DA-BE91-0A6EE96653CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E61F2EB0-3FF0-45DA-BE91-0A6EE96653CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E61F2EB0-3FF0-45DA-BE91-0A6EE96653CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C744A1E2-2642-46CD-B25D-851D48283E10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C744A1E2-2642-46CD-B25D-851D48283E10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C744A1E2-2642-46CD-B25D-851D48283E10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C744A1E2-2642-46CD-B25D-851D48283E10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42551507-DD1C-4835-BD0B-F3D8F2EA7FDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42551507-DD1C-4835-BD0B-F3D8F2EA7FDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42551507-DD1C-4835-BD0B-F3D8F2EA7FDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42551507-DD1C-4835-BD0B-F3D8F2EA7FDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63638120-97AB-41E7-8494-6350DE97EA32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63638120-97AB-41E7-8494-6350DE97EA32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63638120-97AB-41E7-8494-6350DE97EA32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63638120-97AB-41E7-8494-6350DE97EA32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEC4895F-CB71-492A-80BD-A8016DC2E097}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEC4895F-CB71-492A-80BD-A8016DC2E097}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEC4895F-CB71-492A-80BD-A8016DC2E097}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEC4895F-CB71-492A-80BD-A8016DC2E097}.Release|Any CPU.Build.0 = Release|Any CPU
+		{188065AF-639A-40B2-968B-68420B57C072}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{188065AF-639A-40B2-968B-68420B57C072}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{188065AF-639A-40B2-968B-68420B57C072}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{188065AF-639A-40B2-968B-68420B57C072}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A72F79A4-09F4-4DED-8AA2-22723225BB7A} = {434EF871-40C8-407A-BF24-92333B93BEE3}
+		{C8B247C9-F60E-46CD-8D17-B396A4641A93} = {434EF871-40C8-407A-BF24-92333B93BEE3}
+		{DFBC4E65-6C0A-4B40-BA9E-286095D2BDD6} = {434EF871-40C8-407A-BF24-92333B93BEE3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3A4984E8-85A3-4F86-9B64-B95313AEDD15}
+	EndGlobalSection
+EndGlobal

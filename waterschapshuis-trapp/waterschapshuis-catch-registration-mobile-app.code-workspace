@@ -1,0 +1,32 @@
+{
+	"folders": [
+		{
+			"path": "waterschapshuis-catch-registration-mobile-app"
+		}
+	],
+	"settings": {
+		"files.exclude": {
+			"**/_ReSharper.Caches": true,
+			"**/.vs": true,
+			"**/*.user": true,
+			"**/*.csproj": true,
+			"**/web.config": true,
+			"**/Properties": true,
+			"**/bin": true,
+			"**/dist": true,
+			"**/obj": true,
+			"**/.git": true,
+			"**/node_modules": true,
+			"**/bower_components": true,
+			"**/tmp": true,
+			"**/*.cs": true
+		},
+		"gitblame.isWebPathPlural": true,
+		"typescript.tsdk": "node_modules\\typescript\\lib",
+		"cSpell.words": [
+			"gitblame",
+			"prefetch",
+			"waterschapshuis"
+		]
+	}
+}

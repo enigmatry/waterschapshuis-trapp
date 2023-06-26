@@ -1,0 +1,9 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="dark" class="ion-text-center">Gebruikershandleiding</ion-title>
+    <ion-icon slot="end" name="close-outline" (click)="modalCtrl.dismiss()"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+<ion-content #helpModalBody scrollY="true">
+  <div [innerHTML]="data"></div>
+</ion-content>

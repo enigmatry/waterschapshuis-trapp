@@ -1,0 +1,296 @@
+﻿@using System.Globalization
+@using Waterschapshuis.CatchRegistration.ApplicationServices.TimeRegistration
+@model Waterschapshuis.CatchRegistration.ApplicationServices.Reports.WeeklyOverviewReportDataModel
+
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
+
+<style type="text/css">
+    body {
+        max-width: 768px;
+        margin: 50px auto;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    span, p, th, td {
+        cursor: default;
+    }
+
+    a {
+        cursor: pointer;
+    }
+
+    .caption {
+        color: #333333;
+        font-size: 22px;
+        font-weight: 500;
+        letter-spacing: 0;
+        line-height: 26px;
+    }
+
+    .text-paragraph {
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0;
+        margin-bottom: 40px;
+    }
+
+    .close-week-btn {
+        color: #FFFFFF;
+        padding: 10px 15px;
+        border-radius: 3px;
+        background-color: #247AAB;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
+        text-decoration: none;
+    }
+
+    .subcaption {
+        margin-top: 60px;
+    }
+
+        .subcaption span {
+            color: #333333;
+            font-size: 22px;
+            font-weight: 500;
+            letter-spacing: 0;
+            line-height: 26px;
+            margin-right: 20px;
+            margin-bottom: 30px;
+        }
+
+        .subcaption a {
+            color: #247AAB;
+            font-size: 14px;
+            line-height: 18px;
+            letter-spacing: 0;
+            text-decoration: none;
+        }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        table td, th {
+            letter-spacing: 0;
+            line-height: 18px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+    .col-1 {
+        width: 8.33%;
+    }
+
+    .col-2 {
+        width: 16.66%;
+    }
+
+    .col-3 {
+        width: 25%;
+    }
+
+    .col-4 {
+        width: 33.33%;
+    }
+
+    thead tr th {
+        font-size: 14px;
+        font-weight: 500;
+        text-align: left;
+    }
+
+    tbody td {
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    .td-row-separator, .row-separator td {
+        padding: 0px;
+        border-bottom: 1px solid #DEDEDE;
+    }
+
+    .align-center {
+        text-align: center;
+    }
+</style>
+
+@{
+    var displayedDate = DateTimeOffset.MinValue;
+}
+
+<span class="caption">Samenvatting @Model.Year week @Model.WeekNumber</span>
+
+<p class="text-paragraph">
+    Controleer de uren en vangsten die je deze week hebt ingevoerd.
+    Als alles goed is, sluit dan de week. Klopt er iets niet, klik op wijzig om het aan te passen in de backoffice.
+    Sluit daarna je week in de backoffice.
+</p>
+
+<p>
+    <a class="close-week-btn" href="@Model.TimeRegistrationPageUrl">SLUIT DEZE WEEK</a>
+</p>
+
+<p class="subcaption">
+    <span>Uren</span> <a href="@Model.TimeRegistrationPageUrl">WIJZIG UREN</a>
+<p>
+
+    <table>
+        <thead>
+            <tr>
+                <th class="col-3">Datum</th>
+                <th class="col-2">Category</th>
+                <th class="col-1">Vangg.</th>
+                <th class="col-1">Deelg.</th>
+                <th class="col-1">Uurhok</th>
+                <th class="col-2">Tijd</th>
+                <th class="col-2">Bestrijding</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (GetTimeRegistrations.Response.Item item in Model.TimeRegistrations)
+            {
+                @if (displayedDate != item.Date)
+                {
+                    <tr class="row-separator">
+                        <td colspan="7"></td>
+                    </tr>
+                }
+                <tr>
+                    <td>
+
+                        @{
+                            if (displayedDate != item.Date)
+                            {
+                                @Html.DisplayName(item.Date.ToString("ddd dd-MM-yyyy", CultureInfo.CreateSpecificCulture("nl-NL")).ToUpper())
+                            }
+                            displayedDate = item.Date;
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayName(item.Category?.Name ?? "Vangsturen")
+                    </td>
+                    <td>
+                        @Html.DisplayName(item.CatchArea?.Name ?? String.Empty)
+                    </td>
+                    <td>
+                        @Html.DisplayName(item.SubArea?.Name ?? String.Empty)
+                    </td>
+                    <td>
+                        @Html.DisplayName(item.HourSquare?.Name ?? String.Empty)
+                    </td>
+                    <td>
+                        @Html.DisplayName($"{item.Hours}:{item.Minutes}")
+                    </td>
+                    <td>
+                        @Html.DisplayName(item.TrappingType?.Name ?? String.Empty)
+                    </td>
+                </tr>
+            }
+                <tr>
+                    <td><b>Totaal uren:</b></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><b>@Model.TotalTimeRegistrationsTime</b></td>
+                </tr>
+        </tbody>
+    </table>
+
+    <br />
+
+<p class="subcaption">
+    <span>Vangsten</span> <a href="@Model.MapsPageUrl">WIJZIG VANGSTEN</a>
+<p>
+    <table>
+        <thead>
+            <tr>
+                <th class="col-3">Datum</th>
+                <th class="col-2">Vangg.</th>
+                <th class="col-2">Deelg.</th>
+                <th class="col-1">Uurhok</th>
+                <th class="col-4">Vangst</th>
+                <th class="col-3">Bijvangst</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var catchItemsPerDay in Model.Catches)
+            {
+                <tr class="row-separator">
+                    <td colspan="6"></td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayName(catchItemsPerDay.Day.ToString("ddd dd-MM-yyyy", CultureInfo.CreateSpecificCulture("nl-NL")).ToUpper())
+                    </td>
+                    @{ var i = 0;}
+                    @foreach (var catchItemsPerRegion in catchItemsPerDay.CatchItemsPerRegion)
+                    {
+                        if (i > 0)
+                        {
+                            @:<tr><td></td>
+                        }
+
+                        <td class="td-row-separator">
+                            @Html.DisplayName(catchItemsPerRegion.CatchAreaName)
+                        </td>
+                        <td class="td-row-separator">
+                            @Html.DisplayName(catchItemsPerRegion.SubAreaName)
+                        </td>
+                        <td class="td-row-separator">
+                            @Html.DisplayName(catchItemsPerRegion.HourSquareName)
+                        </td>
+
+                        @if (catchItemsPerRegion.CatchItems.Any(x => !x.IsByCatch))
+                        {
+                            <td class="td-row-separator">
+                                @foreach (var catchItem in catchItemsPerRegion.CatchItems.Where(x => !x.IsByCatch).GroupBy(m => m.Type))
+                                {
+                                    @Html.DisplayName($"{catchItem.Key} x {catchItem.Sum(x => x.Number)}");
+                                    <br />
+                                }
+                            </td>
+                        }
+                        else
+                        {
+                            <td class="td-row-separator align-center">
+                                <text>-</text>
+                            </td>
+                        }
+
+                        @if (catchItemsPerRegion.CatchItems.Any(x => x.IsByCatch))
+                        {
+                            <td class="td-row-separator">
+                                @foreach (var catchItem in catchItemsPerRegion.CatchItems.Where(x => x.IsByCatch).GroupBy(m => m.Type))
+                                {
+                                    @Html.DisplayName($"{catchItem.Key} x {catchItem.Sum(x => x.Number)}");
+                                    <br />
+                                }
+                            </td>
+                        }
+                        else
+                        {
+                            <td class="td-row-separator align-center">
+                                <text>-</text>
+                            </td>
+                        }
+
+                        @if (i > 0)
+                        {
+                        @:</tr>
+                        }
+                        i++;
+                    }
+                    </tr>
+                }
+                    <tr>
+                        <td><b>Totaal vangsten:</b></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><b>@Model.TotalCatchItems</b></td>
+                        <td><b>@Model.TotalByCatchItems</b></td>
+                    </tr>
+        </tbody>
+    </table>

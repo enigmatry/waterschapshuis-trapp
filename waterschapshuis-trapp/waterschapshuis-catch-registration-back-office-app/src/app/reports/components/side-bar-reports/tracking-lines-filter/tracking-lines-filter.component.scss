@@ -1,0 +1,15 @@
+form {
+    .filter-range {
+        display: flex;
+        justify-content: space-between;
+    
+        mat-form-field {
+            width: 47.5%;
+        }
+    }
+
+    .filter-buttons {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+}

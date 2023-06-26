@@ -1,0 +1,49 @@
+<mat-expansion-panel hideToggle expanded>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <button mat-icon-button (click)="navigateBack()">
+        <mat-icon>keyboard_backspace</mat-icon>
+        Melding
+      </button>
+    </mat-panel-title>
+    <mat-icon (click)="toggleSideBar($event)">close</mat-icon>
+  </mat-expansion-panel-header>
+
+  <mat-expansion-panel class="inner-mat-expansion-panel" expanded>
+    <mat-expansion-panel-header class="section-header-title">
+      <mat-panel-title>
+        Melding
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="observation-content">
+      <div>
+        <h5>Type</h5>
+        <div>{{observationType}}</div>
+      </div>
+      <div>
+        <h5>Foto</h5>
+        <img *ngIf="observation?.photoUrl" mat-card-image [src]="observation?.photoUrl" alt="Melding">
+        <div *ngIf="!observation?.photoUrl">Geen foto</div>
+      </div>
+      <div>
+        <h5>Door</h5>
+        <div>{{observation?.createdBy}}</div>
+      </div>
+      <div>
+        <h5>Datum</h5>
+        <div>{{ observation?.recordedOn | date:'dd-MM-yyyy HH:mm' }}</div>
+      </div>
+      <div>
+        <h5>Opmerkingen</h5>
+        <div>{{observation?.remarks}}</div>
+      </div>
+    </div>
+
+    <mat-divider></mat-divider>
+    <div class="button-row" *ngxPermissionsOnly="[ policyName.MapContentWrite ]">
+      <button *ngIf="!observation?.archived" mat-raised-button color="primary" class="mat-text-uppercase"
+        (click)="archiveObservation()">Archiveer</button>
+    </div>
+
+  </mat-expansion-panel>

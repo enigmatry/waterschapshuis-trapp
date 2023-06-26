@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>notification-archived</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Mobile---Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Assets" transform="translate(-42.000000, -870.000000)" fill="#FFCCFF" stroke="#7A7A7A" stroke-width="3">
+            <path d="M48.3636364,886.645898 L50.1638581,883.045455 L59,883.045455 C59.8284271,883.045455 60.5,882.373882 60.5,881.545455 L60.5,873 C60.5,872.171573 59.8284271,871.5 59,871.5 L45,871.5 C44.1715729,871.5 43.5,872.171573 43.5,873 L43.5,881.545455 C43.5,882.373882 44.1715729,883.045455 45,883.045455 L46.5634146,883.045455 L48.3636364,886.645898 Z" id="notification-archived"></path>
+        </g>
+    </g>
+</svg>

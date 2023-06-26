@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Waterschapshuis.CatchRegistration.Scheduler": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development",
+        "ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONENABLED": "true",
+        "ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONVAULT": "https://waterschapshuis-cr-dev.vault.azure.net"
+      }
+    }
+  }
+}

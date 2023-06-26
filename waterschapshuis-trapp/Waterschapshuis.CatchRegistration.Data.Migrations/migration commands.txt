@@ -1,0 +1,32 @@
+﻿Run this from Package Manager Console. 
+
+// add migration
+Add-Migration -Project Waterschapshuis.CatchRegistration.Data.Migrations -StartUpProject Waterschapshuis.CatchRegistration.Data.Migrations -Context CatchRegistrationDbContext -Name TODO
+
+// remove migration
+Remove-Migration -Project Waterschapshuis.CatchRegistration.Data.Migrations -StartUpProject Waterschapshuis.CatchRegistration.Data.Migrations -Context CatchRegistrationDbContext
+
+// update database
+Update-Database -Project Waterschapshuis.CatchRegistration.Data.Migrations -StartUpProject Waterschapshuis.CatchRegistration.Data.Migrations -Context CatchRegistrationDbContext
+
+
+How to generate migration:
+1. Fetch latest version (rebase/or merge) and execute all pending migrations using the Update-Database command
+2. Check if the build is broken by the latest changes(if it is broken stop working on the migration and first fix the build) 
+2. Alter the target Entity(-ies). Eg. add columns, rename columns, add indexes.
+3. Alter the corresponding "Entity"Configuration classes for each altered Entity class.
+4. Run command Add-Migration
+5. Visually verify the migration (e.g. columns are of correct type, size, nullability, whether index is created and its cascade type)
+    - if something is not correct - do not alter the migration, but instead
+    - open Tortoise Git Commit window. Revert the changes to CatchRegistrationDbContextModelSnapshot.cs file and delete the migration
+    - fix the problem by making changes in the appropriate "Entity"Configuration class.
+    - repeat step 3. until migration is correct (then proceed to 6.)
+6. Run locally all unit test (mainly focus on integration tests since only they can detect DB issues).
+    - If there are too many integration tests (and executing all of them is too much time consuming) run only the tests that will cover the affected entity(ies). E.g. for User.cs UserXXXFixture.cs
+7. Do not commit if not all tests are green
+
+Recommendations:
+- Notify the team that you plan to change the database (try block adding of migrations by someone else)
+- Avoid having migrations in a branch for too long without being it integrated into master. Someone else might have added migration in the meantime. 
+- As soon as you have correct migration and all tests are green in local environment, commit them and push to master. Additional changes (not db related can be added later)  
+

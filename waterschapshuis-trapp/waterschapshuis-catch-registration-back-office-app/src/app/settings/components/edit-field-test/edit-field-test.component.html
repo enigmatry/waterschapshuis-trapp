@@ -1,0 +1,35 @@
+<div class="edit-dialog">
+    <p class="content-title">Bewerk Veldproef</p>
+    <form [formGroup]="form">
+        <div>
+            <mat-form-field>
+                <mat-label>Naam</mat-label>
+                <input matInput formControlName="name">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Startperiode</mat-label>
+                <input matInput formControlName="startPeriod">
+            </mat-form-field>
+            <div *ngIf="f.startPeriod.errors && !f.startPeriod.errors.required" class="invalid-entry">Voer de datum in het volgende formaat in 'jjjj-pp'</div>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Eindperiode</mat-label>
+                <input matInput formControlName="endPeriod">  
+            </mat-form-field>
+            <div *ngIf="f.endPeriod.errors && !f.endPeriod.errors.required" class="invalid-entry">Voer de datum in het volgende formaat in 'jjjj-pp'</div>
+        </div>
+        <div>
+                <ng-select  ngSelectMat multiple="true" formControlName="hourSquareIds" placeholder="Uurhok" bindValue="id" bindLabel="name" [items]="allHourSquares">
+                </ng-select>
+        </div>
+
+        <mat-divider></mat-divider>
+        <div class="dialog-buttons">
+            <button class="dialog-button" mat-button color="primary" (click)="close()">ANNULEER</button>
+            <button class="dialog-button" mat-raised-button color="primary" (click)="saveAndClose()">BEWAAR</button>
+        </div>
+    </form>
+</div>

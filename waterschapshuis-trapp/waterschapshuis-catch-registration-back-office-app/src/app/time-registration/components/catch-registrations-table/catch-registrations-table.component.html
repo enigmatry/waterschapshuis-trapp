@@ -1,0 +1,59 @@
+<mat-grid-list cols="9" rowHeight="60px" class="grid-header">
+    <mat-grid-tile>
+      <mat-label>Datum</mat-label>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="2">
+      <mat-label>Vanggebied</mat-label>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-label>Deelgebied</mat-label>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-label>Uurhok</mat-label>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-label>Vangst</mat-label>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="2">
+      <mat-label>Soort</mat-label>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-label>Aantal</mat-label>
+    </mat-grid-tile>
+  </mat-grid-list>
+  
+  <mat-grid-list *ngFor='let dayOfWeek of daysOfWeek; let x=index' cols="9" 
+    rowHeight="60px" [class]="x % 2 != 0 ? 'evenRow' : 'oddRow'">
+  
+    <mat-grid-tile>
+      <mat-label class="mat-text-uppercase">{{dayOfWeek | date:'dd-MM-yyyy'}}</mat-label>
+    </mat-grid-tile>
+  
+    <ng-container *ngFor='let catchRegistrationItem of getCatchesForDate(dayOfWeek); let i=index'>
+      <div>
+        <mat-grid-tile *ngIf="i > 0">
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="2">
+          <div>{{catchRegistrationItem.catchArea?.name}}</div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div>{{catchRegistrationItem.subArea?.name }}</div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div>{{catchRegistrationItem.hourSquare?.name }}</div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <div>{{catchRegistrationItem.isByCatch ? 'Bijvangst' : 'Vangst' }}</div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="2">
+          <div>{{getCatchTypeItemDisplayName(catchRegistrationItem) | titlecase}}</div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div>{{catchRegistrationItem.number}}</div>
+        </mat-grid-tile>
+      </div>
+    </ng-container>
+  
+  </mat-grid-list>

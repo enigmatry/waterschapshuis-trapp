@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>tracking-off</title>
+    <desc>Created with Sketch.</desc>
+    <g id="tracking-off" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2" transform="translate(2.000000, 1.000000)" fill-rule="nonzero">
+            <path d="M12.5,4 C13.6,4 14.5,3.1 14.5,2 C14.5,0.9 13.6,0 12.5,0 C11.4,0 10.5,0.9 10.5,2 C10.5,3.1 11.4,4 12.5,4 Z M8.8,7.4 L6,21.5 L8.1,21.5 L9.9,13.5 L12,15.5 L12,21.5 L14,21.5 L14,14 L11.9,12 L12.5,9 C13.8,10.5 15.8,11.5 18,11.5 L18,9.5 C16.1,9.5 14.5,8.5 13.7,7.1 L12.7,5.5 C12.3,4.9 11.7,4.5 11,4.5 C10.7,4.5 10.5,4.6 10.2,4.6 L5,6.8 L5,11.5 L7,11.5 L7,8.1 L8.8,7.4 L8.8,7.4 Z" id="Shape" fill="#000000"></path>
+            <g id="Group" transform="translate(10.000000, 11.500000) scale(-1, 1) translate(-10.000000, -11.500000) translate(0.000000, 1.000000)">
+                <polygon id="Line" fill="#FFFFFF" transform="translate(10.000000, 10.000000) rotate(-315.000000) translate(-10.000000, -10.000000) " points="-2 12 22 12 22 8 -2 8"></polygon>
+                <polygon id="Line" fill="#000000" transform="translate(10.000000, 10.000000) rotate(-315.000000) translate(-10.000000, -10.000000) " points="-2 11.0000005 22 11.0000005 22 9.00000045 -2 9.00000045"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

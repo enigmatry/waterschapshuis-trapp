@@ -1,0 +1,12 @@
+# Ignore everything
+*
+
+# But not these files:
+!.gitignore
+!*.md
+!data_dir*.zip
+# But not these folders:
+!*/
+!/data_dir/styles/**
+!/data_dir/workspaces/**
+*datastore.xml

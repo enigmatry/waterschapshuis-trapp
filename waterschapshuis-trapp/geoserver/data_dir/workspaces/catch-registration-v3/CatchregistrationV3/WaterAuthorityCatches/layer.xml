@@ -1,0 +1,21 @@
+<layer>
+  <name>WaterAuthorityCatches</name>
+  <id>LayerInfoImpl--2d485fa5:1737077c2f8:-236f</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--2df48f81:173d888105f:-3a61</id>
+  </defaultStyle>
+  <styles class="linked-hash-set">
+    <style>
+      <id>StyleInfoImpl-192d568f:171ab87bb60:3e3d</id>
+    </style>
+  </styles>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--2d485fa5:1737077c2f8:-2370</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+  <dateModified>2020-12-10 10:18:11.250 UTC</dateModified>
+</layer>

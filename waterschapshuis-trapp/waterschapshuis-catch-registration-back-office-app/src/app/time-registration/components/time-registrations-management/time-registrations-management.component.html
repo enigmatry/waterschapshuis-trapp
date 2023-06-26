@@ -1,0 +1,67 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side" opened="{{isSidebarVisible}}">
+        <app-side-bar-time-registration [title]="'Urencontrole'">
+            <app-users-with-time-registrations-per-rayon></app-users-with-time-registrations-per-rayon>
+        </app-side-bar-time-registration>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <app-time-registrations-header [selectedUserName]="selectedUser?.name"
+            [saveButtonDisabledStatus]="saveButtonDisabled()"
+            [completeWeekButtonDisabledStatus]="completeWeekButtonDisabled()" [closeWeekButtonVisibilityStatus]="false"
+            [completeWeekButtonVisibilityStatus]="actionButtonsVisible()"
+            [saveButtonVisibilityStatus]="actionButtonsVisible()" (saveEvent)="saveTimeRegistrations()"
+            (completeWeekEvent)="completeThisWeek()">
+        </app-time-registrations-header>
+
+        <form [formGroup]="formGroup" *ngIf="formGroup">
+
+            <mat-tab-group mat-align-tabs="start">
+                <mat-tab label="Bestrijding">
+                    <app-time-registrations-table [rayonId]="rayonId" [timeRegistrationData]="timeRegistrationData"
+                        [enabledStatus]="timeRegistrationFormEnabledStatus"
+                        [disableAddingNewItems]="disableAddingNewTimeRegistrationItems">
+                    </app-time-registrations-table>
+
+                    <mat-grid-list cols="7" rowHeight="40px" *ngIf="timeRegistrationItemsContainsTime()" class="total-time-registration-hours">
+                        <mat-grid-tile [colspan]="4" class="total-hour-tile">
+                          <div class="total-hours-label">Totaal:</div>
+                        </mat-grid-tile>
+                        <mat-grid-tile class="total-hour-tile p-0">
+                          <div class="time-label">{{displayTotalTimeRegistrationTime()}}</div>
+                        </mat-grid-tile>
+                    </mat-grid-list>
+
+                    <app-catch-registrations-table [catchesData]="catchesData" [daysOfWeek]="daysOfWeek">
+                    </app-catch-registrations-table>
+
+                    <mat-grid-list cols="9" rowHeight="40px" class="total-time-catch-registration-hours">
+                        <mat-grid-tile [colspan]="8" class="total-hour-tile">
+                          <div class="total-hours-label">Totaal vangsten:</div>
+                        </mat-grid-tile>
+                        <mat-grid-tile>
+                          <div class="time-label">{{displayTotalCatchRegistrations()}}</div>
+                        </mat-grid-tile>
+                    </mat-grid-list>
+
+                </mat-tab>
+                <mat-tab label="Overig">
+                    <app-general-time-registrations-table [timeRegistrationGeneralData]="timeRegistrationGeneralData"
+                        [timeRegistrationData]="timeRegistrationData"
+                        [enabledStatus]="timeRegistrationGeneralFormEnabledStatus"
+                        [disableAddingNewItems]="disableAddingNewTimeRegistrationGeneralItems" [daysOfWeek]="daysOfWeek">
+                    </app-general-time-registrations-table>
+
+                    <mat-grid-list cols="4" rowHeight="40px" *ngIf="timeRegistrationGeneralContainsTime()" class="total-time-registration-items-hours">
+                        <mat-grid-tile>
+                          <div class="total-hours-label date-column">Totaal:</div>
+                        </mat-grid-tile>
+                        <mat-grid-tile [colspan]="3">
+                          <div class="time-label">{{displayTotalTimeRegistrationGeneralTime()}}</div>
+                        </mat-grid-tile>
+                      </mat-grid-list>
+
+                </mat-tab>
+            </mat-tab-group>
+        </form>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" slot="icon-only" (click)="navigateBack($event)">
+        <ion-icon size="large" name="arrow-back" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title> Urenregistratie <app-info-icon pageName="Urenregistratie"></app-info-icon>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content #content>
+  <form [formGroup]="timeRegistrationForm" *ngIf="timeRegistrationSub" novalidate>
+    <ion-item class="date-picker" lines="none">
+      <ion-label position="stacked">Datum</ion-label>
+      <ion-datetime displayFormat="DD-MM-YYYY" [value]="date" min="2020-01-01" [max]="today"
+        (ionChange)="dateChanged($event)" cancel-text="Annuleer" done-text="Gedaan">
+      </ion-datetime>
+      <ion-icon name="calendar-outline" slot="end" size="small"></ion-icon>
+    </ion-item>
+    <ion-item class="total-time" lines="none">
+      <ion-label *ngIf="totalTime">Totaal uren: {{ totalTime }}</ion-label>
+    </ion-item>
+
+    <ion-item style="display: inline;" formArrayName="items"
+      *ngFor='let itemFormGroup of timeRegistrationItems.controls; let i=index'>
+      <app-time-registration-item [itemFormGroup]="itemFormGroup" [index]="i" [titleNumber]="i + 1" [catchAreas]="catchAreas"
+        [subAreas]="subAreas" [hourSquares]="hourSquares" [trappingTypes]="trappingTypes" [categories]="categories"
+        [isForLocation]="!!areaDetails" (deleteEvent)="itemDeleted($event)" (changeEvent)="itemChanged()"
+        [state]="timeRegistrationFormState.Bestrijding">
+      </app-time-registration-item>
+    </ion-item>
+
+    <ion-item style="display: inline;" formArrayName="items"
+      *ngFor='let itemFormGroup of timeRegistrationGeneralItems.controls; let i=index'>
+      <app-time-registration-item [itemFormGroup]="itemFormGroup" [index]="i" [titleNumber]="timeRegistrationItems.length + i + 1" [catchAreas]="catchAreas"
+        [subAreas]="subAreas" [hourSquares]="hourSquares" [trappingTypes]="trappingTypes" [categories]="categories"
+        [isForLocation]="!!areaDetails" (deleteEvent)="itemDeleted($event)" (changeEvent)="itemChanged()"
+        [state]="timeRegistrationFormState.Overig">
+      </app-time-registration-item>
+    </ion-item>
+
+    <ion-item style="display: inline;" formArrayName="items"
+      *ngFor='let itemFormGroup of timeRegistrationItemsInCreation.controls; let i=index'>
+      <app-time-registration-item [itemFormGroup]="itemFormGroup" [index]="i" [titleNumber]="timeRegistrationItems?.length + timeRegistrationGeneralItems?.length + i + 1" [catchAreas]="catchAreas"
+        [subAreas]="subAreas" [hourSquares]="hourSquares" [trappingTypes]="trappingTypes" [categories]="categories"
+        [isForLocation]="!!areaDetails" (deleteEvent)="itemDeleted($event)" (changeEvent)="itemChanged()"
+        [state]="timeRegistrationFormState.Creation">
+      </app-time-registration-item>
+    </ion-item>
+
+    <ion-item lines="none" *ngIf="timeRegistrationItems.length === 0 && timeRegistrationGeneralItems.length === 0  && 
+    timeRegistrationItemsInCreation.length === 0">
+      <ion-label>Geen gegevens aanwezig</ion-label>
+    </ion-item>
+
+    <ion-item lines="none" class="add-new-link">
+      <ion-label *ngIf="canAddNew" class="ion-text-uppercase" color="primary" (click)="addTimeRegistrationItem()">+ voeg dagdeel toe
+      </ion-label>
+    </ion-item>
+  </form>
+</ion-content>
+
+<ion-footer>
+  <section class="ion-text-right ion-margin-end">
+    <ion-button class="ion-text-uppercase" color="primary" fill="clear" (click)="navController.back()">Annuleer
+    </ion-button>
+    <ion-button class="ion-text-uppercase" [disabled]="saveButtonDisabled()"
+      (click)="saveTimeRegistration()">Bewaar
+    </ion-button>
+  </section>
+</ion-footer>

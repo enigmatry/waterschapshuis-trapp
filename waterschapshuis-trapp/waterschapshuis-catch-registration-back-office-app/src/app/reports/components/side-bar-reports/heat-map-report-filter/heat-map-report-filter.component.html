@@ -1,0 +1,59 @@
+<mat-expansion-panel *ngIf="reportTemplate" [expanded]="isExpanded()" [routerLink]="reportTemplate.createRouterLink()">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            {{reportTemplate.group}}
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-card>
+        <mat-panel-title>
+            Filter
+        </mat-panel-title>
+        <div>
+            <form [formGroup]="form">
+                <div class="filter-range">
+                    <mat-form-field appearance="standard">
+                        <mat-label>Vanaf</mat-label>
+                        <input matInput [matDatepicker]="startDate" formControlName="startDate" [max]="form.value.endDate">
+                        <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                        <mat-datepicker #startDate></mat-datepicker>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="standard">
+                        <mat-label>Tot en met</mat-label>
+                        <input matInput [matDatepicker]="endDate" formControlName="endDate">
+                        <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                        <mat-datepicker #endDate></mat-datepicker>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field>
+                        <mat-label>VANGSTTYPE</mat-label>
+                        <mat-select formControlName="catchType">
+                            <mat-option></mat-option>
+                            <mat-option *ngFor="let ct of catchTypes" [value]="ct.id">
+                                {{ct.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <mat-label>ORGANISATIE</mat-label>
+                        <mat-select formControlName="organization">
+                            <mat-option></mat-option>
+                            <mat-option *ngFor="let o of allOrganizations" [value]="o.id">
+                                {{o.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <mat-divider></mat-divider>
+                <div class="filter-buttons">
+                    <button mat-raised-button color="primary" (click)="applyFilter()" [disabled]= "buttonDisabled">PAS FILTER TOE</button>
+                </div>
+            </form>
+        </div>
+    </mat-card>
+</mat-expansion-panel>

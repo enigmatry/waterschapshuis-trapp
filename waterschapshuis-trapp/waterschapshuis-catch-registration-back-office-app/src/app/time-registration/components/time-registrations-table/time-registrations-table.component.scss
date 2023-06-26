@@ -1,0 +1,48 @@
+.hour-panel {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.hour-grid {
+    border-bottom: 1px solid  #D3D3D3;
+    margin-bottom: 50px;
+    display: inline-block;
+    margin: auto;
+}
+
+.mat-elevation-z8 {
+    padding: 0px;
+    padding-left: 148px;
+    box-shadow: none;
+    border-bottom: 1px solid lightgray;
+}
+
+.evenRow {
+    background-color: #FFFFFF;
+ }
+ 
+.oddRow {
+    background-color: #F2F2F2;
+}
+
+.mat-header-cell {
+    width: 135px;
+    padding-left: 15px;
+    border-width: 0px;
+}
+
+%position-and-weight-time-labels {
+    position: absolute;
+    font-weight: bold;
+}
+
+.total-hours-label {
+    @extend %position-and-weight-time-labels;
+    left: 5px;
+}
+
+.time-label {
+    @extend %position-and-weight-time-labels;
+    left: 0;
+}

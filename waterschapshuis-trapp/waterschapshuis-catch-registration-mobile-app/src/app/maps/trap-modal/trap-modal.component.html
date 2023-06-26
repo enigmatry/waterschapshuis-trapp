@@ -1,0 +1,10 @@
+<ion-content>
+
+  <app-trap-details [trap]="trap" [title]="trap?.type" showRouteButton="true"></app-trap-details>
+
+</ion-content>
+
+<ion-footer>
+  <ion-button color="primary" class="ion-text-uppercase" (click)="openTrapDetails()" [disabled]="!trap">Bewerk
+  </ion-button>
+</ion-footer>

@@ -1,0 +1,30 @@
+ion-item {
+  --padding-start: 0px;
+  --inner-padding-start: 15px;
+}
+
+ion-label {
+  h3 {
+    color: #7a7a7a;
+  }
+  p {
+    color: #000000;
+  }
+}
+
+.route-btn {
+    h3 {
+      font-size: 18px;
+      margin-top: 22px;
+    }
+  }
+
+  .bottom-btn {
+      margin-top: 10px;
+      margin-bottom: 10px;
+  }
+
+  .right {
+    float: right;
+    margin-right: 25px;
+  }

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<parameters>
+  <parameter name="IIS Web Application Name" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="__iisProviderPath__" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="__iisProviderPath__" />
+  </parameter>
+  <parameter name="SQLDB Connection String" description="SQLDB Connection String" defaultValue="">
+    <parameterEntry kind="TextFile" scope="appsettings.json" match="__sqlDbConnectionString__" />
+  </parameter>
+  <parameter name="ApplicationInsights InstrumentationKey" description="ApplicationInsights InstrumentationKey" defaultValue="">
+    <parameterEntry kind="TextFile" scope="appsettings.json" match="__applicationInsightsInstrumentationKey__" />
+  </parameter>
+  <parameter name="GeoServer Url" description="GeoServer Url" defaultValue="">
+    <parameterEntry kind="TextFile" scope="appsettings.json" match="__geoServerUrl__" />
+  </parameter>
+  <parameter name="GeoServer Back Office User" description="GeoServer Back Office User" defaultValue="">
+    <parameterEntry kind="TextFile" scope="appsettings.json" match="__geoServerBackOfficeUser__" />
+  </parameter>
+  <parameter name="GeoServer Mobile User" description="GeoServer Mobile User" defaultValue="">
+    <parameterEntry kind="TextFile" scope="appsettings.json" match="__geoServerMobileUser__" />
+  </parameter>
+    <parameter name="AzureAd ClientId" description="AzureAd ClientId" defaultValue="">
+    <parameterEntry kind="TextFile" scope="appsettings.json" match="__azureAdClientId__" />
+  </parameter>
+  <parameter name="AzureAd TenantId" description="AzureAd TenantId" defaultValue="">
+    <parameterEntry kind="TextFile" scope="appsettings.json" match="__azureAdTenantId__" /> 
+  </parameter>
+  <parameter name="AzureAd Scopes" description="AzureAd Scopes" defaultValue="">
+    <parameterEntry kind="TextFile" scope="appsettings.json" match="__azureAdApiScopes__" />
+  </parameter>
+  <parameter name="AzureAd AllowedTenants" description="AzureAd AllowedTenants" defaultValue="">
+    <parameterEntry kind="TextFile" scope="appsettings.json" match="__azureAdAllowedTenants__" />
+  </parameter>
+  <parameter name="AzureStorage Url" description="AzureStorage Url" defaultValue="">
+    <parameterEntry kind="TextFile" scope="appsettings.json" match="__azureStorageUrl__" />
+  </parameter>
+  <parameter name="AzureStorage BaseObservationBlobContainer" description="AzureStorage BaseObservationBlobContainer" defaultValue="">
+    <parameterEntry kind="TextFile" scope="appsettings.json" match="__baseObservationBlobContainer__" />
+  </parameter>
+  <parameter name="SMTP Server" description="SMTP Server" defaultValue="">
+    <parameterEntry kind="TextFile" scope="appsettings.json" match="__smtpServer__" />
+  </parameter>
+  <parameter name="SMTP Server Port" description="SMTP Server Port" defaultValue="">
+    <parameterEntry kind="TextFile" scope="appsettings.json" match="__smtpServerPort__" />
+  </parameter>
+  <parameter name="Mail From Address" description="Mail From Address" defaultValue="">
+    <parameterEntry kind="TextFile" scope="appsettings.json" match="__mailFromAddress__" />
+  </parameter>
+</parameters>

@@ -1,0 +1,62 @@
+<form [formGroup]="form">
+  <ion-list>
+    <ion-item>
+      <ion-label>Soort</ion-label>
+      <ion-radio-group formControlName="trappingTypeId">
+        <ion-item>
+          <ion-item lines="none" *ngFor='let trappingType of trappingTypes'>
+            <ion-label>{{trappingType.name}}</ion-label>
+            <ion-radio class="margin-right-5" slot="start" [value]="trappingType.id"
+              [disabled]="isTrackingEnabled || !createMode || isRemoved || notCatching">
+            </ion-radio>
+          </ion-item>
+        </ion-item>
+      </ion-radio-group>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Type</ion-label>
+      <ion-select interface="popover" formControlName="trapTypeId">
+        <ion-select-option *ngFor="let trapType of trapTypes" [value]="trapType.id">{{trapType.name}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Aantal</ion-label>
+      <ion-select interface="popover" formControlName="numberOfTraps">
+        <ion-select-option
+          *ngFor="let item of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]"
+          [value]="item">
+          {{ item }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Status</ion-label>
+      <ion-select interface="popover" formControlName="statusValue" [selectedText]="selectedStatus">
+        <ion-select-option *ngFor="let trapStatus of trapStatuses" [value]="trapStatus.id">{{trapStatus.name}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-textarea placeholder="Opmerkingen" rows="5" formControlName="remarks"></ion-textarea>
+    </ion-item>  
+    <ion-item *ngIf="formControls.remarks.touched && formControls.remarks.errors?.maxlength">
+        <span class="text-danger" >
+          Opmerkingen zijn beperkt tot 250 charachters.
+        </span>
+    </ion-item>
+  </ion-list>
+
+  <ion-item class="date-picker" lines="none">
+    <ion-label position="stacked">Plaatsingsdatum</ion-label>
+    <ion-datetime displayFormat="DD-MM-YYYY" [max]="today" cancel-text="Annuleer" done-text="Gedaan"
+      formControlName="recordedOn">
+    </ion-datetime>
+    <ion-icon name="calendar-outline" slot="end" size="small"></ion-icon>
+  </ion-item>
+
+</form>

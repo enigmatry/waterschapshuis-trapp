@@ -1,0 +1,76 @@
+<div class="dashboard-container">
+    <div *ngIf="currentUserName()" class="dashboard-header">
+        <h3>Welkom {{currentUserName()}}</h3>
+        <button class="action-column-button" mat-button color="primary" (click)="logout()">LOG UIT</button>
+    </div>
+    <mat-card class="dashboard-card">
+        <mat-card-header>
+            <mat-card-title></mat-card-title>
+        </mat-card-header>
+    </mat-card>
+    <mat-card class="dashboard-card">
+        <mat-card-header>
+            <mat-card-title>Kaart</mat-card-title>
+        </mat-card-header>
+        <mat-card-content *ngxPermissionsOnly="MapRoutePolicies">
+            <a [routerLink]="['/map']">
+                Nederland
+            </a>
+        </mat-card-content>
+    </mat-card>
+    <mat-card class="dashboard-card">
+        <mat-card-header>
+            <mat-card-title>Rapportage</mat-card-title>
+        </mat-card-header>
+        <mat-card-content *ngxPermissionsOnly="ReportRoutePolicies">
+            <a class="home-screen-link" [routerLink]="['/reports/hour-organisation-report']">
+                Standaardrapportages
+            </a>
+        </mat-card-content>
+        <mat-card-content *ngxPermissionsOnly="ReportRoutePolicies">
+            <a class="home-screen-link" [routerLink]="['/reports/own-report']">
+                Vangstrapportage
+            </a>
+        </mat-card-content>
+        <mat-card-content *ngxPermissionsOnly="ReportRoutePolicies">
+            <a class="home-screen-link" [routerLink]="['/reports/catches-by-geo-region']">
+                Vangsten en uren op de kaart
+            </a>
+        </mat-card-content>
+        <mat-card-content *ngxPermissionsOnly="ReportRoutePolicies">
+            <a class="home-screen-link" [routerLink]="['/reports/heat-map']">
+                Heatmap
+            </a>
+        </mat-card-content>
+        <mat-card-content *ngxPermissionsOnly="ReportRoutePolicies">
+            <a class="home-screen-link" [routerLink]="['/reports/tracking-lines']">
+                Speurkaart
+            </a>
+        </mat-card-content>
+        <mat-card-content *ngxPermissionsOnly="ReportRoutePolicies">
+            <a class="home-screen-link" [routerLink]="['/reports/prediction']">
+                Prognose
+            </a>
+        </mat-card-content>
+    </mat-card>
+    <mat-card class="dashboard-card">
+        <mat-card-header>
+            <mat-card-title>Snel naar</mat-card-title>
+        </mat-card-header>
+        <mat-card-content *ngxPermissionsOnly='policyName.TimeRegistrationPersonalReadWrite'>
+            <a [routerLink]="['/time-registration']">
+                Urenregistratie
+            </a>
+        </mat-card-content>
+        <mat-card-content *ngxPermissionsOnly='policyName.TimeRegistrationManagementReadWrite'>
+            <a [routerLink]="['/time-registration/management']">
+                Urencontrole
+            </a>
+        </mat-card-content>
+        <mat-card-content *ngxPermissionsOnly='SettingsRoutePolicies'>
+            <a [routerLink]="['/settings']">
+                Instellingen
+            </a>
+        </mat-card-content>
+    </mat-card>
+</div>

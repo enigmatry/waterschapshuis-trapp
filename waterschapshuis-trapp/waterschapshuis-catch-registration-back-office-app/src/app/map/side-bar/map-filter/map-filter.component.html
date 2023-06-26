@@ -1,0 +1,79 @@
+<mat-expansion-panel class="sidebar-expansion-panel">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            Filter
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-card>
+        <div>
+                <form [formGroup]="form">
+                    <mat-label>VANGMIDDELEN</mat-label>
+                    <div class="filter-range">                      
+                        <mat-form-field appearance="standard">
+                            <mat-label>Vanaf</mat-label>
+                            <input matInput [matDatepicker]="trapStartDate" formControlName="trapStartDate" [max]="form.value.trapEndDate">
+                            <mat-datepicker-toggle matSuffix [for]="trapStartDate"></mat-datepicker-toggle>
+                            <mat-datepicker #trapStartDate></mat-datepicker>
+                        </mat-form-field>
+    
+                        <mat-form-field appearance="standard">
+                            <mat-label>Tot en met</mat-label>
+                            <input matInput [matDatepicker]="trapEndDate" formControlName="trapEndDate">
+                            <mat-datepicker-toggle matSuffix [for]="trapEndDate"></mat-datepicker-toggle>
+                            <mat-datepicker #trapEndDate></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field>
+                            <mat-label>VANGMIDDELTYPE</mat-label>
+                            <mat-select
+                                formControlName="trapTypeId">
+                                <mat-option></mat-option>
+                                <mat-option *ngFor="let type of trapTypes" [value]="type?.id">
+                                    {{type.name | titlecase}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div>                   
+                        <mat-checkbox color="primary" formControlName="showTrapsWithCatches">
+                            Alleen vangm. met vangsten
+                        </mat-checkbox>
+                    </div>
+                    <mat-label>VANGSTEN</mat-label>
+                    <div class="filter-range">
+                        <mat-form-field appearance="standard">
+                            <mat-label>Vanaf</mat-label>
+                            <input matInput [matDatepicker]="catchStartDate" formControlName="catchStartDate" [max]="form.value.catchEndDate">
+                            <mat-datepicker-toggle matSuffix [for]="catchStartDate"></mat-datepicker-toggle>
+                            <mat-datepicker #catchStartDate></mat-datepicker>
+                        </mat-form-field>
+    
+                        <mat-form-field appearance="standard">
+                            <mat-label>Tot en met</mat-label>
+                            <input matInput [matDatepicker]="catchEndDate" formControlName="catchEndDate">
+                            <mat-datepicker-toggle matSuffix [for]="catchEndDate"></mat-datepicker-toggle>
+                            <mat-datepicker #catchEndDate></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field>
+                            <mat-label>VANGSTSOORT</mat-label>
+                            <mat-select formControlName="catchType">
+                                <mat-option></mat-option>
+                                <mat-option *ngFor="let ct of catchTypes" [value]="ct.id">
+                                    {{ct.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <mat-divider></mat-divider>
+                    <div class="filter-buttons">
+                        <button mat-raised-button color="primary" (click)="applyFilter()">PAS FILTER TOE</button>
+                    </div>
+                </form>
+            </div>
+    </mat-card>
+</mat-expansion-panel>

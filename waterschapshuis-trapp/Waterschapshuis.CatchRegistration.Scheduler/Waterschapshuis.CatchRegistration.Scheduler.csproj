@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk; Microsoft.NET.Sdk.Publish">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RuntimeIdentifiers>win</RuntimeIdentifiers>
+    <Nullable>enable</Nullable>
+    <IsWebJobProject>true</IsWebJobProject>
+    <WebJobName>Scheduler</WebJobName>
+    <WebJobType>Continuous</WebJobType>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="settings.job" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="settings.job">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Autofac.Extras.Quartz" Version="5.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.AzureKeyVault.HostingStartup" Version="2.0.4" />
+    <PackageReference Include="Quartz" Version="3.0.7" />
+    <PackageReference Include="Serilog.Extensions.Hosting" Version="3.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Waterschapshuis.CatchRegistration.ApplicationServices\Waterschapshuis.CatchRegistration.ApplicationServices.csproj" />
+    <ProjectReference Include="..\Waterschapshuis.CatchRegistration.DomainModel\Waterschapshuis.CatchRegistration.DomainModel.csproj" />
+    <ProjectReference Include="..\Waterschapshuis.CatchRegistration.Infrastructure\Waterschapshuis.CatchRegistration.Infrastructure.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="appsettings.Development.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,8 @@
+{
+  "name": "__AppName__",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}

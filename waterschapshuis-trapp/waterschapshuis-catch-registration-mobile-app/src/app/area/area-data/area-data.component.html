@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" slot="icon-only" (click)="goBack()">
+        <ion-icon size="large" name="arrow-back" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Vanggebied data
+    </ion-title>
+  </ion-toolbar>
+  <ion-segment (ionChange)="onAreaChanged($event.detail.value)" [value]="areaSelection.CatchArea">
+    <ion-segment-button [value]="areaSelection.CatchArea">
+      <ion-label>Vanggebied {{ catchAreaName }}</ion-label>
+    </ion-segment-button>
+    <ion-segment-button [value]="areaSelection.SubArea">
+      <ion-label>Deelgebied {{ subAreaName }}</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+<ion-content>
+  <div class="content">
+    <!-- Catching traps -->
+    <ion-label>{{areaData?.catchingTrapsTotal || 0}} Vangmidddelen vangend</ion-label>
+    <ul>
+      <li *ngFor="let trap of areaData?.catchingTraps">
+        <ion-label>{{trap.number}}x {{trap.type}}</ion-label>
+      </li>
+    </ul>
+
+    <!-- Last week catches -->
+    <ion-label>{{areaData?.lastWeekCatchesTotal || 0}} Vangsten huidige week</ion-label>
+    <ul>
+      <li *ngFor="let catch of areaData?.lastWeekCatches">
+        <ion-label>{{catch.number}}x {{catch.type}}</ion-label>
+      </li>
+    </ul>
+
+    <!-- Last week by-catches -->
+    <ion-label>{{areaData?.lastWeekByCatchesTotal || 0}} Bijvangsten huidige week</ion-label>
+    <ul>
+      <li *ngFor="let catch of areaData?.lastWeekByCatches">
+        <ion-label>{{catch.number}}x {{catch.type}}</ion-label>
+      </li>
+    </ul>
+
+    <!-- Last week time -->
+    <ion-label>
+      {{areaData?.lastWeekTimeTotal.hours || 0}}:{{areaData?.lastWeekTimeTotal.minutes || 0}} Uur bestrijding huidige week
+    </ion-label>
+  </div>
+</ion-content>

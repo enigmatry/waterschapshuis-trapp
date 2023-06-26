@@ -1,0 +1,21 @@
+<layer>
+  <name>SubAreaHourSquareCatches</name>
+  <id>LayerInfoImpl-4d255062:1738f11c0fd:-7fff</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--2df48f81:173d888105f:-3a61</id>
+  </defaultStyle>
+  <styles class="linked-hash-set">
+    <style>
+      <id>StyleInfoImpl-192d568f:171ab87bb60:3e3d</id>
+    </style>
+  </styles>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-4d255062:1738f11c0fd:-8000</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+  <dateModified>2020-12-10 12:05:52.368 UTC</dateModified>
+</layer>

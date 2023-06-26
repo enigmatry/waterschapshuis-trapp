@@ -1,0 +1,136 @@
+<mat-expansion-panel *ngIf="reportTemplate" [expanded]="isExpanded()" [routerLink]="reportTemplate.createRouterLink()">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            {{reportTemplate.group}}
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Filter
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-card>
+            <div>
+                <form [formGroup]="form">
+                    <div>
+                        <mat-form-field>
+                            <mat-label>MEETWAARDE</mat-label>
+                            <mat-select formControlName="measurement">
+                                <mat-option *ngFor="let m of measurements" [value]="m.id">
+                                    {{m.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field>
+                            <mat-label>REGIONALE INDELING</mat-label>
+                            <mat-select formControlName="layer">
+                                <mat-option *ngFor="let layer of overlayLayers" [value]="layer.id">
+                                    {{layer.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field>
+                            <mat-label>REGIONALE VERSIE</mat-label>
+                            <mat-select formControlName="versionRegionalLayout">
+                                <mat-option></mat-option>
+                                <mat-option *ngFor="let versionRegionalLayout of versionRegionalLayouts" [value]="versionRegionalLayout.id">
+                                    {{versionRegionalLayout.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field>
+                            <mat-label>BESTRIJDINGSSOORT</mat-label>
+                            <mat-select formControlName="trappingType">
+                                <mat-option></mat-option>
+                                <mat-option *ngFor="let tt of trappingTypes" [value]="tt.id">
+                                    {{tt.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="filter-left">
+                        <mat-form-field>
+                            <mat-label>PERIODE VANAF</mat-label>
+                            <div>
+                                <mat-select formControlName="yearFrom">
+                                    <mat-option></mat-option>
+                                    <mat-option *ngFor="let y of years" [value]="y">
+                                        {{y}}
+                                    </mat-option>
+                                </mat-select>
+                            </div>
+                        </mat-form-field>
+                    </div>
+                    <div class="filter-right">
+                        <mat-form-field>
+                            <div>
+                                <mat-select formControlName="periodFrom">
+                                    <mat-option></mat-option>
+                                    <mat-option *ngFor="let p of periods" [value]="p">
+                                        {{p}}
+                                    </mat-option>
+                                </mat-select>
+                            </div>
+                        </mat-form-field>
+                    </div>
+                    <div class="filter-left">
+                        <mat-form-field>
+                            <mat-label>PERIODE TOT EN MET</mat-label>
+                            <div>
+                                <mat-select formControlName="yearTo">
+                                    <mat-option></mat-option>
+                                    <mat-option *ngFor="let y of years" [value]="y">
+                                        {{y}}
+                                    </mat-option>
+                                </mat-select>
+                            </div>
+                        </mat-form-field>
+                    </div>
+                    <div class="filter-right">
+                        <mat-form-field>
+                            <div>
+                                <mat-select formControlName="periodTo">
+                                    <mat-option></mat-option>
+                                    <mat-option *ngFor="let p of periods" [value]="p">
+                                        {{p}}
+                                    </mat-option>
+                                </mat-select>
+                            </div>
+                        </mat-form-field>
+                    </div>
+                    <mat-divider></mat-divider>
+                    <div class="filter-buttons">
+                        <button mat-raised-button color="primary" (click)="applyFilter()" [disabled]= "buttonDisabled">PAS FILTER TOE</button>
+                    </div>
+                </form>
+            </div>
+        </mat-card>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Legenda
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-card>
+            <mat-panel-title>
+                {{selectedMeasurement?.name}}
+            </mat-panel-title>
+            <div>
+                <div *ngFor="let item of selectedMeasurement?.colorScale" style="height: 20px">
+                    <div class="scale-color"
+                        [ngStyle]="item.color? {'background-color': item.color} : {'background-image':'url(' + item.image + ')'}">
+                    </div>
+                    <div class="scale-label">{{item.max}}</div>
+                </div>
+            </div>
+        </mat-card>
+    </mat-expansion-panel>
+</mat-expansion-panel>

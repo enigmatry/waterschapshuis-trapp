@@ -1,0 +1,24 @@
+<ion-grid>
+    <ion-row>
+        <ion-col>
+            <h3 class="header-title">Historie</h3>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-content *ngIf="trapId && !loading">
+            <ion-list [lines]="'none'">
+                <ion-item *ngFor="let history of histories">
+                    <ion-grid [fixed]="true">
+                        <ion-row class="grayed">
+                            <ion-label>{{history.recordedOn | date: 'dd-MM-yyyy'}} om {{history.recordedOn | date: 'HH:mm'}} door {{history.createdBy}}</ion-label>
+                        </ion-row>
+                        <ion-row>
+                            <ion-label>{{history.message}}</ion-label>
+                        </ion-row>
+                    </ion-grid>
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-row>
+</ion-grid>
+

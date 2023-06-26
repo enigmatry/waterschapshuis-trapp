@@ -1,0 +1,17 @@
+<div class="side-bar">
+  <mat-toolbar>
+    <button mat-icon-button (click)="navigateToHome()">
+      <mat-icon>keyboard_backspace</mat-icon>
+    </button>
+    <h1 class="mat-expansion-panel-header-title">{{title}}<mat-icon (click)="onInfoIconClick()"
+        aria-hidden="false" class="info-icon">info</mat-icon>
+    </h1>
+  </mat-toolbar>
+  <mat-accordion>
+    <mat-expansion-panel expanded="true">
+      <div class="side-bar-max-height">
+        <ng-content></ng-content>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

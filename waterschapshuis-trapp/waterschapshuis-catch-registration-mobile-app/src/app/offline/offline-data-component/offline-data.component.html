@@ -1,0 +1,9 @@
+<ion-item button (click)="downloadOfflineMap()">
+  <ion-icon name="download" size="large" class="download-kaarten-icon" slot="start"></ion-icon>
+  <ion-list>
+    <h5>Download kaarten</h5>
+    <ion-label *ngIf="!offlineMapAvailable">Offline kaart niet gedownload</ion-label>
+    <ion-label *ngIf="offlineMapAvailable">Offline kaart gedownload: {{offlineMapLastDownloadDate | date:'d-M-yyyy'}}
+    </ion-label>
+  </ion-list>
+</ion-item>

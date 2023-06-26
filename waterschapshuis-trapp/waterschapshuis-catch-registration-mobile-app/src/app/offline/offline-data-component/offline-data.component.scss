@@ -1,0 +1,25 @@
+.download-kaarten-icon {
+    background-color: #E03D3A;
+}
+
+ion-item {
+    h5 {
+        margin: 0px;
+        color: #333333;
+    }
+
+    ion-label {
+        color: #7A7A7A;
+    }
+
+    ion-icon {
+        color: var(--ion-color-light-tint);
+        border-radius: 50%;
+        padding: 5px;
+        margin-right: 20px;
+    }
+
+    ion-list {
+        background-color: transparent;
+    }
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+ <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+
+ <title>trap-unplaced-lokaaskooi</title>
+ <desc>Created with Sketch.</desc>
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="602" width="802" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g fill-rule="evenodd" fill="none" id="Mobile---Design">
+   <g stroke-width="4" stroke="#A6A6A6" fill="#FAD8C1" id="Assets">
+    <path id="trap-unplaced-lokaaskooi" d="m10,2.24426l-6.11697,3.11409l-1.726,7.51769l3.84297,5.12396l8,0l3.84297,-5.12396l-1.726,-7.51769l-6.11697,-3.11409z"/>
+   </g>
+  </g>
+  <line stroke="#000" transform="rotate(4.803628921508789 9.124996185302708,11.488280296325676) " stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_1" y2="17.80949" x2="16.91909" y1="5.16708" x1="1.33091" stroke-width="2" fill="none"/>
+ </g>
+</svg>

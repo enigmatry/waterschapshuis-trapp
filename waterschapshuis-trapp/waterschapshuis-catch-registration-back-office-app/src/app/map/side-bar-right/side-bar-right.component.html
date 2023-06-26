@@ -1,0 +1,43 @@
+<div class="spinner-container" *ngIf="loading">
+  <mat-spinner [diameter]="70"></mat-spinner>
+</div>
+
+<mat-expansion-panel hideToggle expanded *ngIf="!trapListPanelVisible && !observationListPanelVisible">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{ totalItems }} {{ totalItems === 1 ? 'Object' : 'Objecten' }}
+    </mat-panel-title>
+    <mat-icon (click)="toggleSideBar($event)">close</mat-icon>
+  </mat-expansion-panel-header>
+
+  <mat-expansion-panel class="inner-mat-expansion-panel" expanded *ngFor="let trap of traps">
+    <mat-expansion-panel-header class="section-header-title">
+      <mat-panel-title>
+        {{ trap?.type }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <app-trap-info [trap]="trap" (trapPanelVisible)="toggleTrapPanel($event)">
+    </app-trap-info>
+
+  </mat-expansion-panel>
+
+  <mat-expansion-panel class="inner-mat-expansion-panel" expanded *ngFor="let observation of observations">
+    <mat-expansion-panel-header class="section-header-title">
+      <mat-panel-title>
+        Melding
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <app-observation-info [observation]="observation" (showObservationDetails)="toggleObservationPanel($event)">
+    </app-observation-info>
+
+  </mat-expansion-panel>
+
+</mat-expansion-panel>
+<app-trap-details *ngIf="trapListPanelVisible" (trapPanelVisible)="toggleTrapPanel($event)" [trap]="selectedTrap">
+</app-trap-details>
+
+<app-observation-details *ngIf="observationListPanelVisible" [observation]="selectedObservation"
+  (closeObservationDetails)="toggleObservationPanel($event)">
+</app-observation-details>

@@ -1,0 +1,47 @@
+<p class="content-title">{{reportTemplate.title}}</p>
+
+<div class="mat-elevation-z8 grid">
+    <div class="buttons-bar">
+        <app-chart-export *ngIf="chartIsReady"
+            [chart]="chart"
+            [fileName]="reportTemplate.createReportFileName()">
+        </app-chart-export>
+        <app-template-export
+            [template]="reportTemplate"
+            [updatedTemplateContent]="updatedTemplateContent">
+        </app-template-export>
+    </div>
+    
+    <dx-chart id="reports-chart">
+        <dxo-size [height]="350"></dxo-size>
+        <dxo-adaptive-layout [width]="450"></dxo-adaptive-layout>
+    </dx-chart>
+
+    <dx-pivot-grid
+        id="reports-pivot-grid"
+        [allowSortingBySummary]="true"
+        [allowFiltering]="true"
+        [allowSorting]="true"
+        [showBorders]="true"
+        [showColumnGrandTotals]="true"
+        [showRowGrandTotals]="true"
+        [showRowTotals]="false"
+        [showColumnTotals]="false"
+        [dataSource]="dataSource"
+        (onContentReady)="onContentReady($event)"
+        [hideEmptySummaryCells]= "true">
+        <dxo-export
+            [enabled]="true"
+            fileName="{{reportTemplate.createReportFileName()}}">
+        </dxo-export>
+        <dxo-field-chooser
+            [enabled]="true"
+            [height]="600"
+            applyChangesMode="onDemand"
+            [allowSearch]="true">
+        </dxo-field-chooser>
+        <dxo-header-filter [allowSearch]="true" [width]="300" [height]="400">
+        </dxo-header-filter>
+        <dxo-scrolling mode="virtual"></dxo-scrolling>
+    </dx-pivot-grid>
+</div>
